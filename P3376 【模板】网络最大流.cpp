@@ -13,7 +13,7 @@ inline int read()
     }
     return x;
 }
-const int maxn=1e5+5,maxm=2e5+5;
+const int maxn=1e5+5,maxm=2e5+5,inf=0x3f3f3f3f;
 struct Edge
 {
     int to,cap,nxt,flow,from;
@@ -27,10 +27,15 @@ void Add(int from,int to,int cap)
     head[from]=tot;
 }
 queue<int>q;
+
 int bfs(int s,int t)
 {
     q.push(s);
-
+    int maxx=inf;
+    while(!q.empty())
+    {
+        
+    }
 }
 void EK(int s,int t)
 {
