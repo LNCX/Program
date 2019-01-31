@@ -26,17 +26,18 @@ void Add(int from,int to,int cap)
     e[tot].to=to;
     head[from]=tot;
 }
+queue<int>q;
+int bfs(int s,int t)
+{
+    q.push(s);
+
+}
 void EK(int s,int t)
 {
     int add=0;
-    while((add=bfs(s,t))!=-1)
+    while(add=bfs(s,t)!=-1)
     {
-        int k=t;
-        while(k!=s)
-        {
-            int last=pre[k];
-            
-        }
+
     }
 }
 int main()
