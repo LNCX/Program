@@ -1,50 +1,84 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e6+10;
-char s[maxn];
-bool f[maxn],bo[205];
-int n,m,Len,tot,ch[205][26];
-void insert(char *s)
+const int maxn=1e4+5,maxm=4e5+5,inf=0x3f3f3f3f;
+struct Edge
 {
-    int u=0,len=strlen(s);
-    Len=max(Len,len);
-    for(int i=0;i<len;i++)
-    {
-        int c=s[i]-'a';
-        if(!ch[u][c])ch[u][c]=++tot;
-        u=ch[u][c];
-    }
-    bo[u]=true;
+    int to,cap,nxt,flow,from;
+}e[maxm];
+int tot,head[maxn];
+void Add(int from,int to,int cap)
+{
+    e[++tot].nxt=head[from];
+    e[tot].cap=cap;
+    e[tot].from=from;
+    e[tot].to=to;
+    head[from]=tot;
+    
+    e[++tot].nxt=head[to];
+    e[tot].cap=0;
+    e[tot].to=from;
+    e[tot].from=to;
+    head[to]=tot;
 }
-bool find(int l,int r)
+int a[maxn],p[maxn];
+int bfs(int s,int t)
 {
-    int u=0;
-    for(int i=l;i<=r;i++)
+    queue<int>q;
+    q.push(s);
+    memset(a,0,sizeof(a));
+    a[s]=inf;
+    while(!q.empty())
     {
-        int c=s[i]-'a';
-        if(!ch[u][c]) return false;
-        u=ch[u][c];
+        int u=q.front();q.pop();
+        for(int i=head[u];i!=0;i=e[i].nxt)
+        {
+            int v=e[i].to;
+            if(!a[v]&&e[i].cap>e[i].flow)
+            {
+                p[v]=i;
+                a[v]=min(a[u],e[i].cap-e[i].flow);
+                q.push(v);
+            }
+        }
+        if(a[t]) return a[t];
     }
-    return bo[u];
+    if(!a[t]) return -1;
+    return a[t];
+}
+int EK(int s,int t)
+{
+    int add,flow=0;
+    while((add=bfs(s,t)!=-1))
+    {
+        if(!a[t]) break;
+        for(int u=t;u!=s;u=e[p[u]].from)
+        {
+            e[p[u]].flow+=a[t];
+            e[p[u]^1].flow-=a[t];
+        }
+        flow+=a[t];
+    }
+    return flow;
 }
 int main()
 {
-    scanf("%d%d",&n,&m);
-    while(n--)
+    int n,m,s,t;
+    scanf("%d%d%d%d",&n,&m,&s,&t);
+    for(int i=1;i<=m;i++)
     {
-        scanf("%s",s);
-        insert(s);
+        int x,y,z;
+        scanf("%d%d%d",&x,&y,&z);
+        Add(x,y,z);
     }
-    while(m--)
-    {
-        scanf("%s",s);
-        memset(f,0,sizeof(f));
-        int len=strlen(s),ans=0;
-        for(int i=0;i<len;i++)
-            for(int j=max(i-Len,-1);j<=i;j++)
-                if((j==-1||f[j])&&find(j+1,i))
-                    {f[i]=1;ans=i+1;break;}
-        printf("%d\n",ans);
-    }
+    cout<<EK(s,t)<<endl;
     return 0;
 }
+/*
+4 5 4 3
+4 2 30
+4 3 20
+2 3 20
+2 1 30
+1 3 40
+
+*/
