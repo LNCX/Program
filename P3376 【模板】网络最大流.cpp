@@ -1,19 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-inline int read()
-{
-    int x=0;
-    char c=getchar();
-    while(c<'0'||'9'<c)
-        c=getchar();
-    while('0'<=c&&c<='9')
-    {
-        x=(x<<3)+(x<<1)+c-'0';
-        c=getchar();
-    }
-    return x;
-}
-const int maxn=1e5+5,maxm=2e5+5,inf=0x3f3f3f3f;
+const int maxn=1e4+5,maxm=4e5+5,inf=0x3f3f3f3f;
 struct Edge
 {
     int to,cap,nxt,flow,from;
@@ -23,18 +10,20 @@ void Add(int from,int to,int cap)
 {
     e[++tot].nxt=head[from];
     e[tot].cap=cap;
+    e[tot].from=from;
     e[tot].to=to;
     head[from]=tot;
     
     e[++tot].nxt=head[to];
     e[tot].cap=0;
     e[tot].to=from;
+    e[tot].from=to;
     head[to]=tot;
 }
-queue<int>q;
 int a[maxn],p[maxn];
 int bfs(int s,int t)
 {
+    queue<int>q;
     q.push(s);
     memset(a,0,sizeof(a));
     a[s]=inf;
@@ -54,13 +43,13 @@ int bfs(int s,int t)
         if(a[t]) return a[t];
     }
     if(!a[t]) return -1;
+    return a[t];
 }
 int EK(int s,int t)
 {
     int add,flow=0;
-    while(add=bfs(s,t)!=-1)
+    while((add=bfs(s,t))!=-1)
     {
-        if(!a[t]) break;
         for(int u=t;u!=s;u=e[p[u]].from)
         {
             e[p[u]].flow+=a[t];
@@ -72,9 +61,23 @@ int EK(int s,int t)
 }
 int main()
 {
-    int n=read(),m=read(),s=read(),t=read();
+    int n,m,s,t;
+    scanf("%d%d%d%d",&n,&m,&s,&t);
     for(int i=1;i<=m;i++)
-        Add(read(),read(),read());
+    {
+        int x,y,z;
+        scanf("%d%d%d",&x,&y,&z);
+        Add(x,y,z);
+    }
     cout<<EK(s,t)<<endl;
     return 0;
 }
+/*
+4 5 4 3
+4 2 30
+4 3 20
+2 3 20
+2 1 30
+1 3 40
+
+*/
