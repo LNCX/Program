@@ -37,21 +37,20 @@ bool bfs()
     }
     return vis[n];
 }
-int dfs(int u,int a)
+int dfs(int u,int add)
 {
-    if(u==n||a==0) return a;
-    int flow=0,f;
+    if(u==n||add==0) return add;
+    int flow=0;
     for(int &i=cur[u];i!=0;i=e[i].nxt)
     {
         int v=e[i].to;
-        if(dep[u]+1==dep[v]&&(f=dfs(v,e[i].cap-e[i].flow))>0)
-        {
-            e[i].flow+=f;
-            e[i^1].flow-=f;
-            flow+=f;
-            a-=f;
-            if(a==0) break;
-        }
+        if(e[i].cap-e[i].flow<=0||dep[u]+1!=dep[v]) continue;
+        int f=dfs(v,min(add,e[i].cap-e[i].flow));
+        e[i].flow+=f;
+        e[i^1].flow-=f;
+        flow+=f;
+        add-=f;
+        if(add==0) break;
     }
     return flow;
 }
