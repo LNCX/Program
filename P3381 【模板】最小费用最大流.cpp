@@ -9,6 +9,7 @@ int head[maxn],tot=1;
 void Add(int from,int to,int cap,int w)
 {
     e[++tot].nxt=head[from];
+    e[tot].from=from;
     
 }
 int main()
