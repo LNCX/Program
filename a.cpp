@@ -5,7 +5,7 @@ int n,m,tot=1,head[maxn],dep[maxn],vis[maxn],cur[maxn];
 struct Edge
 {
     int to,cap,nxt,flow,from; 
-}e[maxn<<1];
+}e[maxn<<1]
 void Add(int from,int to,int cap)
 {
     e[++tot].nxt=head[from];
