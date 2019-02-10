@@ -1,219 +1,97 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <malloc.h>             // 申请内存
-#include <ctype.h>              // 内含isdigit()函数
-#include <assert.h>             // 断言函数
-#include <string.h>
 #include<bits/stdc++.h>
-using namespace std;             // 内含字符串处理函数
-#define STACK_INIT_SIZE 100     // 栈容量
-#define STACK_INCREMENT 10      // 栈增量
- 
-typedef float DATATYPE;
-typedef char SYMBOLTYPE;
- 
-typedef struct stack
+using namespace std;
+const int maxn=10,maxm=15,inf=0x3f3f3f3f;
+int n,m,s,t,maxflow,cost,tot=1,head[maxn],vis[maxn],dis[maxn];
+struct Edge
 {
-    int *base;         // 基地址
-    int *top;          // 栈顶指针
-    int stackSize;          // 栈容量
-}*Stack;
- 
-// 栈的初始化
-Stack Init_Stack(Stack S)
+    int to,cap,nxt,w,flow;
+}e[maxm];
+void Add(int from,int to,int cap,int w)
 {
-    S=(Stack)malloc(sizeof(Stack));
-    if(!S)
-        exit(0);
-    S->base = (int*)malloc(STACK_INIT_SIZE*sizeof(DATATYPE));
-    if(!S->base)
-        exit(0);
-    S->top = S->base;
-    S->stackSize = STACK_INIT_SIZE;
-    return S;
+    e[++tot].nxt=head[from];
+    e[tot].to=to;
+    e[tot].cap=cap;
+    e[tot].w=w;
+    head[from]=tot;
 }
- 
-// 判栈空
-int IsEmpty(Stack S)
+bool SPFA()
 {
-    if (S->top == S->base)
+    memset(vis,0,sizeof(vis));
+    memset(dis,inf,sizeof(dis));
+    dis[s]=0;vis[s]=1;
+    queue<int>q;
+    q.push(s);
+    while(!q.empty())
     {
-        return 1;
-    } else
-    {
-        return 0;
-    }
-}
- 
-// 判栈满
-int IsFull(Stack S)
-{
-    if (S->top - S->base == S->stackSize)
-    {
-        return 1;
-    } else
-    {
-        return 0;
-    }
-}
- 
-// 操作数压栈
-void Push(Stack S, DATATYPE e)
-{
-    assert(S);
-    if (IsFull(S))
-    {
-        S->base = (int*)malloc((STACK_INIT_SIZE+STACK_INCREMENT)*sizeof(DATATYPE));
-        if (!S->base)
-            exit(0);        // 存储分配失败
-        S->top = S->base + S->stackSize;
-        S->stackSize += STACK_INCREMENT;
-    }
-    *S->top++ = e;
-}
- 
-// 运算符压栈
-void PushSymbol(Stack S, SYMBOLTYPE e)
-{
-    assert(S);
-    if (IsFull(S))
-    {
-        S->base = (int*)malloc((STACK_INIT_SIZE+STACK_INCREMENT)*sizeof(DATATYPE));
-        if (!S->base)
-            exit(0);        // 存储分配失败
-        S->top = S->base + S->stackSize;
-        S->stackSize += STACK_INCREMENT;
-    }
-    *S->top++ = e;
-}
- 
-// 操作数弹栈
-DATATYPE Pop(Stack S)
-{
-    assert(S);
-    if (S->top == S->base)
-        return 0;              // 空栈弹出0保证部分负数的正确运算
-    else
-    {
-        return *--S->top;     // *--S->top就是*(--S->top)
-    }
-}
- 
-// 运算符弹栈
-SYMBOLTYPE PopSymbol(Stack S)
-{
-    assert(S);
-    if (S->top == S->base)
-        return 0;
-    else
-    {
-        return *--S->top;
-    }
-}
- 
-// 栈的销毁
-void DestroyStack(Stack S) {
-      free(S->base);
-      free(S);
-}
- 
-// 运算符优先级表
-char Priority[7][7] =
-{           // '+' '-' '*' '/' '(' ')' '#'          行row（左边的）是栈顶运算符，列col（上边的）是入栈运算符
-   {/*'+'*/'>','>','<','<','<','>','>'},
-    {/*'-'*/'>','>','<','<','<','>','>'},
-    {/*'*'*/'>','>','>','>','<','>','>'},
-    {/*'/'*/'>','>','>','>','<','>','>'},
-    {/*'('*/'<','<','<','<','<','=','0'},
-    {/*')'*/'>','>','>','>','0','>','>'},
-   {/*'#'*/'<','<','<','<','<','0','='}
-};
- 
-// 确定运算符所在的行数或列数
-int Operator(char c)
-{
-    switch(c)
-    {
-        case '+': return 0;
-        case '-': return 1;
-        case '*': return 2;
-        case '/': return 3;
-        case '(': return 4;
-        case ')': return 5;
-        case '#': return 6;
-        default:  return -1;
-    }
-}
- 
-// 计算弹出的两个操作数与弹出栈顶运算符的值
-float Calculation(float a, char op, float b)
-{
-    switch(op)
-    {
-        case '+': return a+b;
-        case '-': return a-b;
-        case '*': return a*b;
-        case '/': return a/b;
-        default:  return -1;
-    }
-}
- 
-// 表达式求值函数
-float CalculatingExpression(char *s)
-{
-    int i;
-    strcat(s, "#");                 // 为表达式s串接"#"
-    Stack OPND=NULL;
-    OPND = Init_Stack(OPND);        // 创建操作数栈
-    Stack OPTR=NULL;
-    OPTR = Init_Stack(OPTR);        // 创建运算符栈
-    PushSymbol(OPTR, '#');          //"#"压栈作为运算符栈的栈底元素
-    for (i=0; i<strlen(s); ++i)
-    {
-        while(s[i]==' ')            // while循环跳过空格
-            ++i;
-        if (isdigit(s[i]))          // 判断是否是数字
+        int u=q.front();
+        q.pop();
+        vis[u]=0;
+        for(int i=head[u];i!=0;i=e[i].nxt)
         {
-            int j=i;
-            ++i;
-            while(isdigit(s[i]))        // 确定是几位数
+            int v=e[i].to;
+            if(dis[v]>dis[u]+e[i].w&&e[i].cap-e[i].flow>0)
             {
-                ++i;
-            }
-            if (!isdigit(s[i]))     // 将while循环里因判断是否是数字多加的i值减去
-                --i;
-            char str[10]="";
-            for (; j<=i; ++j)           // 将字符串数组下标j到i的数字字符转换为字符串
-            {
-                char c[2] = {s[j]};
-                strcat(str, c);
-            }
-            float operand = atof(str);  // 将字符串转换为浮点数
-            Push(OPND, operand);        // 浮点数压入操作数栈
-        }
-        else {
-            int row = Operator(*(OPTR->top-1)), col = Operator(s[i]);       // 确定栈顶运算符的行数，入栈运算符的列数
-            switch(Priority[row][col])              // 确定优先级
-            {
-                case '<': PushSymbol(OPTR, s[i]); break;
-                case '>': Push(OPND, Calculation(Pop(OPND), PopSymbol(OPTR), Pop(OPND))); --i; break;       
-                             //Push()参数里右边的Pop先执行；--i是为了下次继续对当前入栈运算符s[i]进行判断
-                case '=': PopSymbol(OPTR); break;
-                default:  printf("输入错误，请检查数字之间是否有空格，表达式是否正确！\n");
-                          DestroyStack(OPTR);
-                          DestroyStack(OPND);
-                          return -4294967296;           // 运行到这一步，说明表达式错误，直接返回调用函数（主函数）
+                dis[v]=dis[u]+e[i].w;
+                if(!vis[v])
+                {
+                    q.push(v);
+                    vis[v]=1;
+                }
             }
         }
     }
-    DestroyStack(OPTR);
-    return Pop(OPND);       // 运行到这一步，说明表达式正确，弹出操作数栈的值即为运算结果
+    return dis[t]!=inf;
 }
- 
+int dfs(int u,int flow)
+{
+    if(u==t)
+    {
+        vis[t]=1;
+        maxflow+=flow;
+        return flow;
+    }
+    int used=0;
+    vis[u]=1;
+    for(int i=head[u];i!=0;i=e[i].nxt)
+    {
+        int v=e[i].to;
+        if((vis[v]==0||v==t)&&e[i].cap-e[i].flow>0&&dis[v]==dis[u]+e[i].w)
+        {
+            int minflow=dfs(v,min(flow-used,e[i].cap-e[i].flow));
+            if(minflow>0)
+            {
+                cost+=e[i].w*minflow;
+                e[i].flow+=minflow;
+                e[i^1].flow-=minflow;
+                used+=minflow;
+            }
+            if(used==flow) break;
+        }
+    }
+    return used;
+}
+void mcmf()
+{
+    while(SPFA())
+    {
+        vis[t]=1;
+        while(vis[t])
+        {
+            memset(vis,0,sizeof(vis));
+            dfs(s,inf);
+        }
+    }
+}
 int main()
 {
-    char s[100];
-    cin>>s;
-    printf("%1.2f", CalculatingExpression(s));
+    scanf("%d%d%d%d",&n,&m,&s,&t);
+    for(int i=1;i<=m;i++)
+    {
+        int u,v,w,f;
+        scanf("%d%d%d%d",&u,&v,&w,&f);
+        Add(u,v,w,f);Add(v,u,0,-f);
+    }
+    mcmf();
+    printf("%d %d",maxflow,cost);
     return 0;
 }

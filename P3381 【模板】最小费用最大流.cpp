@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int maxn=5e3+5,maxm=1e5+5,inf=0x3f3f3f3f;
-int n,m,s,t,tot=1,head[maxn],vis[maxn],dis[maxn];
+int n,m,s,t,maxflow,cost,tot=1,head[maxn],vis[maxn],dis[maxn];
 struct Edge
 {
     int to,cap,nxt,w,flow;
@@ -42,9 +42,45 @@ bool SPFA()
     }
     return dis[t]!=inf;
 }
+int dfs(int u,int flow)
+{
+    if(u==t)
+    {
+        vis[t]=1;
+        maxflow+=flow;
+        return flow;
+    }
+    int used=0;
+    vis[u]=1;
+    for(int i=head[u];i!=0;i=e[i].nxt)
+    {
+        int v=e[i].to;
+        if((vis[v]==0||v==t)&&e[i].cap-e[i].flow>0&&dis[v]==dis[u]+e[i].w)
+        {
+            int minflow=dfs(v,min(flow-used,e[i].cap-e[i].flow));
+            if(minflow>0)
+            {
+                cost+=e[i].w*minflow;
+                e[i].flow+=minflow;
+                e[i^1].flow-=minflow;
+                used+=minflow;
+            }
+            if(used==flow) break;
+        }
+    }
+    return used;
+}
 void mcmf()
 {
-    while()
+    while(SPFA())
+    {
+        vis[t]=1;
+        while(vis[t])
+        {
+            memset(vis,0,sizeof(vis));
+            dfs(s,inf);
+        }
+    }
 }
 int main()
 {
@@ -56,5 +92,6 @@ int main()
         Add(u,v,w,f);Add(v,u,0,-f);
     }
     mcmf();
+    printf("%d %d",maxflow,cost);
     return 0;
 }

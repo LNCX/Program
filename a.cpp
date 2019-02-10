@@ -1,76 +1,115 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<cstring>
+#include<algorithm>
+#include<queue>
+#include<cstdio>
 using namespace std;
-const int maxn=2e2+5,inf=0x3f3f3f3f;
-int n,m,tot=1,head[maxn],dep[maxn],vis[maxn],cur[maxn];
-struct Edge
+const int inf=1<<30;
+int top=1,head[5010];
+int n,m,s,t;
+int cost,maxflow;
+int vis[5010];//是否到达过该点 
+int dist[5010];//到t的单位费用 
+struct Node
 {
-    int to,cap,nxt,flow,from; 
-}e[maxn<<1];
-void Add(int from,int to,int cap)
+    int val;
+    int v;
+    int next;
+    int w;
+}node[101010];
+inline int Read()
 {
-    e[++tot].nxt=head[from];
-    e[tot].cap=cap;
-    e[tot].from=from;
-    e[tot].to=to;
-    head[from]=tot;
+    int x=0;
+    char c=getchar();
+    while(c>'9'||c<'0')c=getchar();
+    while(c>='0'&&c<='9')x=x*10+c-'0',c=getchar();
+    return x;
 }
-bool bfs()
+inline void addedge(int u,int v,int val,int w)
 {
-    for(int i=0;i<=n;i++)
-        cur[i]=head[i],dep[i]=inf,vis[i]=0;
-    dep[1]=0;
-    queue<int>q;q.push(1);
+    node[++top].v=v;
+    node[top].w=w;
+    node[top].val=val;
+    node[top].next=head[u];
+    head[u]=top;
+}
+bool spfa()
+{
+    memset(vis,0,sizeof(vis));
+    memset(dist,0x3f,sizeof(dist));
+    dist[s]=0;
+    vis[s]=1;
+    queue<int>q;
+    q.push(s);
     while(!q.empty())
     {
         int u=q.front();
-        vis[u]=1;q.pop();
-        for(int i=head[u];i!=0;i=e[i].nxt)
+        q.pop();
+        vis[u]=0;
+        for(int i=head[u];i;i=node[i].next)
         {
-            int v=e[i].to;
-            if(!vis[v]&&e[i].cap-e[i].flow>0)
+            int d=node[i].v;
+            if(dist[d]>dist[u]+node[i].w&&node[i].val)
             {
-                vis[v]=1;
-                dep[v]=dep[u]+1;
-                q.push(v);
+                dist[d]=dist[u]+node[i].w;
+                if(vis[d]==0)
+                {
+                    q.push(d);
+                    vis[d]=1;
+                }
             }
         }
     }
-    return vis[n];
-}
-int dfs(int u,int a)
+    return dist[t]!=0x3f3f3f3f;
+}//spfa同EK
+inline int min(int x,int y)
 {
-    if(u==n||a==0) return a;
-    int flow=0,f;
-    for(int &i=cur[u];i!=0;i=e[i].nxt)
+    return x<y?x:y;
+}
+int dfs(int u,int flow)
+{
+    if(u==t)
+    {vis[t]=1;maxflow+=flow;return flow;}//可以到达t，加流 
+    int used=0;//该条路径可用流量 
+    vis[u]=1;
+    for(int i=head[u];i;i=node[i].next)
     {
-        int v=e[i].to;
-        if(dep[u]+1==dep[v]&&(f=dfs(v,e[i].cap-e[i].flow))>0)
+        int d=node[i].v;
+        if((vis[d]==0||d==t)&&node[i].val!=0&&dist[d]==dist[u]+node[i].w)
         {
-            e[i].flow+=f;
-            e[i^1].flow-=f;
-            flow+=f;
-            a-=f;
-            if(a==0) break;
+            int minflow=dfs(d,min(flow-used,node[i].val));
+            if(minflow!=0)cost+=node[i].w*minflow,node[i].val-=minflow,node[i^1].val+=minflow,used+=minflow;
+            //可以到达t，加费用，扣流量 
+            if(used==flow)break;
         }
     }
-    return flow;
+    return used;
 }
-int dinic(int s,int t)
+int mincostmaxflow()
 {
-    int flow=0;
-    while(bfs())
-        flow+=dfs(s,inf);
-    return flow;
+    while(spfa())
+    {
+        vis[t]=1;
+        while(vis[t])
+        {
+        memset(vis,0,sizeof(vis));
+        dfs(s,inf); 
+        }
+    }
+    return maxflow;
 }
 int main()
 {
-    scanf("%d%d",&m,&n);
-    for(int i=1;i<=m;i++)
+    n=Read(),m=Read(),s=Read(),t=Read();
+    int u,v,w,val;
+    register int i;
+    for(i=1;i<=m;i++)
     {
-        int x,y,z;
-        scanf("%d%d%d",&x,&y,&z);
-        Add(x,y,z),Add(y,x,0);
+        u=Read(),v=Read(),val=Read(),w=Read();
+        addedge(u,v,val,w);
+        addedge(v,u,0,-w);
     }
-    printf("%d\n",dinic(1,n));
+    mincostmaxflow();
+    printf("%d %d",maxflow,cost);
     return 0;
 }
