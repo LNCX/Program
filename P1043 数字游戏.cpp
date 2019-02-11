@@ -1,27 +1,32 @@
-#include<bits/stdc++.h>
-#define mod(x) ((x%10+10)%10)
+#include <bits/stdc++.h>
 using namespace std;
-int a[105],sum[105],maxx[105][105][10],minx[105][105][10];
+int n,m,t,a[105];
+int ma=-1<<30,mi=1<<30;
+int cal(int x){return (x%10+10)%10;}
+void dfs(int now,int sum,int k)
+{
+    if(sum*pow(9,k)<=ma&&sum>=mi) return;
+    if(k==1)
+    {
+        sum*=cal(a[t]-a[now-1]);
+        ma=max(ma,sum);
+        mi=min(mi,sum);
+        return;
+    }
+    for(int i=now;i<=t-k+1;++i)
+        dfs(i+1,sum*cal(a[i]-a[now-1]),k-1);
+}
 int main()
 {
-    int n,m;
     scanf("%d%d",&n,&m);
+    for(int i=1;i<=n;i++) 
+        scanf("%d",&a[i]),a[i+n]=a[i];
+    for(int i=1;i<=n*2;i++) a[i]+=a[i-1];
     for(int i=1;i<=n;i++)
     {
-        scanf("%d",&a[i]);
-        a[i+n]=a[i];
+        t=i+n-1;
+        dfs(i,1,m);
     }
-    for(int i=1;i<=2*n;i++)
-        sum[i]=sum[i-1]+a[i];
-    for(int i=1;i<=2*n;i++)
-        for(int j=i;j<=2*n;j++)
-            maxx[i][j][1]=minx[i][j][1]=mod(sum[i]-sum[j-1]);
-    for(int len=1;len<=2*n;len++)
-        for(int l=1;l+len<=2*n;l++)
-            for(int k=l;k<=l+len;k++)
-                for(int i=2;i<=m;i++)
-                {
-                    maxx[l][l+len][i]=max(f[l][k][i-1],())
-                }
+    printf("%d\n%d",mi,ma);
     return 0;
 }
