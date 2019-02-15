@@ -6,6 +6,10 @@ struct Edge
 {
 	int v,w,nxt;
 }e[maxn<<1];
+struct node
+{
+
+};
 LL l=0,r=2e14+5,d[maxn][25],ans;
 int head[maxn],tot,f[maxn][25],con[maxn];
 int n,m,trp[maxn],son[maxn],flag,pos[maxn],res[maxn];
@@ -54,14 +58,15 @@ bool check(LL t)
 	{
 		int tim=0,u=trp[i];
 		for(int k=17;k>=0;k--)
-			if(f[u][k]>=1&&tim+d[u][k]<=t)
+			if(f[u][k]>1&&tim+d[u][k]<=t)
 				u=f[u][k],tim+=d[u][k];
-		con[u]=1,pos[i]=u,res[i]=t-tim;
+		if(f[u][0]==1&&tim+d[u][0]<=t)
+			;
 	}
 	for(int i=head[1];i!=0;i=e[i].nxt)
 		if(search(e[i].v,1))
 		{
-
+				
 		}
 }
 int main()
