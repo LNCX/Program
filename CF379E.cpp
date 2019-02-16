@@ -10,24 +10,24 @@ int main()
 	int m=M/k;
 	for(int j=0;j<n;j++)
     {
-        int x1;
-		scanf("%d",&x1);
+        int y1;
+		scanf("%d",&y1);
 		long double s=0;
 		for(int i=0;i<k;i++)
         {
-            int x2;
-			scanf("%d",&x2);
-			long double r=(long double)(x2-x1)/m;
+            int y2;
+			scanf("%d",&y2);
+			long double r=(long double)(y2-y1)/m;
 			for(int t=0;t<=m;t++)
             {
-				long double delta=(long double)x1+r*t;
+				long double delta=(long double)y1+r*t;
 				if(a[i*m+t]<delta)
                 {
 					s+=delta-a[i*m+t];
 					a[i*m+t]=delta;
 				}
 			}
-			x1=x2;
+			y1=y2;
 		}
         cout<<s/m<<endl;
 	}

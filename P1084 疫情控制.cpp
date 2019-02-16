@@ -8,11 +8,15 @@ struct Edge
 }e[maxn<<1];
 struct node
 {
-
-};
-LL l=0,r=2e14+5,d[maxn][25],ans;
-int head[maxn],tot,f[maxn][25],con[maxn];
-int n,m,trp[maxn],son[maxn],flag,pos[maxn],res[maxn];
+	int num,w;
+	bool operator<(const node &x) const
+	{
+		return w<x.w;
+	}
+}son[maxn],kil[maxn];
+LL l,r;
+int n,m,head[maxn],tot,trp[maxn];
+int f[maxn][25],d[maxn][25],tot1,tot2,con[maxn];
 void add(int u,int v,int w)
 {
 	e[++tot].nxt=head[u];
@@ -20,73 +24,98 @@ void add(int u,int v,int w)
 	e[tot].w=w;
 	head[u]=tot;
 }
-void dfs1(int u,int fa,LL len)
+void dfs(int u,int fa,LL len)
 {
-	if(fa==1) flag++;
 	f[u][0]=fa,d[u][0]=len;
-	for(int i=0;i<=19;i++)
+	for(int i=0;i<17;i++)
 	{
 		f[u][i+1]=f[f[u][i]][i];
-		d[u][i]=d[u][i-1]+d[f[u][i-1]][i-1];
+		d[u][i+1]=d[u][i]+d[f[u][i]][i];
 	}
 	for(int i=head[u];i!=0;i=e[i].nxt)
 	{
 		int v=e[i].v;
 		if(v==fa) continue;
-		dfs1(v,u,(LL)e[i].w);
+		dfs(v,u,e[i].v);
 	}
 }
-bool search(int u,int fa)
+bool dfs1(int u,int fa)
 {
-	int cnt=0;
-	if(con[u]) return true;
+	if(con[u]) return false;
 	for(int i=head[u];i!=0;i=e[i].nxt)
 	{
 		int v=e[i].v;
 		if(v==fa) continue;
-		cnt++;
-		if(!search(v,u)) return false;
+		if(!dfs1(v,u)) return false;
 	}
-	if(!cnt) return false; 
 	return true;
 }
-bool check(LL t)
+bool check(int t)
 {
 	for(int i=1;i<=n;i++)
-		con[i]=pos[i]=res[i]=0;
+		con[i]=0;
 	for(int i=1;i<=m;i++)
 	{
-		int tim=0,u=trp[i];
-		for(int k=17;k>=0;k--)
-			if(f[u][k]>1&&tim+d[u][k]<=t)
-				u=f[u][k],tim+=d[u][k];
-		if(f[u][0]==1&&tim+d[u][0]<=t)
-			;
+		LL tim=0;
+		int u=trp[i];
+		for(int i=17;i>=0;i--)
+			if(tim+d[u][i]<=t&&f[u][i]>1)
+				tim+=d[u][i],u=f[u][i];
+		if(f[u][0]==1&&tim+d[u][0]<t)
+		{
+			kil[++tot2].num=u;
+			kil[tot2].w=d[u][0]+tim;
+		}
+		else con[u]=1;
 	}
 	for(int i=head[1];i!=0;i=e[i].nxt)
-		if(search(e[i].v,1))
+	{
+		if(dfs1(e[i].v,1)) con[e[i].v]=1;
+		else son[++tot1].num=e[i].v,son[tot].w=e[i].w;
+	}
+	sort(kil+1,kil+1+n);
+	for(int i=1;i<=tot2;i++)
+	{
+		int u=kil[i].num;
+		if(kil[i].w+d[u][0]>t&&!con[u])
 		{
-				
+			con[u]=1;
+			kil[i].w=-0x3f3f3f3f;
 		}
+	}
+	while(tot1>0&&tot2>0)
+	{
+		if(kil[tot2].w==-1)
+		{
+			tot2--;
+			continue;
+		}
+		if(con[son[tot1].num]==1)
+		{
+			tot1--;
+			continue;
+		}
+		if(kil[tot2].w<son[tot1].w)
+			return false;
+		else tot2--,tot1--;
+	}
+	if(tot2==0&&tot1!=0) return false;
+	return true;
 }
 int main()
 {
-	cin>>n;
+	scanf("%d",&n);
 	for(int i=1;i<n;i++)
 	{
 		int u,v,w;
 		scanf("%d%d%d",&u,&v,&w);
 		add(u,v,w),add(v,u,w);
 	}
-	cin>>m;
+	scanf("%d",&m);
 	for(int i=1;i<=m;i++)
 		scanf("%d",&trp[i]);
-	dfs1(1,0,0);
-	if(flag>m)
-    {
-        puts("-1");
-        return 0;
-    }
+	dfs(1,0,0);
+	LL ans=-1;
 	while(l<=r)
 	{
 		LL mid=(l+r)>>1;
