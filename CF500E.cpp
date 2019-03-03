@@ -1,40 +1,55 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e+5;
+typedef long long LL;
+const int maxn=2e5+5;
 struct node
 {
-    int p,l;
+    int l,r,id;
 }a[maxn];
-struct line
-{
-    int l,r,f;
-};
-vector<line>b;
-int f[maxn];
+deque<int> q;
+vector<int> b[maxn];
+LL sum[maxn],ans[maxn];
+int n,m,l[maxn],r[maxn],x[maxn],y[maxn],fa[maxn],pos[maxn];
 int find(int x)
 {
-    if(x==f[x]) return x;
-    return f[x]=find(f[x]);
+    return x==fa[x]?x:fa[x]=find(fa[x]);
+}
+void solve(int x,int id)
+{
+    int tmp=y[id];
+    ans[id]=sum[x]-sum[find(tmp)];
 }
 int main()
 {
-    int n,q;
     cin>>n;
+    for(int i=1;i<=n;i++)fa[i]=i;
     for(int i=1;i<=n;i++)
-        scanf("%d %d",&a[i].p,&a[i].l);
-    scanf("%d",&q);
-    
-    while(q--)
     {
-        int x,y;
-        scanf("%d%d",&x,&y);
-        for(int i=0;i<b.size();i++)
-        {
-            if(find(x)==b[i].f)
-            {
-                
-            }
-        }    
+        scanf("%d%d",&a[i].l,&a[i].r);
+        a[i].r+=a[i].l;
     }
+    cin>>m;
+    for(int i=1;i<=m;i++)
+    {
+        scanf("%d%d",&x[i],&y[i]);
+        b[x[i]].push_back(i);
+    }
+    for(int i=n;i>0;i--)
+    {
+        l[i]=a[i].l,r[i]=a[i].r;    
+        while(!q.empty()&&l[q.front()]<=r[i])
+        {
+            r[i]=max(r[i],r[q.front()]);
+            fa[find(q.front())]=i;
+            q.pop_front();
+        }
+        if(!q.empty())sum[i]=sum[q.front()]+l[q.front()]-r[i];
+        else sum[i]=0;
+        q.push_front(i);
+        for(int j=0;j<b[i].size();j++)
+            solve(i,b[i][j]);
+    }
+    for(int i=1;i<=m;i++)
+        cout<<ans[i]<<endl;
     return 0;
 }
