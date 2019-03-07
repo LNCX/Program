@@ -60,7 +60,7 @@
         "valarray": "cpp",
         "queue": "cpp"
     },
-    "editor.fontSize": 20,
+    "editor.fontSize": 16,
     "editor.mouseWheelZoom": true,
     "C_Cpp.errorSquiggles": "Enabled",
 }
