@@ -8,7 +8,7 @@ inline void init()
 {
     v[1]=mu[1]=phi[1]=1;
     int tot=0;
-    for(int i=2;i<=maxn;++i)
+    for(int i=2;i<=maxn;i++)
     {
         if (!v[i]) p[++tot]=i,mu[i]=-1,phi[i]=i-1;
         for(int j=1;j<=tot&&i*p[j]<=maxn;++j)
