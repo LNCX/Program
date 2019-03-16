@@ -2,7 +2,7 @@
 #define lowbit(x) (x&(-x))
 using namespace std;
 const int maxn=1e5+5;
-int n,k,tot=1,c[maxn<<1],ans[maxn];
+int n,tot=1,c[maxn<<1],ans[maxn];
 struct point
 {
     int x,y,z,w,f;
@@ -20,7 +20,7 @@ struct point
 }a[maxn],t[maxn];
 void fix(int x,int y)
 {
-    while(x<=k)
+    while(x<=maxn)
     {
         c[x]+=y;
         x+=lowbit(x);
@@ -45,28 +45,33 @@ void CDQ(int l,int r)
     while(p<=mid&&q<=r)
     {
         if(a[p].y<=a[q].y) fix(a[p].z,a[p].w),t[cnt++]=a[p++];
-        else a[q].f+=sum(a[q].z),t[cnt++]=a[q++];
+        else ans[a[q].f]+=sum(a[q].z),t[cnt++]=a[q++];
     }
     while(p<=mid) fix(a[p].z,a[p].w),t[cnt++]=a[p++];
-    while(q<=r) a[q].f+=sum(a[q].z),t[cnt++]=a[q++];
+    while(q<=r) ans[a[q].f]+=sum(a[q].z),t[cnt++]=a[q++];
     for(int i=l;i<=mid;i++) fix(a[i].z,-a[i].w);
     for(int i=l;i<=r;i++) a[i]=t[i];
 }
 int main()
 {
-    scanf("%d%d",&n,&k);
-    for(int i=1;i<=n;i++)
-        scanf("%d%d%d",&a[i].x,&a[i].y,&a[i].z),a[i].w=1;
-    sort(a+1,a+1+n);
-    for(int i=2;i<=n;i++)
+    int t;
+    cin>>t;
+    while(t--)
     {
-        if(a[i]==a[tot]) a[tot].w++;
-        else a[++tot]=a[i];
+        memset(c,0,sizeof(c));
+        memset(ans,0,sizeof(ans));
+        scanf("%d",&n);
+        for(int i=1;i<=n;i++)
+            scanf("%d%d%d",&a[i].x,&a[i].y,&a[i].z),a[i].w=1,a[i].f=i;
+        sort(a+1,a+1+n);
+        for(int i=2;i<=n;i++)
+        {
+            if(a[i]==a[tot]) a[tot].w++;
+            else a[++tot]=a[i];
+        }
+        CDQ(1,tot);
+        for(int i=1;i<=n;i++)
+            printf("%d\n",ans[i]);
     }
-    CDQ(1,tot);
-    for(int i=1;i<=tot;i++) 
-        ans[a[i].f+a[i].w-1]+=a[i].w;
-    for(int i=0;i<n;i++)
-        printf("%d\n",ans[i]);
     return 0;
 }
