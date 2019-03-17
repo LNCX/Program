@@ -79,20 +79,24 @@ void CDQ(int l,int r)
 }
 int main()
 {
-    n=read(),m=read();
-    for(int i=1,x;i<=n;i++) 
-        pos[x=read()]=i,a[i]=(point){0,i,x};
-    int t=n;
-    for(int i=1;i<=m;i++) 
-        a[pos[read()]].t=t--;
-    for(int i=1;i<=n;i++) 
-        if(!a[i].t) 
-            a[i].t=t--;
-    sort(a+1,a+n+1,cmp);  
-    CDQ(1,n);
-    for(int i=1;i<=n;i++) 
-        ans[i]+=ans[i-1];
-    for(int i=n;i>=n-m+1;i--) 
-        printf("%lld\n",ans[i]);
+    while(scanf("%d%d",&n,&m)!=EOF)
+    {
+        memset(a,0,sizeof(a));
+        memset(ans,0,sizeof(ans));
+        for(int i=1,x;i<=n;i++) 
+            pos[x=read()]=i,a[i]=(point){0,i,x};
+        int t=n;
+        for(int i=1;i<=m;i++) 
+            a[pos[read()]].t=t--;
+        for(int i=1;i<=n;i++) 
+            if(!a[i].t) 
+                a[i].t=t--;
+        sort(a+1,a+n+1,cmp);  
+        CDQ(1,n);
+        for(int i=1;i<=n;i++) 
+            ans[i]+=ans[i-1];
+        for(int i=n;i>=n-m+1;i--) 
+            printf("%lld\n",ans[i]);
+    }
     return 0;
 }
