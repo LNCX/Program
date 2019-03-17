@@ -1,75 +1,60 @@
 #include<bits/stdc++.h>
-#define lowbit(x) (x&(-x))
 using namespace std;
-const int maxn=1e5+5;
-int n,tot=1,c[maxn<<1],ans[maxn];
+const int maxn=1e5+10;
+const double PI=acos(-1.0);
+typedef long long ll;
 struct point
 {
-    int x,y,z,w,f;
-    bool operator<(const point &a) const 
-    {
-        if(x!=a.x) return x<a.x;
-        if(y!=a.y) return y<a.y;
-        else return z<a.z;
-    }
-    bool operator==(const point &a) const 
-    {
-        if(x==a.x&&y==a.y&&z==a.z) return true;
-        else return false;
-    }
-}a[maxn],t[maxn];
-void fix(int x,int y)
+    int x,y,z,id;
+}a[maxn];
+int cmp(const point& p,const point& q)
 {
-    while(x<=maxn)
-    {
-        c[x]+=y;
-        x+=lowbit(x);
-    }
+    if(p.x==q.x&&p.z==q.z)return p.y<q.y;
+    if(p.x==q.x)return p.z<q.z;
+    return p.x<q.x;
 }
-int sum(int x)
-{
-    int res=0;
-    while(x>0)
-    {
-        res+=c[x];
-        x-=lowbit(x);
-    }
-    return res;
-}
+int cmp1(const point& p,const point& q){return p.z<q.z;}
+int ans[maxn],c[maxn];
+void add(int x,int y){while(x<=100000){c[x]+=y;x+=x&(-x);}}
+int ask(int x){int tot=0;while(x){tot+=c[x];x-=x&(-x);}return tot;}
 void CDQ(int l,int r)
 {
-    if(l==r) return ;
+    if(l==r)return;
     int mid=(l+r)>>1;
     CDQ(l,mid);CDQ(mid+1,r);
-    int p=l,q=mid+1,cnt=l;
-    while(p<=mid&&q<=r)
+    sort(a+l,a+mid+1,cmp1);
+    sort(a+mid+1,a+r+1,cmp1);
+    int j=l;
+    for(int i=mid+1;i<=r;i++)
     {
-        if(a[p].y<=a[q].y) fix(a[p].z,a[p].w),t[cnt++]=a[p++];
-        else ans[a[q].f]+=sum(a[q].z),t[cnt++]=a[q++];
+        while(j<=mid&&a[j].z<=a[i].z)add(a[j++].y,1);
+        ans[a[i].id]+=ask(a[i].y);
     }
-    while(p<=mid) fix(a[p].z,a[p].w),t[cnt++]=a[p++];
-    while(q<=r) ans[a[q].f]+=sum(a[q].z),t[cnt++]=a[q++];
-    for(int i=l;i<=mid;i++) fix(a[i].z,-a[i].w);
-    for(int i=l;i<=r;i++) a[i]=t[i];
+    for(int i=l;i<j;i++)
+        add(a[i].y,-1);
 }
 int main()
 {
-    int t;
-    cin>>t;
-    while(t--)
+    memset(c,0,sizeof c);
+    int T;
+    cin>>T;
+    while(T--)
     {
-        memset(c,0,sizeof(c));
-        memset(ans,0,sizeof(ans));
+        int n;
         scanf("%d",&n);
         for(int i=1;i<=n;i++)
-            scanf("%d%d%d",&a[i].x,&a[i].y,&a[i].z),a[i].w=1,a[i].f=i;
-        sort(a+1,a+1+n);
-        for(int i=2;i<=n;i++)
+            scanf("%d%d%d",&a[i].x,&a[i].y,&a[i].z);
+        for(int i=1;i<=n;i++)
+            a[i].id=i,ans[i]=0;
+        sort(a+1,a+n+1,cmp);
+        int cnt=0;
+        for(int i=n-1;i>=1;i--)
         {
-            if(a[i]==a[tot]) a[tot].w++;
-            else a[++tot]=a[i];
+            if(a[i].x==a[i+1].x&&a[i].y==a[i+1].y&&a[i].z==a[i+1].z)cnt++;
+            else cnt=0;
+            ans[a[i].id]+=cnt;
         }
-        CDQ(1,tot);
+        CDQ(1,n);
         for(int i=1;i<=n;i++)
             printf("%d\n",ans[i]);
     }
