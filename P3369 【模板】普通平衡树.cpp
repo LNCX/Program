@@ -55,13 +55,13 @@ void del(int &k,int x)
         tr[k].size--,del(tr[k].r,x);
     else tr[k].size--,del(tr[k].l,x);
 }
-int rank(int k,int x)
+int rnk(int k,int x)
 {
     if(k==0)return 0;
     if(tr[k].v==x)return tr[tr[k].l].size+1;
     else if(x>tr[k].v)
-        return tr[tr[k].l].size+tr[k].w+rank(tr[k].r,x);
-    else return rank(tr[k].l,x);
+        return tr[tr[k].l].size+tr[k].w+rnk(tr[k].r,x);
+    else return rnk(tr[k].l,x);
 }
 int num(int k,int x)
 {
@@ -97,12 +97,12 @@ int main()
         scanf("%d%d",&opt,&x);
         switch(opt)
         {
-        case 1:insert(root,x);break;
-        case 2:del(root,x);break;
-        case 3:printf("%d\n",rank(root,x));break;
-        case 4:printf("%d\n",num(root,x));break;
-        case 5:ans=0;pre(root,x);printf("%d\n",tr[ans].v);break;
-        case 6:ans=0;back(root,x);printf("%d\n",tr[ans].v);break;
+            case 1:insert(root,x);break;
+            case 2:del(root,x);break;
+            case 3:printf("%d\n",rnk(root,x));break;
+            case 4:printf("%d\n",num(root,x));break;
+            case 5:ans=0;pre(root,x);printf("%d\n",tr[ans].v);break;
+            case 6:ans=0;back(root,x);printf("%d\n",tr[ans].v);break;
         }
     }
     return 0;

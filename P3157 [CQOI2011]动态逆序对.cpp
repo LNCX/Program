@@ -11,11 +11,7 @@ struct point
         return (a.x==b.x)?a.y<b.y:a.x<b.x;
     }
 }a[maxn],t[maxn];
-bool cmp1(point a,point b)
-{
-    return a.y<b.y;
-}
-bool cmp2(point a,point b)
+bool cmp(point a,point b)
 {
     return a.t<b.t;
 }
@@ -84,22 +80,19 @@ void CDQ(int l,int r)
 int main()
 {
     n=read(),m=read();
-    for(int i=1;i<=n;i++) 
-        a[i]=(point){0,i,read()};
+    for(int i=1,x;i<=n;i++) 
+        pos[x=read()]=i,a[i]=(point){0,i,x};
     int t=n;
     for(int i=1;i<=m;i++) 
-        a[read()].t=t--;
+        a[pos[read()]].t=t--;
     for(int i=1;i<=n;i++) 
         if(!a[i].t) 
             a[i].t=t--;
-    sort(a+1,a+1+n,cmp1);
-    for(int i=1;i<=n;i++)
-        a[i].y=i;
-    sort(a+1,a+n+1,cmp2);  
+    sort(a+1,a+n+1,cmp);  
     CDQ(1,n);
     for(int i=1;i<=n;i++) 
         ans[i]+=ans[i-1];
-    for(int i=n;i>=n-m;i--) 
-        printf("%lld ",ans[i]);
+    for(int i=n;i>=n-m+1;i--) 
+        printf("%lld\n",ans[i]);
     return 0;
 }

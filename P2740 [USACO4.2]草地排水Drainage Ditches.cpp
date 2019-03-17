@@ -40,7 +40,7 @@ bool bfs()
 int dfs(int u,int add)
 {
     if(u==n||add==0) return add;
-    int flow=0;
+    int flow=0;     
     for(int &i=cur[u];i!=0;i=e[i].nxt)
     {
         int v=e[i].to;
