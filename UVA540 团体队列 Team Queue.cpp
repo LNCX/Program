@@ -3,7 +3,7 @@ using namespace std;
 const int maxn=1e6+5;
 const int maxm=1005;
 int a[maxn];
-queue<int>que[maxm],q,e,mm;
+queue<int>que[maxm],q,e;
 int read()
 {
     int x=0;
