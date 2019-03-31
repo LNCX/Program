@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+5,oo=0x3f3f3f3f;
+const int maxn=1e5+5,oo=0x3f3f3f3f;
 int rt,ch[maxn][2],size[maxn],fa[maxn],rev[maxn];
 struct node
 {
@@ -78,24 +78,30 @@ void splay(int x,int k=0)
 int main()
 {
     int n;
-    cin>>n;
-    for(int i=2;i<=n+1;i++)
-        scanf("%d",&a[i].v),a[i].id=i;
-    a[1].v=-oo,a[n+2].v=oo;
-    a[1].id=1,a[n+2].id=n+2;
-    sort(a+1,a+3+n);
-    build(1,n+2,0);
-    rt=(n+3)>>1;
-    for(int i=2;i<=n;i++)
+    while(scanf("%d",&n)!=EOF&&n)
     {
-        splay(a[i].id,0);
-        int ans=size[ch[rt][0]]+1;
-        printf("%d ",ans-1);
-        int x=find(i-1);
-        int y=find(ans+1);
-        splay(x,0);splay(y,x);
-        rev[ch[ch[rt][1]][0]]^=1;
+        for(int i=1;i<=n+2;i++)
+        {
+            ch[i][1]=ch[i][0]=size[i]=fa[i]=rev[i]=0;
+        }
+        for(int i=2;i<=n+1;i++)
+            scanf("%d",&a[i].v),a[i].id=i;
+        a[1].v=-oo,a[n+2].v=oo;
+        a[1].id=1,a[n+2].id=n+2;
+        sort(a+1,a+3+n);
+        build(1,n+2,0);
+        rt=(n+3)>>1;
+        for(int i=2;i<=n;i++)
+        {
+            splay(a[i].id,0);
+            int ans=size[ch[rt][0]]+1;
+            printf("%d ",ans-1);
+            int x=find(i-1);
+            int y=find(ans+1);
+            splay(x,0);splay(y,x);
+            rev[ch[ch[rt][1]][0]]^=1;
+        }
+        printf("%d\n",n);
     }
-    printf("%d\n",n);
     return 0;
 }
