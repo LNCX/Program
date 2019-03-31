@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int maxn=1e5+10;
-const double PI=acos(-1.0);
 typedef long long ll;
 struct point
 {
