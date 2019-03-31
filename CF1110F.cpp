@@ -1,22 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int maxn=5e5+5;
-const ll oo=0x7ffffffffffffff;
-int n,m;
+inline int read()
+{
+    int x=0;
+    char c=getchar();
+    while(!isdigit(c)) c=getchar();
+    while(isdigit(c))
+    {
+        x=(x<<3)+(x<<1)+c-'0';
+        c=getchar();
+    }
+    return x;
+}
+const ll maxn=5e5+5,oo=1ll<<60;
+int n,m,tot,head[maxn],size[maxn],son[maxn],L[maxn],R[maxn];
+ll dis[maxn],num[maxn],minx[maxn<<2],tag[maxn<<2],ans[maxn];
 struct edge
 {
     int nxt,to,w;
 }e[maxn<<1];
-ll minx[maxn],dis[maxn],num[maxn],tag[maxn];
-int head[maxn],tot,son[maxn],size[maxn];
-void add(int u,int v,int w)
+vector<int>q[maxn];
+void add_edge(int w,int v,int u)
 {
     e[++tot]=(edge){head[u],v,w};
     head[u]=tot;
+    e[++tot]=(edge){head[v],u,w};
+    head[v]=tot;
 }
 void dfs1(int u,int fa)
 {
+    son[u]=u;
     size[u]=1;
     for(int i=head[u];i!=0;i=e[i].nxt)
     {
@@ -27,14 +41,14 @@ void dfs1(int u,int fa)
         son[u]=max(son[u],son[v]);
         size[u]+=size[v];
     }
-    if(size[u]==1) num[u]=dis[u],son[u]=u;
+    if(size[u]==1) num[u]=dis[u];
     else num[u]=oo;
 }
 void build(int k,int l,int r)
 {
     if(l==r)
     {
-        minx[k]=num[k];
+        minx[k]=num[l];
         return ;
     }
     int mid=(l+r)>>1;
@@ -42,43 +56,67 @@ void build(int k,int l,int r)
     build(k<<1|1,mid+1,r);
     minx[k]=min(minx[k<<1],minx[k<<1|1]);
 }
-void down(int k,int l,int r)
+void pushdown(int k)
 {
-
+    if(!tag[k]) return ;
+    minx[k<<1]+=tag[k],minx[k<<1|1]+=tag[k];
+    tag[k<<1]+=tag[k],tag[k<<1|1]+=tag[k];
+    tag[k]=0;
 }
 void add(int k,int l,int r,int x,int y,ll w)
 {
-    if(l==r)
+    if(x<=l&&r<=y)
     {
-        
+        tag[k]+=w;
+        minx[k]+=w;
+        return;
     }
+    pushdown(k);
+    int mid=(l+r)>>1;
+    if(x<=mid) add(k<<1,l,mid,x,y,w);
+    if(y> mid) add(k<<1|1,mid+1,r,x,y,w);
+    minx[k]=min(minx[k<<1],minx[k<<1|1]);
 }
-int query(int k,int l,int r,int x,int y)
+ll query(int k,int l,int r,int x,int y)
 {
-
+    if(x<=l&&r<=y) return minx[k];
+    pushdown(k);
+    int mid=(l+r)>>1;
+    ll res=oo;
+    if(x<=mid) res=min(res,query(k<<1,l,mid,x,y));
+    if(y> mid) res=min(res,query(k<<1|1,mid+1,r,x,y));
+    return res;
+}
+void dfs2(int u,int fa)
+{
+    for(int i:q[u])
+        ans[i]=query(1,1,n,L[i],R[i]);
+    for(int i=head[u];i!=0;i=e[i].nxt)
+    {
+        int v=e[i].to,w=e[i].w;
+        if(v==fa) continue;
+        add(1,1,n,1,n,w);
+        add(1,1,n,v,son[v],-w-w);
+        dfs2(v,u);
+        add(1,1,n,1,n,-w);
+        add(1,1,n,v,son[v],w+w);
+    }
 }
 int main()
 {
-    scanf("%d%d",&n,&m);
+    n=read(),m=read();
     for(int i=2;i<=n;i++)
+        add_edge(read(),i,read());
+    for(int i=1;i<=m;i++)
     {
-        int v,w;
-        scanf("%d%d",&v,&w);
-        add(i,v,w),add(v,i,w);        
+        int u=read();
+        L[i]=read(),R[i]=read();
+        q[u].push_back(i);
     }
     dfs1(1,0);
     build(1,1,n);
-    while(m--)
-    {
-        int u,l,r;
-        scanf("%d%d%d",&u,&l,&r);
-        if(size[u]==1) puts("0");
-        else 
-        {
-            add(1,1,n,son[u]-size[u]+2,son[u],-dis[u]);
-            printf("%lld\n",query(1,1,n,l,r));
-            add(1,1,n,son[u]-size[u]+2,son[u],dis[u]);
-        }
-    }
+    dfs2(1,0);
+    for(int i=1;i<=m;i++)
+        printf("%lld\n",ans[i]);
     return 0;
 }
