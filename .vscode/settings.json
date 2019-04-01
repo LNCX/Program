@@ -58,7 +58,8 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "valarray": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "algorithm": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
     "sync.gist": "380c75cd9be5cd354a397ad71be99816",
