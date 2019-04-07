@@ -1,27 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-int i,j,k,x,n,maxx,m,a[10000],b[10000],h[10000];
+int a[100005],f[100005],low[100005];
+bool cmp(int x,int y)
+{
+    return x>y;
+}
 int main()
 {
-	while(cin>>a[i])
-	{
-		maxx=0;
-		for(j=1;j<=i-1;j++)
-			if(a[j]>=a[i])
-				if(b[j]>maxx)
-					maxx=b[j];
-		b[i]=maxx+1;
-		if(b[i]>m) m=b[i];
-		x=0;
-		for(k=1;k<=n;k++)
-			if(h[k]>=a[i])
-				if(x==0)x=k;
-				else if(h[k]<h[x])x=k;
-		if(x==0){n++;x=n;}
-		h[x]=a[i];
-		i++;
-	}
-	if(m==28) m=29;
-	if(m==152) m=153;
-	cout<<m<<endl<<n<<endl;
+    int n=1;
+    while(cin>>a[n])n++;
+    n--;
+    int ans2=1,ans1=1;
+    low[1]=f[1]=a[1];
+    for(int i=2;i<=n;i++)
+    {
+        if(low[ans1]>=a[i])low[++ans1]=a[i];
+        else low[upper_bound(low+1,low+ans1+1,a[i],cmp)-low]=a[i];
+        if(f[ans2]<a[i])f[++ans2]=a[i];
+        else f[lower_bound(f+1,f+ans2+1,a[i])-f]=a[i];
+    }
+    cout<<ans1<<"\n"<<ans2;
+    return 0;
 }
