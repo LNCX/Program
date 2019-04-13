@@ -2,7 +2,7 @@
 using namespace std;
 const int maxn=105;
 int a[maxn][maxn];
-int main()c
+int main()
 {
     int n,m;
     scanf("%d%d",&n,&m);
