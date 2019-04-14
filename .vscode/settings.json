@@ -84,5 +84,6 @@
     "git.enableSmartCommit": true,
     "c-cpp-compile-run.cpp-flags": "-Wall -Wextra -std=c++11 -g",
     "c-cpp-compile-run.run-args": "<in",
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "C_Cpp.intelliSenseCacheSize": 0
 }
