@@ -6,6 +6,18 @@
     "configurations": 
     [
         {
+            "name": "OS X",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/a.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "lldb"
+        },
+        {
             "name": "Windows",
             "type": "cppdbg",
             "request": "launch",
