@@ -1,9 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=5000000;
-int v[maxn+10],p[maxn+10];
-LL mu[maxn+10],phi[maxn+10];
+const int maxn=2000000;
+int p[maxn+10],N;
+bool phiv[maxn+10],muv[maxn+10],v[maxn+10];
+LL mu[maxn+10],phi[maxn+10],ansmu[maxn],ansphi[maxn];
 inline void init()
 {
     v[1]=mu[1]=phi[1]=1;
@@ -21,26 +22,28 @@ inline void init()
     for(int i=1;i<=maxn;++i)
         mu[i]+=mu[i-1],phi[i]+=phi[i-1];
 }
-unordered_map<int,LL> ansmu,ansphi;
 LL Sphi(int n)
 {
     if(n<=maxn) return phi[n];
-    if(ansphi[n]) return ansphi[n];
+    int x=N/n;
+    if(phiv[x]) return ansphi[x];
+    phiv[x]=true;
     LL ans=0;
     for(int l=2,r;l<=n;l=r+1) 
         r=n/(n/l),ans+=(r-l+1)*Sphi(n/l);
-    return ansphi[n]=n*(n+1ll)/2ll-ans;
+    return ansphi[x]=n*(n+1ll)/2ll-ans;
 }
 LL Smu(int n)
 {
     if(n<=maxn) return mu[n];
-    if(ansmu[n]) return ansmu[n];
+    int x=N/n;
+    if(muv[x]) return ansmu[x];
+    muv[x]=true;
     LL ans=1;
     for(int l=2,r;l<=n;l=r+1) 
         r=n/(n/l),ans-=(r-l+1)*Smu(n/l);
-    return ansmu[n]=ans;
+    return ansmu[x]=ans;
 }
-
 int main()
 {
     init();
@@ -48,9 +51,10 @@ int main()
     scanf("%d",&t);
     while(t--)
     {
-        int n;
-        scanf("%d",&n);
-        printf("%lld %lld\n",Sphi(n),Smu(n));
+        scanf("%d",&N);
+        fill(phiv,phiv+maxn+1,false);
+        fill(muv,muv+maxn+1,false);
+        printf("%lld %lld\n",Sphi(N),Smu(N));
     }
     return 0;
 }
