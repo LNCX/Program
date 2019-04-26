@@ -1,13 +1,12 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e3+6;
-int n,m,t,f[maxn],ans;
-bitset<maxn>vis;
+const int maxn=205;
 struct edge
 {
     int nxt,to;
 }e[maxn*maxn<<1];
-int head[maxn],tot;
+bitset<maxn>vis;
+int head[maxn],tot,f[maxn],s[maxn],ans,m,n;
 void add(int u,int v)
 {
     e[++tot]=(edge){head[u],v};
@@ -22,7 +21,7 @@ bool dfs(int u)
         vis[v]=1;
         if(!f[v]||dfs(f[v]))
         {
-            f[v]=u;
+            f[v]=u,s[u]=v;
             return true;
         }
     }
@@ -30,19 +29,21 @@ bool dfs(int u)
 }
 int main()
 {
-    scanf("%d%d%d",&n,&m,&t);
-    while(t--)
+    scanf("%d%d",&m,&n);
+    while(1)
     {
-        int u,v;
-        scanf("%d %d",&u,&v);
-        if(u>n||v>m) continue;
-        add(u,v+n),add(v+n,u);
+        int x,y;
+        scanf("%d%d",&x,&y);
+        add(x,y),add(y,x);
+        if(x==-1&&y==-1) break;
     }
-    for(int i=1;i<=n;i++)
+    for(int i=1;i<=m;i++)
     {
         vis.reset();
         ans+=dfs(i);
     }
-    cout<<ans<<endl;
+    m==0?puts("No Solution!"):printf("%d\n",ans);
+    for(int i=1;i<=m;i++) if(s[i])
+        printf("%d %d\n",i,s[i]);
     return 0;
 }

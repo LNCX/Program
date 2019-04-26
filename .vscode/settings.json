@@ -1,6 +1,7 @@
 {
     "C_Cpp.intelliSenseEngineFallback": "Enabled",
-    "files.associations": {
+    "files.associations": 
+    {
         "cstdio": "cpp",
         "iostream": "cpp",
         "array": "cpp",
@@ -69,10 +70,8 @@
     "sync.autoDownload": false,
     "sync.autoUpload": false,
     "sync.forceDownload": false,
-    "window.zoomLevel": 0,
     "editor.minimap.enabled": true,
     "editor.fontSize": 16,
-    "editor.mouseWheelZoom": true,
     "explorer.confirmDelete": false,
     "terminal.integrated.rendererType": "dom",
     "luogu.defaultLanguage": "C++",
@@ -82,10 +81,11 @@
     "c-cpp-compile-run.cpp-compiler": "g++",
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-    "c-cpp-compile-run.cpp-flags": "-Wall -Wextra -std=c++11 -g",
+    "c-cpp-compile-run.cpp-flags": "-Wall -Wextra -std=c++11",
     "c-cpp-compile-run.run-args": "<in",
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
     "C_Cpp.intelliSenseCacheSize": 0,
     "C_Cpp.default.cppStandard": "c++11",
-    "C_Cpp.default.cStandard": "c11"
+    "C_Cpp.default.cStandard": "c11",
+    "editor.mouseWheelZoom": true
 }

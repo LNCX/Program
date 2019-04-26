@@ -1,12 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105,inf=0x7ffffffff;
-int g[maxn][maxn];
-struct edge
+const int maxn=105,inf=0x3f3f3f3f;
+int n,m,tot=1,head[maxn],dep[maxn],vis[maxn],cur[maxn];
+struct Edge
 {
-    int from,nxt,cap,to,flow;
+    int to,cap,nxt,flow,from; 
 }e[maxn<<1];
-int head[maxn],tot;
 void Add(int from,int to,int cap)
 {
     e[++tot].nxt=head[from];
@@ -64,11 +63,25 @@ int dinic(int s,int t)
 }
 int main()
 {
-    int n,m;
-    scanf("%d%d",&n,&m);
+    int n,p,q;
+    scanf("%d%d%d",&n,&p,&q);
     for(int i=1;i<=n;i++)
-        for(int j=1;j<=m;j++)
-            scanf("%d",&g[i][j]);
-    
+        for(int j=1;j<=p;j++)
+        {
+            int x;
+            scanf("%d",&x);
+            if(x==0) continue;
+            Add(j,p+i,1),Add(p+i,j,0);
+        }
+    for(int i=p+1;i<=p+n;i++)
+        Add(i,i+n,1),Add(i+n,i,0);
+    for(int i=1;i<=n;i++)
+        for(int j=1;j<=q;j++)
+        {
+            int x;
+            scanf("%d",&x);
+            if(x==0) continue;
+            Add(p+n+i,p+,)
+        }
     return 0;
 }
