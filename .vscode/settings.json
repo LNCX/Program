@@ -1,5 +1,5 @@
 {
-    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "C_Cpp.intelliSenseEngineFallback": "Disabled",
     "files.associations": 
     {
         "cstdio": "cpp",
@@ -71,7 +71,7 @@
     "sync.autoUpload": false,
     "sync.forceDownload": false,
     "editor.minimap.enabled": true,
-    "editor.fontSize": 16,
+    "editor.fontSize": 15,
     "explorer.confirmDelete": false,
     "terminal.integrated.rendererType": "dom",
     "luogu.defaultLanguage": "C++",
