@@ -23,6 +23,9 @@ int main()
 {
     while(scanf("%d",&n)&&n!=0)
     {
+        for(int i=1;i<=n;i++)
+            e[i].clear();
+        memset(f,0,sizeof f);
         scanf("%d%d",&m,&k);
         for(int i=0;i<k;i++)
         {
@@ -30,13 +33,12 @@ int main()
             scanf("%d%d%d",&i,&x,&y);
             e[x].push_back(y);
         }
+        ans=0;
         for(int i=1;i<=n;i++)
         {
             vis.reset();
             ans+=dfs(i);
         }
         printf("%d\n",ans);
-        for(int i=1;i<=n;i++)
-            e[i].clear(),f[i]=0;
     }
 }

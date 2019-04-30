@@ -1,31 +1,61 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=10005,inf=0x3f3f3f3f;
-int n,m,s,t,sum;
+const int maxn=205,inf=0x3f3f3f3f;
+int n,m,a[maxn][maxn],tot=1;
+int head[maxn*maxn],cur[maxn*maxn],dep[maxn*maxn],vis[maxn*maxn];
+int dx[]={2,2,1,1,-1,-1,-2,-2},
+    dy[]={1,-1,2,-2,2,-2,1,-1};
 struct edge
 {
     int nxt,to,cap,flow;
-}e[maxn<<3];
-bitset<maxn>vis;
-int dx[]={1,-1,0,0};
-int dy[]={0,0,1,-1};
-int head[maxn],cur[maxn],dep[maxn],tot=1;
-void Add(int u,int v,int w)
+}e[maxn*maxn<<4];
+void edge_add(int u,int v,int w)
 {
     e[++tot]=(edge){head[u],v,w,0};
     head[u]=tot;
     e[++tot]=(edge){head[v],u,0,0};
     head[v]=tot;
 }
+void init()
+{
+    scanf("%d%d",&n,&m);
+    for(int i=1;i<=m;i++)
+    {
+        int x,y;
+        scanf("%d%d",&x,&y);
+        a[x][y]=1;
+    }
+}
+int calc(int x,int y){return (x-1)*n+y;}
+void build()
+{
+    int s=n*n+1,t=s+1;
+    for(int i=1;i<=n;i++)
+        for(int j=1;j<=n;j++)
+        {
+            if(a[i][j]) continue;
+            if(i+j&1)//黑白染色
+                for(int k=0;k<8;k++)
+                {
+                    int x=i+dx[k],y=j+dy[k];
+                    if(x<1||x>n||y<1||y>n||a[i][j])
+                        continue;
+                    edge_add(calc(i,j),calc(x,y),1);
+                }
+            if(i+j&1) edge_add(s,calc(i,j),1);
+            else  edge_add(calc(i,j),t,1);
+        }
+}
 bool bfs(int s,int t)
 {
     for(int i=0;i<=t;i++)
         cur[i]=head[i],dep[i]=inf,vis[i]=0;
-    dep[s]=0,vis[s]=1;
+    dep[s]=0;
     queue<int>q;q.push(s);
     while(!q.empty())
     {
-        int u=q.front();q.pop();
+        int u=q.front();
+        vis[u]=1;q.pop();
         for(int i=head[u];i!=0;i=e[i].nxt)
         {
             int v=e[i].to;
@@ -62,29 +92,10 @@ int dinic(int s,int t)
         flow+=dfs(s,t,inf);
     return flow;
 }
-int calc(int x,int y){return ((x-1)*m+y);}
 int main()
 {
-    scanf("%d%d",&n,&m);
-    int s=n*m+1,t=s+1;
-    for(int i=1;i<=n;i++)
-        for(int j=1;j<=m;j++)
-        {
-            int x;
-            scanf("%d",&x);
-            sum+=x;
-            if((i+j)&1) 
-            {
-                Add(s,calc(i,j),x);
-                for(int k=0;k<4;k++)
-                {
-                    int x=i+dx[k],y=j+dy[k];
-                    if(x<1||x>n||y<1||y>m) continue;
-                    Add(calc(i,j),calc(x,y),inf);
-                }
-            }
-            else Add(calc(i,j),t,x);
-        }
-    cout<<sum-dinic(s,t)<<endl;
+    init();
+    build();
+    cout<<n*n-m-dinic(n*n+1,n*n+2)<<endl;
     return 0;
 }

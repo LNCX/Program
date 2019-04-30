@@ -1,20 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int maxn=5e3+5,maxm=1e5+5,inf=0x3f3f3f3f;
-int n,m,s,t,maxflow,cost,tot=1,head[maxn],vis[maxn],dis[maxn];
-struct Edge
+int n,m,s,t,maxflow,mincost,tot=1,head[maxn],vis[maxn],dis[maxn];
+struct edge
 {
-    int to,cap,nxt,w,flow;
+    int nxt,to,f,w;
 }e[maxm];
-void Add(int from,int to,int cap,int w)
+void Add(int u,int v,int f,int w)
 {
-    e[++tot].nxt=head[from];
-    e[tot].to=to;
-    e[tot].cap=cap;
-    e[tot].w=w;
-    head[from]=tot;
+    e[++tot]=(edge){head[u],v,f,w};
+    head[u]=tot;
+    e[++tot]=(edge){head[v],u,0,-w};
+    head[v]=tot;
 }
-bool SPFA()
+bool SPFA(int s,int t)
 {
     memset(vis,0,sizeof(vis));
     memset(dis,inf,sizeof(dis));
@@ -29,7 +28,7 @@ bool SPFA()
         for(int i=head[u];i!=0;i=e[i].nxt)
         {
             int v=e[i].to;
-            if(dis[v]>dis[u]+e[i].w&&e[i].cap-e[i].flow>0)
+            if(dis[v]>dis[u]+e[i].w&&e[i].f>0)
             {
                 dis[v]=dis[u]+e[i].w;
                 if(!vis[v])
@@ -42,56 +41,52 @@ bool SPFA()
     }
     return dis[t]!=inf;
 }
-int dfs(int u,int flow)
+int dfs(int u,int t,int add)
 {
-    if(u==t)
+    if(u==t||add==0)
     {
         vis[t]=1;
-        maxflow+=flow;
-        return flow;
+        maxflow+=add;
+        return add;
     }
-    int used=0;
+    int flow=0;
     vis[u]=1;
     for(int i=head[u];i!=0;i=e[i].nxt)
     {
-        int v=e[i].to;
-        if((vis[v]==0||v==t)&&e[i].cap-e[i].flow>0&&dis[v]==dis[u]+e[i].w)
+        int v=e[i].to,w=e[i].w;
+        if((vis[v]==0||v==t)&&e[i].f>0&&dis[v]==dis[u]+w)
         {
-            int minflow=dfs(v,min(flow-used,e[i].cap-e[i].flow));
-            if(minflow>0)
-            {
-                cost+=e[i].w*minflow;
-                e[i].flow+=minflow;
-                e[i^1].flow-=minflow;
-                used+=minflow;
-            }
-            if(used==flow) break;
+            int f=dfs(v,t,min(add,e[i].f));
+            mincost+=e[i].w*f;
+            e[i].f-=f,e[i^1].f+=f;
+            flow+=f,add-=f;
+            if(add==0) break;
         }
     }
-    return used;
+    return flow;
 }
-void mcmf()
+void mcmf(int s,int t)
 {
-    while(SPFA())
+    while(SPFA(s,t))
     {
         vis[t]=1;
         while(vis[t])
         {
             memset(vis,0,sizeof(vis));
-            dfs(s,inf);
+            dfs(s,t,inf);
         }
     }
 }
 int main()
 {
     scanf("%d%d%d%d",&n,&m,&s,&t);
-    for(int i=1;i<=m;i++)
+    while(m--)
     {
-        int u,v,w,f;
-        scanf("%d%d%d%d",&u,&v,&w,&f);
-        Add(u,v,w,f);Add(v,u,0,-f);
+        int u,v,f,w;
+        scanf("%d%d%d%d",&u,&v,&f,&w);
+        Add(u,v,f,w);
     }
-    mcmf();
-    printf("%d %d",maxflow,cost);
+    mcmf(s,t);
+    printf("%d %d",maxflow,mincost);
     return 0;
 }

@@ -15,12 +15,11 @@ bool bfs(int s,int t)
 {
     for(int i=0;i<=t;i++)
         cur[i]=head[i],dep[i]=inf,vis[i]=0;
-    dep[s]=0;
+    dep[s]=0,vis[s]=1;
     queue<int>q;q.push(s);
     while(!q.empty())
     {
-        int u=q.front();
-        vis[u]=1;q.pop();
+        int u=q.front();q.pop();
         for(int i=head[u];i!=0;i=e[i].nxt)
         {
             int v=e[i].to;

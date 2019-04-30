@@ -1,74 +1,74 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int maxn=1e4+5,maxm=4e5+5,inf=0x3f3f3f3f;
-struct Edge
+struct edge
 {
-    int to,cap,nxt,flow,from;
+    int nxt,to,cap,flow;
 }e[maxm];
-int tot,head[maxn];
-void Add(int from,int to,int cap)
+int n,m;
+int head[maxn],cur[maxn],dep[maxn],tot=1,vis[maxn];
+void Add(int u,int v,int w)
 {
-    e[++tot].nxt=head[from];
-    e[tot].cap=cap;
-    e[tot].from=from;
-    e[tot].to=to;
-    head[from]=tot;
-    
-    e[++tot].nxt=head[to];
-    e[tot].cap=0;
-    e[tot].to=from;
-    e[tot].from=to;
-    head[to]=tot;
+    e[++tot]=(edge){head[u],v,w,0};
+    head[u]=tot;
+    e[++tot]=(edge){head[v],u,0,0};
+    head[v]=tot;
 }
-int a[maxn],p[maxn];
-int bfs(int s,int t)
+bool bfs(int s,int t)
 {
-    queue<int>q;
-    q.push(s);
-    memset(a,0,sizeof(a));
-    a[s]=inf;
+    for(int i=0;i<=n;i++)
+        cur[i]=head[i],dep[i]=inf,vis[i]=0;
+    dep[s]=0,vis[s]=1;
+    queue<int>q;q.push(s);
     while(!q.empty())
     {
         int u=q.front();q.pop();
         for(int i=head[u];i!=0;i=e[i].nxt)
         {
             int v=e[i].to;
-            if(!a[v]&&e[i].cap>e[i].flow)
+            if(!vis[v]&&e[i].cap-e[i].flow>0)
             {
-                p[v]=i;
-                a[v]=min(a[u],e[i].cap-e[i].flow);
+                vis[v]=1;
+                dep[v]=dep[u]+1;
                 q.push(v);
             }
         }
-        if(a[t]) return a[t];
     }
-    if(!a[t]) return -1;
-    return a[t];
+    return vis[t];
 }
-int EK(int s,int t)
+int dfs(int u,int t,int add)
 {
-    int add,flow=0;
-    while((add=bfs(s,t))!=-1)
+    if(u==t||add==0) return add;
+    int flow=0;     
+    for(int &i=cur[u];i!=0;i=e[i].nxt)
     {
-        for(int u=t;u!=s;u=e[p[u]].from)
-        {
-            e[p[u]].flow+=a[t];
-            e[p[u]^1].flow-=a[t];
-        }
-        flow+=a[t];
+        int v=e[i].to;
+        if(e[i].cap-e[i].flow<=0||dep[u]+1!=dep[v]) continue;
+        int f=dfs(v,t,min(add,e[i].cap-e[i].flow));
+        e[i].flow+=f;
+        e[i^1].flow-=f;
+        flow+=f,add-=f;
+        if(add==0) break;
     }
+    return flow;
+}
+int dinic(int s,int t)
+{
+    int flow=0;
+    while(bfs(s,t))
+        flow+=dfs(s,t,inf);
     return flow;
 }
 int main()
 {
-    int n,m,s,t;
-    scanf("%d%d%d%d",&n,&m,&s,&t);
+    freopen("in","r",stdin);
+    scanf("%d%d",&n,&m);
     for(int i=1;i<=m;i++)
     {
-        int x,y,z;
-        scanf("%d%d%d",&x,&y,&z);
+        int x,y,z,w;
+        scanf("%d%d%d%d",&x,&y,&z,&w);
         Add(x,y,z);
     }
-    cout<<EK(s,t)<<endl;
+    cout<<dinic(1,n)<<endl;
     return 0;
 }
