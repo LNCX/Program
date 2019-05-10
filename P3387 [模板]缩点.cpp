@@ -46,23 +46,23 @@ void tarjan(int u)
 	}
 	return ;
 }
-int dg[maxn],rank[maxm];
+int dg[maxn],rnk[maxm];
 void remove()
 {
 	for(int i=1;i<=m;i++)
 	{
-		rank[i]=i;
+		rnk[i]=i;
 		x[i]=co[x[i]];
 		y[i]=co[y[i]];
 	}
-	sort(rank+1,rank+1+m,camp);
+	sort(rnk+1,rnk+1+m,camp);
 	e_num=0;
 	memset(head,0,sizeof(head));
 	memset(nxt,0,sizeof(nxt));
 	for(int i=1;i<=m;i++)
 	{
-		int k=rank[i];
-		if(x[k]!=y[k]&&(x[k]!=x[rank[i-1]]||y[k]!=y[rank[i-1]]))//²»ÔÚÍ¬Ò»Ëõµã 
+		int k=rnk[i];
+		if(x[k]!=y[k]&&(x[k]!=x[rnk[i-1]]||y[k]!=y[rnk[i-1]]))//ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ 
 		{
 			dg[y[k]]++;
 			add(x[k],y[k]);
