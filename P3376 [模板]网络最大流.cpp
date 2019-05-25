@@ -3,53 +3,50 @@ using namespace std;
 const int maxn=1e4+5,maxm=4e5+5,inf=0x3f3f3f3f;
 struct edge
 {
-    int nxt,to,cap,flow;
+    int nxt,to,f;
 }e[maxm];
 int n,m;
-int head[maxn],cur[maxn],dep[maxn],tot=1,vis[maxn];
+int head[maxn],cur[maxn],dep[maxn],tot=1;
 void Add(int u,int v,int w)
 {
-    e[++tot]=(edge){head[u],v,w,0};
+    e[++tot]=(edge){head[u],v,w};
     head[u]=tot;
-    e[++tot]=(edge){head[v],u,0,0};
+    e[++tot]=(edge){head[v],u,0};
     head[v]=tot;
 }
 bool bfs(int s,int t)
 {
-    for(int i=0;i<=n;i++)
-        cur[i]=head[i],dep[i]=inf,vis[i]=0;
-    dep[s]=0,vis[s]=1;
-    queue<int>q;q.push(s);
+    memset(dep,inf,sizeof(dep));
+    for(int i=0;i<=n;i++)//or t
+        cur[i]=head[i];
+    queue<int>q;
+    dep[s]=0,q.push(s);
     while(!q.empty())
     {
         int u=q.front();q.pop();
         for(int i=head[u];i!=0;i=e[i].nxt)
         {
-            int v=e[i].to;
-            if(!vis[v]&&e[i].cap-e[i].flow>0)
-            {
-                vis[v]=1;
-                dep[v]=dep[u]+1;
-                q.push(v);
-            }
+            int v=e[i].to,f=e[i].f;
+            if(dep[v]!=inf||f<=0) continue;
+            dep[v]=dep[u]+1;
+            q.push(v);
         }
     }
-    return vis[t];
+    return dep[t]!=inf;
 }
 int dfs(int u,int t,int add)
 {
     if(u==t||add==0) return add;
-    int flow=0;     
+    int flow=0;
     for(int &i=cur[u];i!=0;i=e[i].nxt)
     {
-        int v=e[i].to;
-        if(e[i].cap-e[i].flow<=0||dep[u]+1!=dep[v]) continue;
-        int f=dfs(v,t,min(add,e[i].cap-e[i].flow));
-        e[i].flow+=f;
-        e[i^1].flow-=f;
-        flow+=f,add-=f;
+        int v=e[i].to,res=e[i].f;
+        if(dep[v]!=dep[u]+1||res<=0) continue;
+        int f=dfs(v,t,min(add,res));
+        add-=f,flow+=f;
+        e[i].f-=f,e[i^1].f+=f;
         if(add==0) break;
-    }
+    } 
     return flow;
 }
 int dinic(int s,int t)

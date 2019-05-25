@@ -90,7 +90,7 @@ inline void pushdown(int k,int l,int r)
     if(tag[k]==0) return ;
     int a=tag[k],mid=(l+r)>>1;
     (tag[k<<1]+=a),(tag[k<<1|1]+=a);
-    sum2[k<<1]+=2*sum[k<<1]*a+a*a,sum2[k<<1|1]+=2*sum[k<<1|1]*a+a*a,
+    sum2[k<<1]+=2*sum[k<<1]*a+(mid-l+1)*a*a,sum2[k<<1|1]+=2*sum[k<<1|1]*a+(r-mid)*a*a,
     sum[k<<1]+=(mid-l+1)*a,sum[k<<1|1]+=(r-mid)*a;
     tag[k]=0;
 }
@@ -100,7 +100,7 @@ inline void add(int k,int l,int r,int x,int y,ll z)
     if(x<=l&&r<=y)
     {
         (tag[k]+=z);
-        (sum2[k]+=2*sum[k]*z+z*z);
+        (sum2[k]+=2*sum[k]*z+(r-l+1)*z*z);
         (sum[k]+=(r-l+1)*z);
         return ;
     }
@@ -136,12 +136,9 @@ inline void LCA_add(int x,int y,ll z)
     }
     if(dep[x]>dep[y]) swap(x,y);
     add(1,1,seg[0],seg[x],seg[y],z);
-    for(int i=1;i<=7;i++)
-        printf("%lld %lld %lld\n",sum[i],sum2[i],tag[i]);
-    puts("\n");
-    for(int i=1;i<=7;i++)
-        printf("%lld %lld %lld\n",sum[i],sum2[i],tag[i]);
-    puts("\n");
+    // for(int i=1;i<=7;i++)
+    //     printf("%lld %lld %lld\n",sum[i],sum2[i],tag[i]);
+    // puts("\n");
 }
 inline void LCA_query(int x)
 {
@@ -155,11 +152,9 @@ inline void LCA_query(int x)
     }
     query(1,1,n,1,seg[x],tmp,len);
     len-=a0;
-    // cerr<<ans<<" "<<a0<<" "<<sum<<endl;
-    // cerr<<k<<endl;
-    for(int i=1;i<=7;i++)
-        printf("%lld %lld %lld\n",sum[i],sum2[i],tag[i]);
-    puts("\n");
+    // for(int i=1;i<=7;i++)
+    //     printf("%lld %lld %lld\n",sum[i],sum2[i],tag[i]);
+    // puts("\n");
     printf("%lld\n",ans+(k-1)*a0*a0-2*a0*len);
 }
 int main()
@@ -173,6 +168,9 @@ int main()
     seg[0]=seg[1]=rev[1]=top[1]=1,a0=a[1];
     dfs(1);
     build(1,1,n);
+    // for(int i=1;i<=7;i++)
+    //     printf("%lld %lld %lld\n",sum[i],sum2[i],tag[i]);
+    // puts("\n");
     while(q--)
     {
         int op=read(),x=read();
