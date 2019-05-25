@@ -61,13 +61,14 @@ int dinic(int s,int t)
 }
 int main()
 {
-    scanf("%d%d",&n,&m);
+    int s,t;
+    scanf("%d%d%d%d",&n,&m,&s,&t);
     for(int i=1;i<=m;i++)
     {
-        int x,y,z,w;
-        scanf("%d%d%d%d",&x,&y,&z,&w);
+        int x,y,z;
+        scanf("%d%d%d",&x,&y,&z);
         Add(x,y,z);
     }
-    cout<<dinic(1,n)<<endl;
+    cout<<dinic(s,t)<<endl;
     return 0;
 }
