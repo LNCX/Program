@@ -3,7 +3,7 @@
 #include<cstdlib>
 #include<iostream>
 using namespace std;
-int count=0; 
+int cnt=0; 
 int ranint(int a,int b)
 {
 	int r=rand()%(b-a+1)+a;
@@ -52,12 +52,12 @@ int main()
 {
 	time_t t=time(0); 
     char time_out[64]; 
-    if(!count)
+    if(!cnt)
     {
     	strftime(time_out,sizeof(time_out),"%m.%d %a",localtime(&t)); 
     	cout<<time_out<<endl;
 	}
-	else printf("开挂的第%d天\n",count);
+	else printf("开挂的第%d天\n",cnt);
 	
 	srand((unsigned)time(NULL));
 	
@@ -86,7 +86,7 @@ int main()
 	printf("\n\n按任意键进入下一天\n");
 	printf("\nby Youth丨吹雪\n");
 	getchar();
-	count++;
+	cnt++;
 	system("cls");
 	main();
 }
