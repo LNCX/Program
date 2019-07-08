@@ -5,10 +5,10 @@
 设小球与水平位置夹角为$\theta$
 
 $$ v=\sqrt{2grsin\theta}$$
-$$ ds=d\theta R$$
+$$ ds=d\theta r$$
 $$ dt=\frac{ds}{v}$$
 $$\ $$
 $$ t=\int dt$$
-$$ t=\int_0^{\frac{\pi}{2}}\frac{R}{\sqrt{2grsin\theta}}d\theta$$
+$$ t=\int_0^{\frac{\pi}{2}}\frac{r}{\sqrt{2grsin\theta}}d\theta$$
 $$\ $$
 0处出现了速度为0，所以我算不出来
