@@ -57,7 +57,7 @@ int dfs(int u,int t,int add)
         if((vis[v]==0||v==t)&&e[i].f>0&&dis[v]==dis[u]+w)
         {
             int f=dfs(v,t,min(add,e[i].f));
-            mincost+=e[i].w*f;
+            mincost+=w*f;
             e[i].f-=f,e[i^1].f+=f;
             flow+=f,add-=f;
             if(add==0) break;

@@ -1,6 +1,6 @@
 #include<cstdio>
 #include<iostream>
-#define M 1000000
+const int M=1000000;
 using namespace std;
 long double a[M+1];
 int main()
