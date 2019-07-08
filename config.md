@@ -1,9 +1,8 @@
-## sync同步设置  
+## Sync匹配
 
-26830e355a77f1bbaaeb7c2301b60122874790b4
+Token: 345b2494d19aca678d9123da1a6f74149fe1835c
 
-380c75cd9be5cd354a397ad71be99816
-
+Gist: 1602e952a4957b6e35c9f148c1cbd0c2
 
 ## git代码库
 
