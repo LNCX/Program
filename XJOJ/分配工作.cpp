@@ -5,7 +5,17 @@ int cost,tot=1,head[maxn],vis[maxn],dis[maxn];
 struct edge
 {
     int nxt,to,f,w;
-}e[maxn<<1];
+}e[300000];
+struct node
+{
+    int u,v;
+    bool operator<(const node &x) const
+    {
+        if(u==x.u) return v<x.v;
+        else return u<x.u;
+    }
+};
+map<node,int>ma;
 void add(int u,int v,int f,int w)
 {
     e[++tot]=(edge){head[u],v,f,w},head[u]=tot;
@@ -87,8 +97,10 @@ int main()
     {
         int x,y,z;
         scanf("%d%d%d",&x,&y,&z);
-        add(x,y+n,1,z);
+        ma[(node){x,y}]=max(ma[(node){x,y}],z);
     }
+    for(auto it:ma)
+        add(it.first.u,it.first.v+n,1,it.second);
     mcmf(s,t);
     printf("%d\n",cost);
     return 0;
