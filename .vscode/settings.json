@@ -104,7 +104,7 @@
     "files.defaultLanguage": "cpp",
     "workbench.colorTheme": "One Dark Pro Vivid",
     "zenMode.fullScreen": false,
-    "c-cpp-compile-run.cpp-compiler": "g++-7",
+    "c-cpp-compile-run.cpp-compiler": "g++",
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "c-cpp-compile-run.cpp-flags": "-Wall -Wextra -std=c++11",
