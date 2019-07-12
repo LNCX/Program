@@ -59,7 +59,7 @@ void build(int l,int r,int f)
 int find(int x,int k)
 {
     pushdown(x);int s=size[ch[x][0]];
-    if(k==s+1)return x;
+    if(k==s+1){splay(x,root);return x;}
     if(k<=s)return find(ch[x][0],k);
     else return find(ch[x][1],k-s-1);
 }
