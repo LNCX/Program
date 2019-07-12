@@ -5,6 +5,23 @@ const int N=1e6+5;
 int size[N],sum[N],upd[N],rev[N],la[N],ra[N],gss[N];
 int val[N],ch[N][2],f[N],ncnt,rt;
 queue<int>q;
+inline int read()
+{
+    int x=0;
+    bool f=true;
+    char c=getchar();
+    while(!isdigit(c))
+    {
+        if(c=='-') f=false;
+        c=getchar();
+    }
+    while(isdigit(c))
+    {
+        x=(x<<3)+(x<<1)+(c-'0');
+        c=getchar();  
+    }
+    return f?x:-x;
+}
 bool chk(int x){return ch[f[x]][1] == x;}
 void recycle(int x)
 {
@@ -173,29 +190,29 @@ int main()
         switch((s[2]+s[1])^*s)
         {
             case 'G'^('E'+'T'):
-                scanf("%d%d",&x,&y);
+                x=read(),y=read();
                 printf("%d\n",qsum(x,y));
                 break;
             case 'M'^('A'+'X'):
                 printf("%d\n",gss[rt]);
                 break;
             case 'R'^('E'+'V'):
-                scanf("%d%d",&x,&y);
+                x=read(),y=read();
                 reverse(x,y);
                 break;
             case 'M'^('A'+'K'):
-                scanf("%d%d%d",&x,&y,&z);
+                x=read(),y=read(),z=read();
                 update(x,y,z);
                 break;
             case 'D'^('E'+'L'):
-                scanf("%d%d",&x,&y);
+                x=read(),y=read();
                 remove(x,y);
                 break;
             case 'I'^('N'+'S'):
-                scanf("%d%d",&x,&y);
+                x=read(),y=read();
                 memset(arr,0,sizeof arr);
                 for(int i=1;i<=y;i++)
-                    scanf("%d",arr+i);
+                    arr[i]=read();
                 insert(x,build(1,y,arr));
                 break;
         }
