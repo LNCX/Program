@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=8e5+5;
+const int maxn=50;
 int f[maxn],size[maxn],ch[maxn][2],rt,pos[maxn],rev[maxn];
-void pushup(int k){size[k]=size[ch[k][0]]+size[ch[k][1]];}
+void pushup(int k){size[k]=size[ch[k][0]]+size[ch[k][1]]+1;}
 bool chk(int x){return ch[f[x]][1]==x;}
 void rotate(int x)
 {
@@ -97,8 +97,11 @@ int main()
         scanf("%d",&x);
         pos[x]=i,rev[i]=x;
     }
+    rt=(1+n)>>1;
     build(1,n,rt);
-    exit(0);
+    // for(int i=1;i<=n;i++)
+    //     printf("%d %d %d\n",i,f[i],size[i]);
+    // exit(0);
     while(m--)
     {
         int x,y;
