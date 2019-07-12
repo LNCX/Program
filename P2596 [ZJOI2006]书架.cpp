@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=50;
+const int maxn=8e5+5;
 int f[maxn],size[maxn],ch[maxn][2],rt,pos[maxn],rev[maxn];
 void pushup(int k){size[k]=size[ch[k][0]]+size[ch[k][1]]+1;}
 bool chk(int x){return ch[f[x]][1]==x;}
@@ -10,7 +10,7 @@ void rotate(int x)
     ch[y][k]=ch[x][k^1],f[ch[x][k^1]]=y;
     ch[z][chk(y)]=x,f[x]=z;
     ch[x][k^1]=y,f[y]=x;
-    pushup(x),pushup(y);
+    pushup(y),pushup(x);
 }
 void splay(int x,int k=0)
 {
@@ -44,9 +44,9 @@ int find(int k)
     {
         if(ch[cur][0]&&k<=size[ch[cur][0]])
             cur=ch[cur][0];
-        else if(k>size[ch[cur][0]])
+        else if(k>size[ch[cur][0]]+1)
         {
-            k-=size[ch[cur][0]];
+            k-=size[ch[cur][0]]+1;
             cur=ch[cur][1];
         }
         else return cur;
@@ -80,6 +80,7 @@ void bottom(int k)
 }
 void change(int x,int p)
 {
+    splay(x);
     int y;
     if(p==0) return ;
     if(p==-1) y=find(size[ch[x][0]]);
@@ -98,10 +99,7 @@ int main()
         pos[x]=i,rev[i]=x;
     }
     rt=(1+n)>>1;
-    build(1,n,rt);
-    // for(int i=1;i<=n;i++)
-    //     printf("%d %d %d\n",i,f[i],size[i]);
-    // exit(0);
+    build(1,n,0);
     while(m--)
     {
         int x,y;

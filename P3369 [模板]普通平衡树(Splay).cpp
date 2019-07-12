@@ -13,7 +13,7 @@ class Splay
             ch[y][k]=ch[x][k^1],f[ch[x][k^1]]=y;
             ch[z][chk(y)]=x,f[x]=z;
             ch[x][k^1]=y,f[y]=x;
-            pushup(x),pushup(y);
+            pushup(y),pushup(x);
         }
         void splay(int x,int k=0)
         {

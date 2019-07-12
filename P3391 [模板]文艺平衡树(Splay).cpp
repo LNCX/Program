@@ -73,6 +73,7 @@ int main()
 {
     scanf("%d%d",&n,&m);
     root=(n+3)/2;build(1,n+2,root);
+    cerr<<fa[2]<<endl;
     for(int i=1;i<=m;i++)
 	{
         int L,R;scanf("%d%d",&L,&R);
