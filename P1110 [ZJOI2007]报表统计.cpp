@@ -1,53 +1,74 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e5+5;
+const int inf=0x3f3f3f3f,maxn=5e5+5;
+int n,m;
+int l[maxn],r[maxn];
+multiset<int>s1,s2;
 map<int,int>ma;
-vector<int>v[maxn];
-int ans1=0x7fffffff,ans2=0x7fffffff;
+priority_queue< int,vector<int>,greater<int> > q;
+inline int read()
+{
+    int x=0;
+    bool f=true;
+    char c=getchar();
+    while(!isdigit(c))
+    {
+        if(c=='-') f=false;
+        c=getchar();
+    }
+    while(isdigit(c))
+    {
+        x=(x<<3)+(x<<1)+c-'0';
+        c=getchar();
+    }
+    return f?x:-x;
+}
+void insert(int x)
+{
+    ma[x]++;
+    if(ma[x]==1)
+        s1.insert(x);
+}
+void push(int x)
+{
+    int l=*--s2.lower_bound(x),r=*s2.lower_bound(x);
+    q.push(min(x-l,r-x));
+    s2.insert(x);
+}
 int main()
 {
-    int n,m;
-    scanf("%d%d",&n,&m);
+    n=read();m=read();
+    s2.insert(inf);s2.insert(-inf);
     for(int i=1;i<=n;i++)
     {
-        int x;
-        scanf("%d",&x);
-        v[i].push_back(x);
-        ma[x]++;
-        if(i>1) ans1=min(abs(v[i][0]-v[i-1][0]),ans1);
+        int x=read();
+        l[i]=r[i]=x;
+        push(x);
     }
-    for(auto it=ma.begin();it!=ma.end();it++)
+    for(int i=2;i<=n;i++)
+        insert(abs(l[i]-l[i-1]));
+    int p,x,t;
+    for(int i=1;i<=m;i++)
     {
-        if(it->second > 1) ans2=0;
-        if(it==ma.begin()) continue;
-        int x=it->first,y=(--it)->first;
-        ans2=min(abs(x-y),ans2);it++;
-    }
-    while(m--)
-    {
-        string s;
-        cin>>s;
-        if(s=="INSERT")
+        char s[20];
+        scanf("%s",s);
+        if(s[0]=='I')
         {
-            int p,w;
-            scanf("%d%d",&p,&w);
-            int pre=v[p].back(),nxt;
-            if(!v[p+1].empty()) nxt=v[p+1].front();
-            else nxt=0x3f3f3f3f;
-            v[p].push_back(w);
-            ans1=min(min(abs(w-pre),abs(w-nxt)),ans1);
-
-            for(auto it=ma.begin();it!=ma.end();it++)
-            {
-                auto i=it;
-                if(it->second > 1) ans2=0;
-                if(i==ma.begin()||(++i)==ma.end()) continue;
-                i=it; ans2=min(it->first-(--i)->first,ans2);
-                i=it; ans2=min(it->first-(++i)->first,ans2);
-            }
+            p=read();x=read();
+            if(p!=n)
+			{
+				t=abs(r[p]-l[p+1]);
+				ma[t]--;
+				if(!ma[t])
+                    s1.erase(t);
+			}
+            insert(abs(r[p]-x));
+            insert(abs(x-l[p+1]));
+            r[p]=x;
+            push(x);
         }
-        if(s=="MIN_GAP") cout<<ans1<<endl;
-        if(s=="MIN_SORT_GAP") cout<<ans2<<endl;
+        else if(s[4]=='S')printf("%d\n",q.top());
+        else printf("%d\n",*s1.begin());
     }
     return 0;
 }
