@@ -6,12 +6,10 @@ struct edge
 {
     int nxt,to,f,w;
 }e[maxm];
-void Add(int u,int v,int f,int w)
+void add(int u,int v,int f,int w)
 {
-    e[++tot]=(edge){head[u],v,f,w};
-    head[u]=tot;
-    e[++tot]=(edge){head[v],u,0,-w};
-    head[v]=tot;
+    e[++tot]=(edge){head[u],v,f,w},head[u]=tot;
+    e[++tot]=(edge){head[v],u,0,-w},head[v]=tot;
 }
 bool SPFA(int s,int t)
 {
@@ -84,7 +82,7 @@ int main()
     {
         int u,v,f,w;
         scanf("%d%d%d%d",&u,&v,&f,&w);
-        Add(u,v,f,w);
+        add(u,v,f,w);
     }
     mcmf(s,t);
     printf("%d %d",maxflow,mincost);
