@@ -1,4 +1,3 @@
-#pragma GCC optimiz("O2")
 #include<bits/stdc++.h>
 using namespace std;
 int n,a[100005],maxx;
