@@ -103,25 +103,23 @@ class Splay
         int order(int x){return v[kth(x+1)];}
         int prev(int x){return v[pre(x)];}
         int succv(int x){return v[suc(x)];}
-}t;
+}t1,t2;
+struct node
+{
+    int l,r;
+    bool operator<(const node k) const
+    {
+        return l<k.l;
+    }
+};
+int a
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    t.insert(0x3f3f3f3f);
-    t.insert(0xcfcfcfcf);
-    while(n--)
+    ios::sync_with_stdio(0);
+    int k,n;
+    scanf("%d%d",&k,&n);
+    for(int i=1;i<=n;i++)
     {
-        int op,x;
-        scanf("%d%d", &op, &x);
-        switch(op)
-        {
-            case 1: t.insert(x); break;
-            case 2: t.remove(x); break;
-            case 3: printf("%d\n", t.rnk(x)); break;
-            case 4: printf("%d\n", t.order(x)); break;
-            case 5: printf("%d\n", t.prev(x)); break;
-            case 6: printf("%d\n", t.succv(x)); break;
-        }
+
     }
 }
