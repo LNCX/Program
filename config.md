@@ -1,6 +1,6 @@
 ## Sync匹配
 
-Token: 345b2494d19aca678d9123da1a6f74149fe1835c
+Token: b23ee12c34a05ec9f21053b851caa3872eb9fa15
 
 Gist: 1602e952a4957b6e35c9f148c1cbd0c2
 
