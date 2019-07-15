@@ -112,7 +112,8 @@ struct node
         return l<k.l;
     }
 };
-int a
+vector<node>v;
+int ans=0;
 int main()
 {
     ios::sync_with_stdio(0);
@@ -120,6 +121,10 @@ int main()
     scanf("%d%d",&k,&n);
     for(int i=1;i<=n;i++)
     {
-
+        char a,b;
+        int x,y;
+        cin>>a>>x>>b>>y;
+        if(a==b) ans+=abs(x-y);
+        else 
     }
 }
