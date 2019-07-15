@@ -13,8 +13,8 @@ void add(int u,int v,int f,int w)
 }
 bool SPFA(int s,int t)
 {
-    memset(vis,0,sizeof(vis));
-    memset(dis,inf,sizeof(dis));
+    for(int i=0;i<=t;i++)
+        vis[i]=0,dis[i]=inf;
     dis[s]=0;vis[s]=1;
     queue<int>q;
     q.push(s);

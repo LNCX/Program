@@ -87,6 +87,7 @@
         "valarray": "cpp",
         "queue": "cpp",
         "algorithm": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "__config": "cpp"
     },
 }
