@@ -48,7 +48,7 @@ struct PT
     {
         printf("%lf %lf\n", x, y);
     }
-} p[100010];
+} p[200010];
 bool cmp_y(const PT &a, const PT &b)
 {
     return sgn(a.y - b.y) < 0;
@@ -88,6 +88,6 @@ int main()
     for (int i = 0; i < n; i++)
         p[i].in();
     std::sort(p, p + n);
-    printf("%.2f\n", closest_pair(p, n));
+    printf("%.4f\n", closest_pair(p, n));
     return 0;
 }
