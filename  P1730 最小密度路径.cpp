@@ -1,66 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=60,maxm=1005;
-struct edge
-{
-    int nxt,to;
-    double w;
-}e[maxm];
-int n,m,head[maxn],tot,vis[maxn];
-struct node
-{
-   double val,cnt; 
-}dis[maxn][maxn];
-void SPFA(int s)
-{
-    queue<int>q;
-    for(int i=1;i<=n;i++)
-    {
-        vis[i]=0;
-        dis[s][i].val=-1;
-    }
-    dis[s][s].val=dis[s][s].cnt=0;
-    q.push(s);
-    while(!q.empty())
-    {
-        int u=q.front();
-        q.pop(),vis[u]=0;
-        for(int i=head[u];i!=0;i=e[i].nxt)
-        {
-            int v=e[i].to;
-            if(dis[s][v].val==-1 || dis[s][v].val/dis[s][v].cnt>(dis[s][u].val+e[i].w)/(dis[s][u].cnt+1))
-            {
-                dis[s][v].val=dis[s][u].val+e[i].w;
-                dis[s][v].cnt=dis[s][u].cnt+1;
-                if(!vis[v])
-                {
-                    q.push(v);
-                    vis[v]=1;
-                }
-            }
-        }
-    }
-}
+const int maxn=55,maxm=1e3+5;
+int f[maxm][maxn][maxn];
 int main()
 {
+    int n,m;
     scanf("%d%d",&n,&m);
-    for(int i=1;i<=n;i++)
+    for(int l=1;l<=m;l++)
+        for(int i=1;i<=n;i++)
+            for(int j=1;j<=n;j++)
+                f[l][i][j]=1e9;
+    for(int i=1;i<=m;i++)
     {
-        int u,v;
-        double w;
-        scanf("%d%d%lf",&u,&v,&w);
-        e[++tot]=(edge){head[u],v,w},head[u]=tot;
+        int u,v,w;
+        scanf("%d%d%d",&u,&v,&w);
+        if(w<f[1][u][v]) f[1][u][v]=w;
     }
-    for(int i=1;i<=n;i++)
-        SPFA(i);
+    for(int l=2;l<=m;l++)
+        for(int k=1;k<=n;k++)
+            for(int i=1;i<=n;i++)
+                for(int j=1;j<=n;j++)
+                    f[l][i][j]=min(f[l-1][i][k]+f[1][k][j],f[l][i][j]);
     int q;
     scanf("%d",&q);
     while(q--)
     {
         int x,y;
-        scanf("%d%d",&x,&y);
-        if(dis[x][y].val==-1) puts("OMG!");
-        else printf("%.3lf\n",dis[x][y].val/dis[x][y].cnt);
+        double ans=1e9;
+        for(int l=1;l<=m;l++)
+            if(ans*l<f[l][x][y])
+                ans=(double)f[l][x][y]/l;
+        ans==1e9?puts("OMG!"):printf("%lf\n",ans);
     }
     return 0;
 }
