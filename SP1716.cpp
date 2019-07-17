@@ -2,9 +2,10 @@
 using namespace std;
 const int N=2e5+5,inf=0x3f3f3f3f;
 int a[N];
-struct mat
+class mat
 {
-    int c[4][4];
+    public:
+    int c[4][4]={{0}};
     friend mat operator*(const mat a,const mat b)
     {
         mat res;
@@ -17,11 +18,13 @@ struct mat
                     res.c[i][j]=max(a.c[i][k]+b.c[k][j],res.c[i][j]);
         return res;
     }
-    void start()
+    bool check()
     {
         for(int i=1;i<=3;i++)
             for(int j=1;j<=3;j++)
-                c[i][j]=0;
+                if(c[i][j])
+                    return false;
+        return true;
     }
 };
 mat sum[N<<2];
@@ -57,23 +60,14 @@ mat query(int k,int l,int r,int x,int y)
 {
     if(x<=l&&r<=y){return sum[k];}
     int mid=(l+r)>>1;
-    mat res;res.start();
-    if(mid>=x) res=res*query(k<<1,l,mid,x,y);
-    if(mid< y) res=res*query(k<<1|1,mid+1,r,x,y);
-    return res;
-}
-void print(mat k)
-{
-    for(int i=1;i<=3;i++)
+    mat res;
+    if(mid>=x) res=query(k<<1,l,mid,x,y);
+    if(mid< y) 
     {
-        for(int j=1;j<=3;j++)
-        {
-            if(k.c[i][j]<-1e9) printf("-inf\t");
-            else printf("%d\t",k.c[i][j]);
-
-        }
-        puts("");
+        if(res.check()) res=query(k<<1|1,mid+1,r,x,y);
+        else res=res*query(k<<1|1,mid+1,r,x,y);
     }
+    return res;
 }
 int main()
 {
@@ -84,8 +78,6 @@ int main()
     build(1,1,n);
     int q;
     cin>>q;
-    for(int i=1;i<=7;i++)
-        printf("%d\n",i),print(sum[i]),puts(""); 
     while(q--)
     {
         int op,x,y;
@@ -93,8 +85,7 @@ int main()
         if(op)
         {
             mat k=query(1,1,n,x,y);
-            print(k);
-            printf("%d\n",max(k.c[2][3],k.c[2][1]));
+            printf("%d\n",k.c[2][3]);
         }
         else modify(1,1,n,x,y);
     }
