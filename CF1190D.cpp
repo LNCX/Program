@@ -1,41 +1,40 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int N=2e5+5;
-struct point
-{
-    int x,y;
-    bool operator<(const point k) const
-    {
-        if(k.x==x) return y<k.y;
-        else return x<k.x;
-    }
-}a[N];
-int n,m,ans;
-vector<int>b[N];
-void divide(int l,int r)
-{
-    map<int>ma;
-    s.insert(0);
-    if(l==r) {ans++;return;}
-    if(l> r) return;
-    int mid=(l+r)>>1;
-    for(auto i:b[mid])
-        s.insert(i);
-    for(int i=l;i<mid;i++)
-        for(int i=1;i<=n;i++)
-}
+typedef long long ll;
+ll cnt,ans,t[N];
+set<ll>s;
+map<ll,ll>id;
+map< ll,vector<ll> >mp;
+void fix(ll x){while(x<N)t[x]++,x+=(x&(-x));}
+ll ask(ll x){ll res=0;while(x>0)res+=t[x],x-=(x&(-x));return res;}
 int main()
 {
-    cin>>n;
-    for(int i=1;i=n;i++)
-        scanf("%d%d",&a[i].x,&a[i].y);
-    sort(a+1,a+1+n);
-    b[++m].push_back(a[1].y);
-    for(int i=2;i<=n;i++)
+    ll n;
+    scanf("%lld",&n);
+    for(ll i=1;i<=n;i++)
     {
-        if(a[i].x!=a[i-1].x) m++;
-        b[m].push_back(a[i].y);
+        ll x,y;
+        scanf("%lld%lld",&x,&y);
+        mp[-y].push_back(x);
+        s.insert(x);
     }
-    divide(1,m);
+    for(auto x:s) id[x]=++cnt;
+    for(auto it:mp)
+    {
+        #define d mp[y]
+        ll y=it.first,lst=0;
+        sort(d.begin(),d.end());
+        for(auto x:d)
+            if(s.count(x))
+                fix(id[x]),s.erase(x);
+        for(auto x:d)
+        {
+            ll l=ask(id[x]),r=ask(N-1);
+            ans+=(l-lst)*(r-l+1);
+            lst=l;
+        }
+    }
+    printf("%lld\n",ans);
     return 0;
 }
