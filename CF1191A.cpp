@@ -11,6 +11,5 @@ int main()
     else if(a[3]!=-1) printf("%d B\n",a[3]);
     else if(a[2]!=-1) printf("%d C\n",a[2]);
     else printf("%d D\n",a[0]);
-
     return 0;
 }

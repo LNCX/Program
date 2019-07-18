@@ -101,8 +101,8 @@ class Splay
         }
         int rnk(int x){find(x);return size[ch[rt][0]];}
         int order(int x){return v[kth(x+1)];}
-        int precursor(int x){return v[pre(x)];}
-        int successor(int x){return v[suc(x)];}
+        int prev(int x){return v[pre(x)];}
+        int succv(int x){return v[suc(x)];}
 }t;
 int main()
 {
@@ -120,8 +120,8 @@ int main()
             case 2: t.remove(x); break;
             case 3: printf("%d\n", t.rnk(x)); break;
             case 4: printf("%d\n", t.order(x)); break;
-            case 5: printf("%d\n", t.precursor(x)); break;
-            case 6: printf("%d\n", t.successor(x)); break;
+            case 5: printf("%d\n", t.prev(x)); break;
+            case 6: printf("%d\n", t.succv(x)); break;
         }
     }
 }
