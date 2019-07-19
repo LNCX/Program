@@ -1,12 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
+vector<int>v;
+int ans,add;
 const int maxn=1e5+5;
 class Splay
 {
     private:
-        int ch[maxn][2],f[maxn],size[maxn],v[maxn],cnt[maxn],rt,tot;
-        bool chk(int x){return ch[f[x]][1]==x;}
-        void pushup(int k){size[k]=size[ch[k][0]]+size[ch[k][1]]+cnt[k];}
+        int size[maxn],sum[maxn],cnt[maxn],ch[maxn][2],f[maxn],v[maxn],rt;
+        bool chk(int k){return ch[f[k]][1]==k;}
+        void pushup(int k)
+        {
+            sum[k]=sum[ch[k][0]]+sum[ch[k][1]]+v[k]*cnt[k];
+            size[k]=size[ch[k][0]]+size[ch[k][1]]+cnt[k];
+        }
         void rotate(int x)
         {
             int y=f[x],z=f[y],k=chk(x);
@@ -22,50 +28,11 @@ class Splay
                 int y=f[x],z=f[y];
                 if(z!=k)
                 {
-                    if(chk(x)==chk(y)) rotate(y);
-                    else rotate(x);
+                    if(chk(y)==chk(x)) rotate(y);
+                    else rotate(y);
                 }
                 rotate(x);
             }
-            if(!k) rt=x;
-        }
-        void find(int x)
-        {
-            int cur=rt;
-            while(ch[cur][x>v[cur]]&&x!=v[cur])
-                cur=ch[cur][x>v[cur]];
-            splay(cur);
-        }
-        int kth(int k)
-        {
-            int cur=rt;
-            while(1)
-            {
-                if(ch[cur][0]&&k<=size[ch[cur][0]])
-                    cur=ch[cur][0];
-                else if(k>size[ch[cur][0]]+cnt[cur])
-                {
-                    k-=size[ch[cur][0]]+cnt[cur];
-                    cur=ch[cur][1];
-                }
-                else return cur;
-            }
-        }
-        int pre(int x)
-        {
-            find(x);
-            if(v[rt]<x) return rt;
-            int cur=ch[rt][0];
-            while(ch[cur][1]) cur=ch[cur][1];
-            return cur;
-        }
-        int suc(int x)
-        {
-            find(x);
-            if(v[rt]>x) return rt;
-            int cur=ch[rt][1];
-            while(ch[cur][0]) cur=ch[cur][0];
-            return cur;
         }
     public:
         void insert(int x)
@@ -79,52 +46,32 @@ class Splay
             if(cur) cnt[cur]++;
             else
             {
-                cur=++tot;
-                if(fa) ch[fa][x>v[fa]]=cur;
-                ch[cur][0]=ch[cur][1]=0;
-                f[cur]=fa,v[cur]=x;
-                cnt[cur]=size[cur]=1;
+               f[cur]=fa;
+               sum[cur]=v[cur]=x;
+               cnt[cur]=size[cur]=1;
+               ch[cur][0]=ch[cur][1]=0;
             }
             splay(cur);
         }
-        void remove(int x)
-        {
-            int lst=pre(x),nxt=suc(x);
-            splay(lst),splay(nxt,lst);
-            int del=ch[nxt][0];
-            if(cnt[del]>1)
-            {
-                cnt[del]--;
-                splay(del);
-            }
-            else ch[nxt][0]=0,pushup(nxt),pushup(rt);
-        }
-        int rnk(int x){find(x);return size[ch[rt][0]];}
-        int order(int x){return v[kth(x+1)];}
-        int prev(int x){return v[pre(x)];}
-        int succv(int x){return v[suc(x)];}
-}t1,t2;
-struct node
-{
-    int l,r;
-    bool operator<(const node k) const
-    {
-        return l<k.l;
-    }
-};
-vector<node>v;
-int ans=0;
+}t;
 int main()
 {
     ios::sync_with_stdio(0);
     int k,n;
-    scanf("%d%d",&k,&n);
+    cin>>k>>n;
     for(int i=1;i<=n;i++)
     {
         char a,b;
         int x,y;
         cin>>a>>x>>b>>y;
-        if(a==b) ans+=abs(x-y);
-        else 
+        if(a==b) add+=(x+y);
+        else v.push_back(x+y),add++;
     }
+    sort(v.begin(),v.end());
+    if(k==1)
+    {
+        int ans=0;
+        
+    }
+    return 0;
 }
