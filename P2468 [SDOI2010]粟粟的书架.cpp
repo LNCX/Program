@@ -3,7 +3,7 @@ int n,m,q;
 namespace solve1
 {
     const int N=5e5+5;
-    int a[N],t[N],ch[N*12][2],sum[N*12],cnt[N*12],tot;
+    int a[N],t[N],ch[N*15][2],sum[N*15],cnt[N*15],tot;
     int build(int l,int r)
     {
         int rt=++tot,mid=(l+r)>>1;
