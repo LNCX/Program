@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int N=1e5+5,inf=0x3f3f3f3f;
-int a[N];
 struct edge
 {
     int nxt,to;
@@ -11,7 +10,9 @@ struct mat
     int d[2][2];
     mat()
     {
-        memset(d,-inf,sizeof(d));
+        for(int i=0;i<2;i++)
+            for(int j=0;j<2;j++)
+                d[i][j]=0xcfcfcfcf;
     }
     friend mat operator*(const mat a,const mat b)
     {
@@ -22,22 +23,10 @@ struct mat
                     res.d[i][j]=max(a.d[i][k]+b.d[k][j],res.d[i][j]);
         return res;
     }
-    void print()
-    {
-        for(int i=0;i<2;i++)
-        {
-            for(int j=0;j<2;j++)
-            {
-                if(d[i][j]<-1e9) printf("\\ ");
-                else printf("%d ",d[i][j]);
-            }
-            puts("");
-        }                
-    }
 };
-mat sum[N],val[N];
-int n,m,head[N],tot,f[N][2],g[N][2];
-int size[N],dep[N],son[N],fa[N],seg[N],rev[N],top[N],btm[N];
+mat sum[N<<2],val[N<<2];
+int n,m,head[N],tot,f[N][2],g[N][2],a[N];
+int size[N],son[N],fa[N],seg[N],rev[N],top[N],btm[N];
 void add(int u,int v)
 {
     e[++tot]=(edge){head[u],v},head[u]=tot;
@@ -47,7 +36,6 @@ void dfs1(int u,int father)
 {
     size[u]=1;
     fa[u]=father;
-    dep[u]=dep[father]+1;
     for(int i=head[u];i!=0;i=e[i].nxt)
     {
         int v=e[i].to;
@@ -125,8 +113,8 @@ mat query(int k,int l,int r,int x,int y)
     if(x<=l&&r<=y) return sum[k];
     int mid=(l+r)>>1;
     if(y<=mid) return query(k<<1,l,mid,x,y);
-    else if(mid<x) return query(k<<1|1,mid+1,r,x,y);
-    else return query(k<<1,l,mid,x,y)*query(k<<1|1,mid+1,r,x,y); 
+    if(mid<x) return query(k<<1|1,mid+1,r,x,y);
+    return query(k<<1,l,mid,x,y)*query(k<<1|1,mid+1,r,x,y); 
 }
 mat ask(int u){return query(1,1,n,seg[top[u]],seg[btm[u]]);}
 void fix(int u,int w)
@@ -139,6 +127,7 @@ void fix(int u,int w)
         modify(1,1,n,seg[u]);
         mat nxt=ask(u);
         u=fa[top[u]];
+        if(!u) break;
         x=seg[u];
         val[x].d[0][0]+=max(nxt.d[0][0],nxt.d[1][0])-max(lst.d[0][0],lst.d[1][0]);
         val[x].d[0][1]=val[x].d[0][0];
@@ -157,30 +146,15 @@ int main()
         add(u,v);
     }
     dfs1(1,0);
-    cerr<<"in"<<endl;
     seg[0]=top[1]=rev[1]=seg[1]=1;
     dfs2(1,0);
     build(1,1,n);
-
-    for(int i=1;i<=n;i++)
-        printf("%d %d\n",g[i][0],g[i][1]);
-    puts("-----------------");
-    for(int i=1;i<=n;i++)
-    {
-        val[i].print();
-        puts("------------------");
-    }
-    for(int i=1;i<=n;i++)
-        printf("%d ",seg[i]);
-    puts("");
-    printf("%d\n",max(sum[1].d[0][0],sum[1].d[1][0]));
-    return 0;
     while(m--)
     {
         int u,w;
         scanf("%d%d",&u,&w);
         fix(u,w);
-        mat k=sum[1];
+        mat k=ask(1);
         printf("%d\n",max(k.d[0][0],k.d[1][0]));
     }
     return 0;

@@ -61,7 +61,6 @@ void insert(int &k,int l,int r,int x,int w)
     if(!k) k=++rt;
     if(l==r)
     {
-        // cerr<<rt<<" "<<w<<endl;
         sum[k]=maxx[k]=w;
         return ;
     }
@@ -145,7 +144,6 @@ int main()
     dfs2(1);
     for(int i=1;i<=n;i++)
         insert(t[c[i]],1,n,seg[i],w[i]);
-    //print(t[c[1]]);
     while(q--)
     {
         char s[2];
