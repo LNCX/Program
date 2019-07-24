@@ -11,7 +11,6 @@
     "editor.minimap.enabled": true,
     "editor.fontSize": 15,
     "explorer.confirmDelete": false,
-    "luogu.defaultLanguage": "C++",
     "files.defaultLanguage": "cpp",
     "workbench.colorTheme": "One Dark Pro Vivid",
     "zenMode.fullScreen": false,
