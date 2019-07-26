@@ -58,23 +58,23 @@ bool camp(int a,int b)
 		return x[a]<x[b];
 	return y[a]<y[b];
 }
-int dg[maxn],rank[maxm];
+int dg[maxn],rnk[maxm];
 void remove()
 {
 	for(int i=1;i<=m;i++)
 	{
-		rank[i]=i;
+		rnk[i]=i;
 		x[i]=co[x[i]];
 		y[i]=co[y[i]];
 	}
-	sort(rank+1,rank+1+m,camp);
+	sort(rnk+1,rnk+1+m,camp);
 	e_num=0;
 	memset(head,0,sizeof(head));
 	memset(nxt,0,sizeof(nxt));
 	for(int i=1;i<=m;i++)
 	{
-		int k=rank[i];
-		if(x[k]!=y[k]&&(x[k]!=x[rank[i-1]]||y[k]!=y[rank[i-1]]))//不在同一缩点 
+		int k=rnk[i];
+		if(x[k]!=y[k]&&(x[k]!=x[rnk[i-1]]||y[k]!=y[rnk[i-1]]))//不在同一缩点 
 		{
 			dg[y[k]]++;
 			add(x[k],y[k]);
