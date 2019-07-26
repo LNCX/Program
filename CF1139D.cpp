@@ -44,8 +44,8 @@ int main()
             f[i]=(f[i]+1)%mod;
             f[i]=1ll*f[i]*power((1-1ll*(m/i)*inv%mod+mod)%mod,mod-2)%mod;
         }
-        for(int j=2;j<=m/i;j++) f[i*j]=(f[i*j]+1ll*f[i]*cnt(j,m/i))%mod;
-        
+        for(int j=2;j<=m/i;j++)
+            f[i*j]=(f[i*j]+1ll*f[i]*cnt(j,m/i))%mod;
     }
     int ans=0;
     for(int i=1;i<=m;i++) ans=(ans+f[i]+1)%mod;    

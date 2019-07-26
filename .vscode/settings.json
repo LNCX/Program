@@ -26,6 +26,7 @@
     "breadcrumbs.enabled": false,
     "search.followSymlinks": false,
     "files.associations": {
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "bitset": "cpp"
     },
 }
