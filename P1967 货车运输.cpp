@@ -1,75 +1,80 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5;
-const int maxm=1e5+5;
-const int inf=0x3f3f3f3f;
-int n,m;
-struct node
+const int maxn=1e4+5,maxm=5e4+5,maxb=15,inf=0x3f3f3f3f;
+struct Edge
 {
-    int edge_sum;
-    int w[maxm];
-    int to[maxm];
-    int nxt[maxm];
-    int head[maxm];
-}a,b;
-void add(int u,int v,int w,node &a)
+	int u,v,w;
+	bool operator < (const Edge& rhs) const
+	{
+		return w>rhs.w;
+	}
+} edge[maxm];
+int fa[maxn],d[maxn],fan[maxn][maxb],mine[maxn][maxb];
+int f(int i)
 {
-    a.nxt[++a.edge_sum]=a.head[u];
-    a.to[a.edge_sum]=v;
-    a.w[a.edge_sum]=w;
-    a.head[u]=a.edge_sum;
+	if(i==fa[i]) return i;
+	else return fa[i]=f(fa[i]);
 }
-priority_queue<pair<int,int> >q;
-int dis[maxn],pre[maxn],used[maxn];
-void prim()
+int dfs(int v)
 {
-    dis[1]=pre[1]=0;
-    q.push(make_pair(0,1));
-    for(int i=1;i<=n;i++)
-    {
-        int x;
-        do{
-            x=q.top().second;q.pop();
-        }while(used[x]&&q.size());
-        used[x]=1;
-        for(int i=a.head[x];i!=0;i=a.nxt[i])
-        {
-            int y=a.to[i],z=a.w[i];
-            if(!used[y]&&dis[y]<z)
-            {
-                dis[y]=z;pre[y]=x;
-                q.push(make_pair(dis[y],y));
-            }
-        }
-        int y=pre[x],z=dis[x];
-        add(x,y,z,b),add(y,x,z,b);
-    }
-}
-void init()
-{
-
+	if(d[v]) return d[v];
+	if(f(v)) return d[v]=dfs(fan[v][0])+1;
+	else return 1;
 }
 int LCA(int x,int y)
 {
-
+	if(d[x]<d[y]) swap(x,y);
+	int i,j,mmin=inf;
+	for(i=0;(1<<i)<=d[x];i++);
+	i--;
+	for(j=i;j>=0;j--)
+		if(d[x]-(1<<j)>=d[y])
+			mmin=min(mmin,mine[x][j]),x=fan[x][j];
+	if(x==y) return mmin;
+	for(j=i;j>=0;j--)
+		if(fan[x][j]!=fan[y][j])
+		{
+			mmin=min(mmin,min(mine[x][j],mine[y][j]));
+			x=fan[x][j],y=fan[y][j];
+		}
+	return min(mmin,min(mine[x][0],mine[y][0]));
 }
 int main()
 {
-    scanf("%d%d",&n,&m);
-    for(int i=1;i<=m;i++)
-    {
-        int x,y,z;
-        scanf("%d%d%d",&x,&y,&z);
-        add(x,y,z,a),add(y,x,z,a);
-    }
-    prim();
-    init();
-    int q;
-    cin>>q;
-    for(int i=1;i<=q;i++)
-    {
-        int x,y;
-        scanf("%d%d",&x,&y);
-        printf("%d\n",LCA(x,y));
-    }
+	int n,m,x,y,z,cnt=0;
+	scanf("%d%d",&n,&m);
+	for(int i=1; i<=m; ++i)
+	{
+		scanf("%d%d%d",&x,&y,&z);
+		edge[i].u=x,edge[i].v=y,edge[i].w=z;
+	}
+	sort(edge+1,edge+m+1);
+	for(int i=1; i<=n; ++i) fa[i]=i;
+	memset(mine,inf,sizeof(mine));
+	for(int i=1; i<=m&&cnt<n-1; ++i)
+	{
+		int u=f(edge[i].u),v=f(edge[i].v),w=edge[i].w;
+		if(u!=v) fa[v]=u,fan[v][0]=u,mine[v][0]=w,++cnt;
+	}
+	for(int i=1;i<=n;i++)
+	{
+		int root=f(i);
+		d[root]=1;
+		if(!d[i])dfs(i);
+	}
+	for(int j=1;j<maxb;j++)
+		for(int i=1; i<=n;i++)
+		{
+			fan[i][j]=fan[fan[i][j-1]][j-1];
+			mine[i][j]=min(mine[i][j-1],mine[fan[i][j-1]][j-1]);
+		}
+	int q;
+	scanf("%d",&q);
+	for(int i=1; i<=q; ++i)
+	{
+		scanf("%d%d",&x,&y);
+		if(f(x)!=f(y)) cout<<-1<<endl;
+		else printf("%d\n",LCA(x,y));
+	}
+	return 0;
 }
