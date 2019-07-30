@@ -48,7 +48,12 @@ int main()
         if(o==2&&(s1&(s2>>(N-x))).any()) ans[id]=1;
         if(o==3)
         {
-            
+            for(int j=1;j*j<=x;j++)
+                if(x%j==0&&s1[j]&&s1[x/j])
+                {
+                    ans[id]=1;
+                    break;
+                }
         }
     }
     for(int i=1;i<=m;i++)
