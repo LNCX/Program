@@ -1,90 +1,65 @@
-#include<cstdio>
-#include<cmath>
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
-const int MAXN=2*1e6+10;
-inline int read()
+const int N=5e4+5,M=1e6+5;
+int n,m,Q,T,a[N];
+int num,block,ans,out[N],cnt[M];
+struct que
 {
-    char c=getchar();int x=0,f=1;
-    while(c<'0'||c>'9'){if(c=='-')f=-1;c=getchar();}
-    while(c>='0'&&c<='9'){x=x*10+c-'0',c=getchar();}
-    return x*f;
-}
-int N,M;
-int a[MAXN],where[MAXN];
-struct Query
-{
-    int x,y,pre,id;
-}Q[MAXN];
-int Qnum=0;
-struct Change
+    int t,l,r,id;
+    friend bool operator<(const que a,const que b)
+    {
+        if(a.l/block!=b.l/block) return a.l<b.l;
+        if(a.r/block!=b.r/block) return a.r<b.r;
+        return a.t<b.t;
+    }
+}q[N];
+struct node
 {
     int pos,val;
-}C[MAXN];
-int Cnum=0;
-int color[MAXN],ans=0,base,out[MAXN];
-int comp(const Query &a,const Query &b)
+}t[N];
+void add(int now){if(++cnt[a[now]]==1) ans++;}
+void del(int now){if(--cnt[a[now]]==0) ans--;}
+void tim(int now,int i) 
 {
-    if(a.x!=b.x) return where[a.x]<where[b.x];
-    if(a.y!=b.y) return where[a.y]<where[b.y];
-    return a.pre<b.pre;
-}
-void Add(int val)
-{    
-    if(++color[val]==1) ans++;
-} 
-void Delet(int val)
-{
-    if(--color[val]==0) ans--;
-}
-void Work(int now,int i)
-{
-    if(C[now].pos>=Q[i].x&&C[now].pos<=Q[i].y)
+    if(q[i].l<=t[now].pos&&t[now].pos<=q[i].r)
     {
-        if( --color[a[C[now].pos]] == 0 ) ans--;
-        if( ++color[C[now].val] == 1)      ans++; 
+        if(--cnt[a[t[now].pos]]==0) ans--;
+        if(++cnt[t[now].val]==1) ans++;
     }
-    swap(C[now].val,a[C[now].pos]);
+    swap(t[now].val,a[t[now].pos]);
 }
-void MoQueue()
+void moqueue()
 {
-    int l=1,r=0,now=0; 
-    for(int i=1;i<=Qnum;i++)
+    sort(q+1,q+1+Q);
+    int l=1,r=0,now=0;
+    for(int i=1;i<=Q;i++)
     {
-        while(l<Q[i].x)    Delet(a[l++]);
-        while(l>Q[i].x) Add(a[--l]);
-        while(r<Q[i].y) Add(a[++r]);
-        while(r>Q[i].y) Delet(a[r--]);
-        while(now<Q[i].pre) Work(++now,i);
-        while(now>Q[i].pre) Work(now--,i);
-        out[Q[i].id]=ans;
+        int ql=q[i].l,qr=q[i].r,t=q[i].t;
+        while(l<ql) del(l++);
+        while(l>ql) add(--l);
+        while(r<qr) add(++r);
+        while(r>qr) del(r--);
+        while(now<t) tim(++now,i);
+        while(now>t) tim(now--,i);
+        out[q[i].id]=ans;
     }
-    for(int i=1;i<=Qnum;i++)
-        printf("%d\n",out[i]);
 }
 int main()
 {
-    N=read();M=read();
-    base=sqrt(N);
-    for(int i=1;i<=N;i++) a[i]=read(),where[i]=(i-1)/base+1;
-    while(M--)
+    scanf("%d%d",&n,&m);
+    block=pow(n,0.6666667);
+    for(int i=1;i<=n;i++)
+        scanf("%d",&a[i]);
+    for(int i=1;i<=m;i++)
     {
-        char opt[5];
-        scanf("%s",opt);
-        if(opt[0]=='Q')
-        {
-            Q[++Qnum].x=read();
-            Q[Qnum].y=read();
-            Q[Qnum].pre=Cnum;
-            Q[Qnum].id=Qnum;        
-        }
-        else if(opt[0]=='R')
-        {
-            C[++Cnum].pos=read();
-            C[Cnum].val=read();
-        }
+        char s[10];
+        int x,y;
+        scanf("%s%d%d",s,&x,&y);
+        if(*s=='Q') ++Q,q[Q]=(que){T,x,y,Q};
+        else t[++T]=(node){x,y};
     }
-    sort(Q+1,Q+Qnum+1,comp);
-    MoQueue();
+    moqueue();
+    for(int i=1;i<=Q;i++)
+        printf("%d\n",out[i]);
     return 0;
 }
