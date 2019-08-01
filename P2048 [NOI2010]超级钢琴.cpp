@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 const int N=5e5+5;
-int n,k,L,R,a[N],sum[N],ans,cnt;
+int n,k,L,R,cnt;
+ll sum[N],ans,a[N];
 class RMQ
 {
     private:
@@ -34,7 +36,7 @@ struct node
     node(int o,int l,int r):o(o),l(l),r(r),t(st.find(l,r)){}
     bool operator<(const node&k)const
     {
-        return sum[t]-sum[o-1]>sum[k.t]-sum[k.o-1];
+        return sum[t]-sum[o-1]<sum[k.t]-sum[k.o-1];
     }
 };
 priority_queue<node>q;
@@ -42,18 +44,20 @@ int main()
 {
     scanf("%d%d%d%d",&n,&k,&L,&R);
     for(int i=1;i<=n;i++)
-        scanf("%d",&a[i]),sum[i]=sum[i-1]+a[i];
+        scanf("%lld",&a[i]),sum[i]=sum[i-1]+a[i];
     st.init();
     for(int i=1;i+L-1<=n;i++)
-        q.push(node(i,i+L-1,min(i+R-1,n)));
+    {
+        node x=node(i,i+L-1,min(i+R-1,n));
+        q.push(x);
+    }
     while(!q.empty())
     {
         int o=q.top().o,l=q.top().l,r=q.top().r,t=q.top().t;
-        cerr<<l<<" "<<r<<endl;
         q.pop(),ans+=sum[t]-sum[o-1],cnt++;
         if(cnt==k) break;
-        if(t!=l) q.push(node(o,o+L-1,t-1));
-        if(t!=r) q.push(node(o,t+1,min(n,o+R-1)));
+        if(t!=l) q.push(node(o,l,t-1));
+        if(t!=r) q.push(node(o,t+1,r));
     }
     cout<<ans<<endl;
     return 0;
