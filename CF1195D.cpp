@@ -19,12 +19,16 @@ int main()
     for(int i=1;i<=n;i++)
         for(int j=1;j<=10;j++) if(cnt[j])
         {
-            ll x=a[i],tmp=0;
-            for(int k=0;k<j;k++,x/=10) (tmp+=cnt[j]*(x%10)*(p[2*k]+p[2*k+1]))%=mod;
-            cerr<<tmp<<" ";
-            (tmp+=cnt[j]*(a[i]/p[b[i]]*p[b[i]])*p[j])%=mod;
-            cerr<<tmp<<endl;
-            (ans+=tmp)%=mod;
+            ll x=a[i],q=10,qq=1,w=0;
+			while(x)
+            {
+				int y=x%10;w++;
+				ans=(ans+q*y%mod*cnt[j])%mod;
+				ans=(ans+qq*y%mod*cnt[j])%mod;
+				if(w<j)q=100*q%mod;else q=10*q%mod;
+				if(w<=j)qq=100*qq%mod;else qq=10*qq%mod;
+				x/=10;
+			}
         }
     cout<<ans<<endl;
     return 0;
