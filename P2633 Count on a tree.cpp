@@ -1,9 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-<<<<<<< HEAD
-int main()
-{
-=======
 const int N=1e5+5;
 int n,m,q,rt,a[N],b[N],dep[N],ans;
 int t[N],ch[N<<5][2],f[N][20],sum[N<<5];
@@ -80,6 +76,5 @@ int main()
         ans=b[query(t[u],t[v],t[x],t[f[x][0]],1,m,k)];
         printf("%d\n",ans);
     }
->>>>>>> 779a664a90a2e6e2f2466f8bfcb70dddd23f520d
     return 0;
 }
