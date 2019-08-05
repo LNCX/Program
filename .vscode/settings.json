@@ -20,7 +20,6 @@
     "c-cpp-compile-run.run-args": "<in",
     "c-cpp-compile-run.cpp-compiler": "g++",
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
-    "C_Cpp.intelliSenseCacheSize": 0,
     "C_Cpp.default.cppStandard": "c++11",
     "C_Cpp.default.cStandard": "c11",
     "breadcrumbs.enabled": false,
