@@ -1,4 +1,3 @@
-#pragma GCC optimize("O2")
 #include<bits/stdc++.h>
 using namespace std;
 const int maxn=1e5+10;
@@ -9,7 +8,7 @@ int find(int x){return x==f[x]?f[x]:f[x]=find(f[x]);}
 int merge(int x,int y)
 {
     if(!x||!y) return x|y;
-    if(val[x]>val[y]||(val[x]==val[y]&&x>y)) 
+    if(val[x]>val[y]) 
         swap(x,y);
     ch[x][1]=merge(ch[x][1],y);
     if(dist[ch[x][0]]<dist[ch[x][1]]) 
