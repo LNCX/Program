@@ -25,7 +25,7 @@ bool cmp(point p1,point p2)
 int main()
 {
     scanf("%d",&n);
-    for(int i=1;i<=n;++i)
+    for(int i=1;i<=n;i++)
     {
         scanf("%lf%lf",&p[i].x,&p[i].y);
         if(p[i].y<p[1].y)
