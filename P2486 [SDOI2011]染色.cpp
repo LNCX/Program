@@ -17,14 +17,14 @@ inline int read()
     }
     return x;
 }
-const int maxn=1e4+5,maxm=1e5+5;
+const int N=1e4+5,maxm=1e5+5;
 int n,m;
-int a[maxn],num[maxn],rev[maxn];
+int a[N],num[N],rev[N];
 struct edge
 {
     int nxt,to;
 }e[maxm<<1];
-int head[maxn],tot=1;
+int head[N],tot=1;
 void edge_add(int u,int v)
 {
     e[++tot]=(edge){head[u],v};

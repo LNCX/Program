@@ -18,15 +18,15 @@ inline int read()
     return f?x:-x;
 }
 typedef long long ll;
-const int maxn=2e5+5;
+const int N=2e5+5;
 struct edge
 {
     int nxt,to;
-}e[maxn<<1];
-int head[maxn],tot,n,q;
-int f[maxn],dep[maxn],son[maxn];
-int seg[maxn],rev[maxn],top[maxn];
-ll a[maxn],sum[maxn<<2],tag[maxn<<2],sum2[maxn<<2],w[maxn],size[maxn],a0;
+}e[N<<1];
+int head[N],tot,n,q;
+int f[N],dep[N],son[N];
+int seg[N],rev[N],top[N];
+ll a[N],sum[N<<2],tag[N<<2],sum2[N<<2],w[N],size[N],a0;
 inline void edge_add(int u,int v)
 {
     e[++tot]=(edge){head[u],v};

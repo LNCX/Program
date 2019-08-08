@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5;
+const int N=1e4+5;
 struct ant
 {
     int rnk;
     int loc;
     char to;
     bool operator<(const ant &x) const {return loc<x.loc;}
-}a[maxn];
-int rev[maxn];
+}a[N];
+int rev[N];
 int main()
 {
     int T;

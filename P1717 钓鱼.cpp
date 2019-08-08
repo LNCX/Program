@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=30;
+const int N=30;
 struct fish
 {
     int f,d;
@@ -8,8 +8,8 @@ struct fish
     {
         return f<x.f;
     }
-}a[maxn];
-int n,h,t[maxn],ans;
+}a[N];
+int n,h,t[N],ans;
 int solve(int t,int id)
 {
     int res=0;

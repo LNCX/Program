@@ -1,10 +1,10 @@
 #pragma GCC optimize("O2")
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=35;
+const int N=35;
 int ex0,ey0,sx0,sy0,tx0,ty0,n,m;
-int g[maxn][maxn];
-bool vis[maxn][maxn][maxn][maxn];
+int g[N][N];
+bool vis[N][N][N][N];
 int dx[]={0,1,0,-1},
     dy[]={1,0,-1,0};
 struct node{int ex,ey,sx,sy,cnt;};

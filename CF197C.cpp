@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-char s[maxn],t[maxn];
+const int N=1e5+5;
+char s[N],t[N];
 int main()
 {
     scanf("%s",s);

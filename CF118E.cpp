@@ -1,7 +1,7 @@
 #pragma optimize GCC("O2")
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5,maxm=3e5+5;
+const int N=1e5+5,maxm=3e5+5;
 inline int read()
 {
     char c=getchar();
@@ -19,8 +19,8 @@ struct edge
 {
     int nxt,to;
 }e[maxm<<1]; 
-bool used[maxn],vis[maxm<<1];
-int head[maxn],tot=-1;
+bool used[N],vis[maxm<<1];
+int head[N],tot=-1;
 void add(int u,int v)
 {
     e[++tot]=(edge){head[u],v};
@@ -28,7 +28,7 @@ void add(int u,int v)
     e[++tot]=(edge){head[v],u};
     head[v]=tot;
 }
-int dfn[maxn],st[maxn],top,dfstime,low[maxn];
+int dfn[N],st[N],top,dfstime,low[N];
 inline void tarjan(int x, int from)
 {
 	dfn[x]=low[x]=++dfstime;

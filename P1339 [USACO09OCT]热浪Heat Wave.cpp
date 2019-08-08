@@ -1,7 +1,7 @@
-//·À×ØÃû±êÖ¾ 
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ 
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 const int maxm=5e5+5;
 const int inf=0x3f3f3f3f;
 struct node
@@ -10,7 +10,7 @@ struct node
     int w;
     int nxt;
 }edg[maxm];
-int n,m,s,l,r,k,num,used[maxn],dis[maxn];
+int n,m,s,l,r,k,num,used[N],dis[N];
 int head[maxm],h[maxm],q[maxm],len=1;
 void add(int from,int to,int w)
 {

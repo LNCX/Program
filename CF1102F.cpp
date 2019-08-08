@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5,oo=0x3f3f3f3f;
-int n,m,a[17][maxn],c1[17][17],c2[17][17],f[1<<17][17];
+const int N=1e4+5,oo=0x3f3f3f3f;
+int n,m,a[17][N],c1[17][17],c2[17][17],f[1<<17][17];
 int cal(int mask, int u)
 {
     if(f[mask][u]!=-1) return f[mask][u];

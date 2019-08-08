@@ -1,18 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 typedef long long ll;
 struct node
 {
     ll id,v;
-}a[maxn];
+}a[N];
 bool cmp(node a,node b)
 {
     return a.v<b.v||a.v==b.v&&a.id<b.id;
 }
 ll n,A,cf,cm,m;
-ll L,ans[maxn],f,ansA,ansL;
-ll s[maxn];
+ll L,ans[N],f,ansA,ansL;
+ll s[N];
 ll findL(ll m,ll R)
 {
     ll l=0,r=A,ans=0;

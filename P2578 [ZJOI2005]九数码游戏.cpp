@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e5;
+const int N=5e5;
 struct cub
 {
 	int d[4][4];
-}a,mid,q[maxn];
-int mark,target,used[maxn],ans[maxn],pre[maxn]={-1};
+}a,mid,q[N];
+int mark,target,used[N],ans[N],pre[N]={-1};
 int f[10]={0,1,2,6,24,120,720,5040,40320,362880};
 int turn(cub x)
 {

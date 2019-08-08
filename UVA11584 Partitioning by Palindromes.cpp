@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
+const int N=1005;
 const int inf=0x3f3f3f3f;
 int main()
 {
@@ -8,9 +8,9 @@ int main()
 	cin>>t;
 	while(t--)
 	{
-		char s[maxn];
-		int f[maxn],len;
-		bool used[maxn][maxn];
+		char s[N];
+		int f[N],len;
+		bool used[N][N];
 		memset(f,inf,sizeof(f));
 		memset(used,false,sizeof(used));
 		scanf("%s",s+1);

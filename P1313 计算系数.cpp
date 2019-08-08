@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
+const int N=1005;
 const int mod=10007;
-int c[maxn][maxn];
+int c[N][N];
 int a,b,k,n,m;
 int pow(int x,int y)
 {

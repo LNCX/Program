@@ -53,7 +53,7 @@ int main()
     while(scanf("%d",&n))
     {
         if(n==0) return 0;
-        int sum=0,maxn=0;
+        int sum=0,N=0;
         clear();
         for(int i=1;i<=n;i++)
         {
@@ -62,7 +62,7 @@ int main()
             if(x<=50)
             {
                 b[x]++;
-                maxn=max(x,maxn);
+                N=max(x,N);
                 sum+=x;
                 all++;
             }
@@ -74,7 +74,7 @@ int main()
                 a[top].num=b[i];
             }
         sort(a+1,a+top+1,cmp);
-        for(len=maxn;len<=sum/2;len++)
+        for(len=N;len<=sum/2;len++)
             if (sum%len==0)
                 dfs(0,1,0);
     }

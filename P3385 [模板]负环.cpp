@@ -1,22 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e3+5,maxm=6e3+5;
+const int N=2e3+5,maxm=6e3+5;
 int t,n,m;
 struct Edge
 {
     int nxt,to,w;
 }e[maxm];
-int head[maxn],tot;
+int head[N],tot;
 void add(int u,int v,int w)
 {
     e[++tot]=(Edge){head[u],v,w};
     head[u]=tot;
 }
 queue<int>q;
-int dis[maxn],vis[maxn],cnt[maxn];
+int dis[N],vis[N],cnt[N];
 void init()
 {
-    for(int i=1;i<maxn;i++)
+    for(int i=1;i<N;i++)
     {
         dis[i]=0x3f3f3f3f;
         vis[i]=cnt[i]=head[i]=0;

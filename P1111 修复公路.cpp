@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e3+5;
+const int N=1e3+5;
 const int maxm=2e5+5;
 struct node
 {
@@ -10,7 +10,7 @@ struct node
         return this->w<x.w;
     }
 }a[maxm];
-int n,m,f[maxn],size[maxn];
+int n,m,f[N],size[N];
 int find(int x)
 {
 	if(x==f[x]) return f[x];

@@ -1,11 +1,11 @@
 #include<iostream>
-#define maxn 10005
+#define N 10005
 using namespace std;
 int main()
 {
 	int n;
 	cin>>n;
-	int a[maxn]={1};
+	int a[N]={1};
 	int len=1;
 	for(int i=1;i<=n;i++)
 	{

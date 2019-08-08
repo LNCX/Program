@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=201;
-int a[maxn],dp[maxn][maxn][maxn],sum[maxn];
+const int N=201;
+int a[N],dp[N][N][N],sum[N];
 int main()
 {
     int t;

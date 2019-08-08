@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 #define cost(a,b) ((t[a]|t[b])-(t[a]&t[b]))
 using namespace std;
-const int maxn=1000,inf=0x3f3f3f3f;
-int n,t[maxn+1],b[maxn+1],f[maxn+2][16][1<<7];
+const int N=1000,inf=0x3f3f3f3f;
+int n,t[N+1],b[N+1],f[N+2][16][1<<7];
 bool valid(int x,int s,int k)
 {
 	for (int i=x+1;i<k;i++)

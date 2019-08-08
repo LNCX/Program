@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=20,inf=0x7fffffff;
-int n,a[maxn][maxn],b[maxn][maxn];
+const int N=20,inf=0x7fffffff;
+int n,a[N][N],b[N][N];
 int check(int s)
 {
     memset(b,0,sizeof(b));

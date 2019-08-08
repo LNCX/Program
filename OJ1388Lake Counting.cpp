@@ -1,6 +1,6 @@
 #include<cstdio>
 #include<iostream>
-#define maxn 10005
+#define N 10005
 using namespace std;
 int main()
 {
@@ -8,7 +8,7 @@ int main()
 	cin>>n>>m;
 	char a[105][105];
 	bool b[105][105]={0};
-	int q[maxn][2]={0},count=0,
+	int q[N][2]={0},count=0,
 	dx[4]={-1,0,1},dy[4]={-1,0,1};
 	for(int i=0;i<n;i++)
 		cin>>a[i];

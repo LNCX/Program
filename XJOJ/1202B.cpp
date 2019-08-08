@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-ll f[85]={1,2},ans=0,maxn=1e6;
+ll f[85]={1,2},ans=0,N=1e6;
 ll search(ll x)
 {
     ll l=0,r=71,res=0;

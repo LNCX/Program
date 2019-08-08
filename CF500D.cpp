@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100005;
-vector< pair<int,int> >g[maxn];
-int cnt[maxn],n,w[maxn];
+const int N=100005;
+vector< pair<int,int> >g[N];
+int cnt[N],n,w[N];
 double C3,ans=0;
 int dfs(int u,int fa)
 {

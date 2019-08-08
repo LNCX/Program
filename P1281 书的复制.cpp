@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=505;
-int a[maxn],sum[maxn],f[maxn][maxn];
+const int N=505;
+int a[N],sum[N],f[N][N];
 void print(int x,int ans)
 {
     if(!x) return;

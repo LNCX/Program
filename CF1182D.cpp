@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 struct edge
 {
     int nxt,to;
-}e[maxn<<1];
-int head[maxn],tot,dis[maxn];
+}e[N<<1];
+int head[N],tot,dis[N];
 void add(int u,int v)
 {
     e[++tot]=(edge){head[u],v},head[u]=tot;
@@ -20,7 +20,7 @@ class find_rt
             return get_rt(x,y);
         }
     private:
-        int pre[maxn],vis[maxn];
+        int pre[N],vis[N];
         int get_rt(int s,int t)
         {
             memset(pre,0,sizeof(pre));

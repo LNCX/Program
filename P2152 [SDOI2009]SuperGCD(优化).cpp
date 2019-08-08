@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=600;
+const int N=600;
 const unsigned long long mod=1e18;
 struct lint
 {
 	int len;
-	unsigned long long num[maxn]={0};
-};//¸ß¾«¶È 
+	unsigned long long num[N]={0};
+};//ï¿½ß¾ï¿½ï¿½ï¿½ 
 lint operator -(lint a,lint b)
 {
 	lint ans;ans.len=1;
@@ -67,7 +67,7 @@ lint a,b,c;
 int main()
 {
 	get(a),get(b);
-	while(b.len!=1||b.num[1]!=0)//Å·¼¸ÀïµÃ±È¸üÏà¼õËð¿ì 
+	while(b.len!=1||b.num[1]!=0)//Å·ï¿½ï¿½ï¿½ï¿½Ã±È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	{
 		c=a%b;
 		a=b;

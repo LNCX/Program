@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100005;
+const int N=100005;
 const int maxm=305;
-int n,m,k,a[maxn];
+int n,m,k,a[N];
 queue<int>que[maxm],q;
 int main()
 {

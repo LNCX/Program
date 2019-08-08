@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e6+10;
-char s[maxn];
+const int N=2e6+10;
+char s[N];
 bool bo[205];
 int n,m,tot,ch[205][3];
 void insert(char *s)

@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=4e3+5,maxm=6e4+5,inf=0x3f3f3f3f;
+const int N=4e3+5,maxm=6e4+5,inf=0x3f3f3f3f;
 struct edge
 {
     int from,nxt,to,f;
 }e[maxm<<1];
-int n,m,head[maxn],cur[maxn],tot=1,dep[maxn];
+int n,m,head[N],cur[N],tot=1,dep[N];
 void Add(int u,int v,int f)
 {
     e[++tot]=(edge){u,head[u],v,f};
@@ -56,7 +56,7 @@ int dinic(int s,int t)
     return flow;
 }
 stack<int>st;
-int dfn[maxn],low[maxn],dfstime,col[maxn],num;
+int dfn[N],low[N],dfstime,col[N],num;
 void tarjan(int u)
 {
     st.push(u);

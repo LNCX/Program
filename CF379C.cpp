@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=3e5+5;
-LL a[maxn],tot,ans[maxn];
+const int N=3e5+5;
+LL a[N],tot,ans[N];
 struct node
 {
     LL id,num;
@@ -10,7 +10,7 @@ struct node
     {
         return num<x.num;
     }
-}b[maxn];
+}b[N];
 int main()
 {
     int n;

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-int n,i,a,b,f[maxn];
-vector<int>len[maxn];
+const int N=1e5+5;
+int n,i,a,b,f[N];
+vector<int>len[N];
 map<pair<int,int>,int>s;
 int main()
 {

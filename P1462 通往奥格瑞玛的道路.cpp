@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5;
+const int N=1e4+5;
 const int maxm=1e5+5;
 const int inf=0x3f3f3f3f;
-int n,m,b,l=inf,r,f[maxn];
+int n,m,b,l=inf,r,f[N];
 int w[maxm],nxt[maxm],head[maxm],to[maxm],edge_sum;
 void add(int u,int v,int c)
 {
@@ -12,7 +12,7 @@ void add(int u,int v,int c)
 	w[edge_sum]=c;
 	head[u]=edge_sum;
 }
-int dis[maxn],used[maxn];
+int dis[N],used[N];
 priority_queue<pair<int,int> >q;
 int dijkstra(int s)
 {

@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=50000;
-bool used[maxn];
+const int N=50000;
+bool used[N];
 struct block
 {
 	int d[3][5];
-}a,mid,m[maxn];
-int target,q[maxn],pre[maxn],ans[maxn];
+}a,mid,m[N];
+int target,q[N],pre[N],ans[N];
 int f(int x)
 {
 	if(x==0)return 0;

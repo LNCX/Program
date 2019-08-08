@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105,inf=0x3f3f3f3f;
+const int N=105,inf=0x3f3f3f3f;
 struct node
 {
     int h,w;
@@ -8,8 +8,8 @@ struct node
     {
         return h<x.h;
     }
-}a[maxn];
-int ans=inf,f[maxn][maxn];//放i本书，最后一本是j,f[i][j]=min{f[i-1][k]+abs(a[k].w-a[j].w)}
+}a[N];
+int ans=inf,f[N][N];//放i本书，最后一本是j,f[i][j]=min{f[i-1][k]+abs(a[k].w-a[j].w)}
 int main()
 {
     int n,m;

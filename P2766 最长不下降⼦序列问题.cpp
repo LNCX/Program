@@ -1,18 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int inf=0x3f3f3f3f,maxn=250001;
-int head[maxn],tot=1,n;
+const int inf=0x3f3f3f3f,N=250001;
+int head[N],tot=1,n;
 int a[501];
 struct edge
 {
     int nxt,to,f;
-}e[maxn];
+}e[N];
 void Add(int u,int v,int w)
 {
     e[++tot]=(edge){head[u],v,w},head[u]=tot;
     e[++tot]=(edge){head[v],u,w},head[v]=tot;
 }
-int dep[maxn],f[maxn],cur[maxn];
+int dep[N],f[N],cur[N];
 bool bfs(int s,int t)
 {
     memset(dep,0,sizeof(dep));

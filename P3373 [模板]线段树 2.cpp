@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=4e5;
+const int N=4e5;
 int n,m;
-long long mod,a[maxn],add[maxn],mul[maxn],sum[maxn];
+long long mod,a[N],add[N],mul[N],sum[N];
 void down(int k,int l,int r,int mid)
 {
     if(add[k]==0&&mul[k]==1) return;
@@ -69,7 +69,7 @@ int main()
 {
     scanf("%d%d%lld",&n,&m,&mod);
     for(int i=1;i<=n;i++) scanf("%lld",&a[i]);
-    for(int i=1;i<maxn;i++) mul[i]=1;
+    for(int i=1;i<N;i++) mul[i]=1;
     build(1,1,n);
     while(m--)
     {

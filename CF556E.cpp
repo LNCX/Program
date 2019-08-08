@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=2e5+5;
+const int N=2e5+5;
 map< int,pair<char,int> >m;
 int main()
 {

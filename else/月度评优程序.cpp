@@ -1,8 +1,8 @@
-//·ÀÎ±±êÊ¾ 
+//ï¿½ï¿½Î±ï¿½ï¿½Ê¾ 
 #include<cstdio>
 #include<iostream>
 #include<cstdlib>
-#define maxn 100
+#define N 100
 using namespace std;
 
 struct basic
@@ -28,11 +28,11 @@ void error(void);
 
 void print()
 {
-	printf("by YouthØ­´µÑ©\n");
+	printf("by YouthØ­ï¿½ï¿½Ñ©\n");
 	printf("*********************\n");
-	printf("** 1¡¢¼ÆËã¸öÈËÐ¡·Ö **\n");
-	printf("** 2¡¢¼ÆËãÐ¡×é¾ù·Ö **\n");
-	printf("** 3¡¢¸ü¸Ä³ÌÐò²ÎÊý **\n");
+	printf("** 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ **\n");
+	printf("** 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ **\n");
+	printf("** 3ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ **\n");
 	printf("*********************\n");
 	int a;
 	cin>>a;
@@ -48,20 +48,20 @@ void print()
 }
 void prsn()
 {
-	int a[maxn][7]={},sum[maxn]={}; 
-	printf("ÇëÊäÈë´ÓG 4ÖÁAJ %dµÄ¾ØÕó\n",2+all.person);
+	int a[N][7]={},sum[N]={}; 
+	printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½G 4ï¿½ï¿½AJ %dï¿½Ä¾ï¿½ï¿½ï¿½\n",2+all.person);
 	for(int i=0;i<all.person;i++)
 	for(int j=0;j<6;j++)
 	{
 		char s[10];
-		scanf("%s",s);//¹ýÂËÎÞÓÃÊý¾Ý£» 
+		scanf("%s",s);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ 
 		scanf("%d",&a[i][j]);
 		if(j==5) scanf("%d%s%s",&a[i][j+1],s,s);
 		else scanf("%s%s%s",s,s,s);
 	}
 	system("cls");
 	FILE *fout;
-	fout=fopen("¸öÈËÐ¡·Ö.xls","wb"); 
+	fout=fopen("ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½.xls","wb"); 
 	for(int i=0;i<all.person;i++)
 	{
 		int mid=1;
@@ -84,22 +84,22 @@ void prsn()
 		fprintf(fout,"%d\n",sum[i]);
 	}
 	fclose(fout);
-	printf("ÇëÔÚ¡°¸öÈËÐ¡·Ö.xls¡±ÖÐ²é¿´\n");
-	system("start ¸öÈËÐ¡·Ö.xls");
+	printf("ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½.xlsï¿½ï¿½ï¿½Ð²é¿´\n");
+	system("start ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½.xls");
 	pause();
 	print();
 }
 void prsn_add(void)
 {
-	printf("Ô­¸öÈË¼Ó·Ö\n");
-	printf("1¡¢Çø¼ä1~%d\n",all.scre[1][0]); 
-	printf("2¡¢¼Ó·Ö%d\n",all.scre[1][1]);
-	printf("3¡¢Çø¼ä%d~%d\n",all.scre[1][0]+1,all.scre[2][0]); 
-	printf("4¡¢¼Ó·Ö%d\n",all.scre[2][1]);
-	printf("5¡¢Çø¼ä%d~%d\n",all.scre[2][0]+1,all.scre[3][0]); 
-	printf("6¡¢¼Ó·Ö%d\n",all.scre[3][1]);
-	printf("7¡¢×Ü·Ö¼Ó·Ö·­%d±¶\n",all.mul);
-	printf("8¡¢·µ»ØÉÏ²ãÄ¿Â¼\n");
+	printf("Ô­ï¿½ï¿½ï¿½Ë¼Ó·ï¿½\n");
+	printf("1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1~%d\n",all.scre[1][0]); 
+	printf("2ï¿½ï¿½ï¿½Ó·ï¿½%d\n",all.scre[1][1]);
+	printf("3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d~%d\n",all.scre[1][0]+1,all.scre[2][0]); 
+	printf("4ï¿½ï¿½ï¿½Ó·ï¿½%d\n",all.scre[2][1]);
+	printf("5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d~%d\n",all.scre[2][0]+1,all.scre[3][0]); 
+	printf("6ï¿½ï¿½ï¿½Ó·ï¿½%d\n",all.scre[3][1]);
+	printf("7ï¿½ï¿½ï¿½Ü·Ö¼Ó·Ö·ï¿½%dï¿½ï¿½\n",all.mul);
+	printf("8ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï²ï¿½Ä¿Â¼\n");
 	int a=0;
 	cin>>a;
 	if(!cin||a<=0||9<=a)
@@ -110,8 +110,8 @@ void prsn_add(void)
 	system("cls");
 	if(a==2||a==4||a==6)
 	{
-		printf("Ô­¼Ó·Ö:%d\n",all.scre[a/2][1]);
-		printf("ÇëÊäÈë:");
+		printf("Ô­ï¿½Ó·ï¿½:%d\n",all.scre[a/2][1]);
+		printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");
 		cin>>all.scre[a/2][1];
 	}
 	else if(a==8) return;
@@ -120,28 +120,28 @@ void prsn_add(void)
 	{
 		case 1:
 		{
-			printf("×óÇø¼ä:1\n");
-			printf("ÓÒÇø¼ä:");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:1\n");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");
 			cin>>all.scre[1][0];
 			break;
 		}
 		case 3:
 		{
-			printf("×óÇø¼ä:%d\n",all.scre[1][0]+1);
-			printf("ÓÒÇø¼ä:");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%d\n",all.scre[1][0]+1);
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");
 			cin>>all.scre[2][0];
 			break;
 		}
 		case 5:
 		{
-			printf("×óÇø¼ä:%d\n",all.scre[2][0]+1);
-			printf("ÓÒÇø¼ä:");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%d\n",all.scre[2][0]+1);
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");
 			cin>>all.scre[3][0];
 			break;
 		}
 		case 7:
 		{
-			printf("ÇëÊäÈë±¶Êý:");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ë±¶ï¿½ï¿½:");
 			scanf("%d",&all.mul);
 			break;
 		}
@@ -153,15 +153,15 @@ void prsn_add(void)
 }
 void prsn_pro(void)
 {
-	printf("Ô­¸öÈË½ø²½\n");
-	printf("¼Ó·Ö¼´Îª½ø²½Ãû´Î\n"); 
-	printf("1¡¢Çø¼ä%d~%d\n",all.prss[0][0],all.prss[1][0]); 
-	printf("2¡¢¼Ó·Ö·­%d±¶\n",all.prss[1][1]);
-	printf("3¡¢Çø¼ä%d~%d\n",all.prss[1][0]+1,all.prss[2][0]); 
-	printf("4¡¢¼Ó·Ö·­%d±¶\n",all.prss[2][1]);
-	printf("5¡¢Çø¼ä%d~%d\n",all.prss[2][0]+1,all.prss[3][0]); 
-	printf("6¡¢¼Ó·Ö·­%d±¶\n",all.prss[3][1]);
-	printf("7¡¢·µ»ØÉÏ²ãÄ¿Â¼\n");
+	printf("Ô­ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½\n");
+	printf("ï¿½Ó·Ö¼ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"); 
+	printf("1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d~%d\n",all.prss[0][0],all.prss[1][0]); 
+	printf("2ï¿½ï¿½ï¿½Ó·Ö·ï¿½%dï¿½ï¿½\n",all.prss[1][1]);
+	printf("3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d~%d\n",all.prss[1][0]+1,all.prss[2][0]); 
+	printf("4ï¿½ï¿½ï¿½Ó·Ö·ï¿½%dï¿½ï¿½\n",all.prss[2][1]);
+	printf("5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d~%d\n",all.prss[2][0]+1,all.prss[3][0]); 
+	printf("6ï¿½ï¿½ï¿½Ó·Ö·ï¿½%dï¿½ï¿½\n",all.prss[3][1]);
+	printf("7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï²ï¿½Ä¿Â¼\n");
 	int a=0;
 	cin>>a;
 	if(!cin||a<=0||8<=a)
@@ -172,7 +172,7 @@ void prsn_pro(void)
 	system("cls");
 	if(a==2||a==4||a==6)
 	{
-		printf("ÇëÊäÈë:");
+		printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");
 		cin>>all.prss[a/2][1];
 	}
 	else if(a==8) return;
@@ -181,22 +181,22 @@ void prsn_pro(void)
 	{
 		case 1:
 		{
-			printf("×óÇø¼ä:");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");
 			scanf("%d",&all.prss[0][0]);
-			printf("ÓÒÇø¼ä:");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");
 			scanf("%d",&all.prss[1][0]);
 			break;
 		}
 		case 3:
 		{
-			printf("×óÇø¼ä:%d\n",all.prss[1][0]+1);
-			printf("ÓÒÇø¼ä:");cin>>all.prss[2][0];
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%d\n",all.prss[1][0]+1);
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");cin>>all.prss[2][0];
 			break;
 		}
 		case 5:
 		{
-			printf("×óÇø¼ä:%d\n",all.prss[2][0]+1);
-			printf("ÓÒÇø¼ä:");cin>>all.prss[3][0];
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%d\n",all.prss[2][0]+1);
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");cin>>all.prss[3][0];
 			break;
 		}
 		case 7:
@@ -217,13 +217,13 @@ void team()
 	{
 		int rank;
 		int score;
-	}a[maxn];
+	}a[N];
 	int count[100]={0}; 
 	float b[100]={0};
-	printf("ÇëÊäÈë¸öÈËÐ¡×é±àºÅ\n");
+	printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½\n");
 	for(int i=0;i<all.person;i++) scanf("%d",&a[i].rank);
 	system("cls");
-	printf("ÇëÊäÈë¸öÈËÐ¡·Ö\n");
+	printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½\n");
 	for(int i=0;i<all.person;i++) scanf("%d",&a[i].score);
 	system("cls");
 	for(int i=0;i<all.person;i++)
@@ -232,24 +232,24 @@ void team()
 		count[a[i].rank]++;
 	}
 	FILE *fout;
-	fout=fopen("Ð¡×é¾ù·Ö.xls","wb");
+	fout=fopen("Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½.xls","wb");
 	for(int i=0;i<all.person;i++) fprintf(fout,"%.2f\n",b[a[i].rank]/count[a[i].rank]*all.gmul);
 	fclose(fout);
-	printf("ÇëÔÚ¡°Ð¡×é¾ù·Ö.xls¡±ÖÐ²é¿´¡±\n");
-	system("start Ð¡×é¾ù·Ö.xls");
+	printf("ï¿½ï¿½ï¿½Ú¡ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½.xlsï¿½ï¿½ï¿½Ð²é¿´ï¿½ï¿½\n");
+	system("start Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½.xls");
 	pause();
 	print();
 }
 void set()
 {
-	printf("by YouthØ­´µÑ©\n");
+	printf("by YouthØ­ï¿½ï¿½Ñ©\n");
 	printf("*********************\n");
-	printf("** 1¡¢ÐÞ¸Ä°à¼¶ÈËÊý **\n");
-	printf("** 2¡¢ÐÞ¸ÄÐ¡×é¸öÊý **\n");
-	printf("** 3¡¢ÐÞ¸Ä¸öÈË¼Ó·Ö **\n");
-	printf("** 4¡¢ÐÞ¸Ä½ø²½¼Ó·Ö **\n"); 
-	printf("** 5¡¢ÐÞ¸ÄÐ¡×é±¶Êý **\n");	
-	printf("** 6¡¢·µ»ØÉÏ²ãÄ¿Â¼ **\n");
+	printf("** 1ï¿½ï¿½ï¿½Þ¸Ä°à¼¶ï¿½ï¿½ï¿½ï¿½ **\n");
+	printf("** 2ï¿½ï¿½ï¿½Þ¸ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ **\n");
+	printf("** 3ï¿½ï¿½ï¿½Þ¸Ä¸ï¿½ï¿½Ë¼Ó·ï¿½ **\n");
+	printf("** 4ï¿½ï¿½ï¿½Þ¸Ä½ï¿½ï¿½ï¿½ï¿½Ó·ï¿½ **\n"); 
+	printf("** 5ï¿½ï¿½ï¿½Þ¸ï¿½Ð¡ï¿½é±¶ï¿½ï¿½ **\n");	
+	printf("** 6ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï²ï¿½Ä¿Â¼ **\n");
 	printf("*********************\n");
 	int a;
 	scanf("%d",&a);
@@ -263,14 +263,14 @@ void set()
 	{
 		case 1:
 		{
-			printf("Ô­°à¼¶ÈËÊý:%d\nÇëÐÞ¸Ä:\n",all.person);
+			printf("Ô­ï¿½à¼¶ï¿½ï¿½ï¿½ï¿½:%d\nï¿½ï¿½ï¿½Þ¸ï¿½:\n",all.person);
 			cin>>all.person;
 			system("cls");
 			break;
 		}
 		case 2:
 		{
-			printf("Ô­Ð¡×é¸öÊý:%d\nÇëÐÞ¸Ä:",all.group);
+			printf("Ô­Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½:%d\nï¿½ï¿½ï¿½Þ¸ï¿½:",all.group);
 			cin>>all.group;
 			system("cls");
 			break;
@@ -279,7 +279,7 @@ void set()
 		case 4:{prsn_pro();break;}
 		case 5:
 		{
-			printf("Ô­Ð¡×é±¶Êý:%f\nÇëÐÞ¸Ä:",all.gmul);
+			printf("Ô­Ð¡ï¿½é±¶ï¿½ï¿½:%f\nï¿½ï¿½ï¿½Þ¸ï¿½:",all.gmul);
 			cin>>all.gmul;
 			system("cls");
 			break;
@@ -292,12 +292,12 @@ void set()
 		}
 		case 7:
 		{
-			printf("¹§Ï²Äã´ò¿ªÁËÍâ¹Ò\n");
-			printf("µÚ¼¸Î»ÈË¿ª¹Ò£¿\n");
+			printf("ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
+			printf("ï¿½Ú¼ï¿½Î»ï¿½Ë¿ï¿½ï¿½Ò£ï¿½\n");
 			scanf("%d",&all.vers[0]);
-			printf("¿ª¹Ò¼Ó·Ö£¿\n");
+			printf("ï¿½ï¿½ï¿½Ò¼Ó·Ö£ï¿½\n");
 			scanf("%d",&all.vers[1]); 
-			printf("ÎªÁË±ÜÃâ±»ÈË·¢ÏÖ£¬¸ÃÉèÖÃ²»±»±£´æ\n");
+			printf("Îªï¿½Ë±ï¿½ï¿½â±»ï¿½Ë·ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
 		}
 	}
 	save();
@@ -318,7 +318,7 @@ void save(void)
 }
 void pause(void)
 {
-	printf("Çë°´ÈÎÒâ¼ü¼ÌÐø...\n");
+	printf("ï¿½ë°´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...\n");
 	getchar();
 	getchar();
 	system("cls"); 
@@ -326,7 +326,7 @@ void pause(void)
 void error(void)
 {
 	cin.clear(); 
-	cin.sync();   //Çå¿ÕÁ÷
+	cin.sync();   //ï¿½ï¿½ï¿½ï¿½ï¿½
 	system("cls"); 
 }
 int main()

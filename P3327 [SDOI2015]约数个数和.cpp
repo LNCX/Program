@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e4+5;
-bool v[maxn];
-int p[maxn],cnt,mu[maxn],sum[maxn];
-long long g[maxn];
+const int N=5e4+5;
+bool v[N];
+int p[N],cnt,mu[N],sum[N];
+long long g[N];
 void init(int n)
 {
     mu[1]=1;

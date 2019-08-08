@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e3+5;
+const int N=5e3+5;
 struct node
 {
     int l,r;
-}a[maxn];
-int cnt[maxn],ans,sum[maxn];
+}a[N];
+int cnt[N],ans,sum[N];
 int main()
 {
     int n,q;

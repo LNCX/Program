@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=1e5+5;
+const int N=1e5+5;
 LL n,x1,x2;
-pair<LL,LL>a[maxn];
+pair<LL,LL>a[N];
 int main()
 {
     scanf("%lld%lld%lld",&n,&x1,&x2);

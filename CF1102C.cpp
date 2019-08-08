@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105;
-int n,x,y,a[maxn],cnt;
+const int N=105;
+int n,x,y,a[N],cnt;
 int main()
 {
     scanf("%d%d%d",&n,&x,&y);

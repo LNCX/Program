@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int maxm=5e5+5;
-const int maxn=1e4+5;
+const int N=1e4+5;
 const int inf=0x3f3f3f3f;
 int num,n,m,s,t,head[maxm],len=1;
-int h[maxn],q[maxn],dis[maxn],used[maxn];
+int h[N],q[N],dis[N],used[N];
 struct node
 {
 	int nxt;

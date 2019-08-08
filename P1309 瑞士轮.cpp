@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+5;
+const int N=2e5+5;
 int n,q,r;
 struct node
 {
@@ -10,7 +10,7 @@ struct node
         if(s==x.s) return n<x.n;
         return s>x.s;
     }
-}a[maxn],m1[maxn],m2[maxn];
+}a[N],m1[N],m2[N];
 void merge()
 {
     int l1=1,l2=1,l=1;

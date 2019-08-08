@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e6+5;
+const int N=2e6+5;
 int n,ans;
-char a[maxn];
+char a[N];
 int main()
 {
     scanf("%d%s",&n,a+1);

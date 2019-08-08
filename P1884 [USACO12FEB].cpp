@@ -1,8 +1,8 @@
 #include<cstdio>
 using namespace std;
 typedef long long ll;
-const ll maxn=1e3+5;
-ll x1[maxn],x2[maxn],y1[maxn],y2[maxn],n,ans;
+const ll N=1e3+5;
+ll x1[N],x2[N],y1[N],y2[N],n,ans;
 void solve(ll a,ll d,ll w,ll s,ll t)
 {
     if(a>d||w<s)return;

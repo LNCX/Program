@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e3+5;
+const int N=2e3+5;
 const int maxm=2e4+5;
 const int inf=0x3f3f3f3f;
 int nxt[maxm],to[maxm],head[maxm],w[maxm],edge_sum;
@@ -11,7 +11,7 @@ void add(int x,int y,int z)
     w[edge_sum]=z;
     head[x]=edge_sum;
 }
-int dis[maxn],used[maxn];
+int dis[N],used[N];
 priority_queue<pair<int,int> >q;
 void prim()
 {

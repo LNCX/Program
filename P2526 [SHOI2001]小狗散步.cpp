@@ -1,16 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
+const int N=1005;
 struct point
 {
     int x,y;
-}a[maxn],b[maxn];
+}a[N],b[N];
 struct edge
 {
     int nxt,to;
-}e[maxn*maxn<<1];
-bitset<maxn>vis;
-int head[maxn],tot=1,f[maxn],g[maxn],ans;
+}e[N*N<<1];
+bitset<N>vis;
+int head[N],tot=1,f[N],g[N],ans;
 void add(int u,int v)
 {
     e[++tot]=(edge){head[u],v},head[u]=tot;

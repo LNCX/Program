@@ -1,15 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+5;
+const int N=1e6+5;
 const int inf=0x3f3f3f3f;
-int head[maxn],to[maxn<<1],nxt[maxn<<1],tot;
+int head[N],to[N<<1],nxt[N<<1],tot;
 void add(int u,int v)
 {
     nxt[++tot]=head[u];
     to[tot]=v;
     head[u]=tot;
 }
-int dis[maxn],ans[maxn];
+int dis[N],ans[N];
 priority_queue< pair<int,int> >q;
 void dijkstra(int s)
 {

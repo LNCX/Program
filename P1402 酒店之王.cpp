@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005,inf=0x3f3f3f3f;
-int n,p,q,tot=1,head[maxn],dep[maxn],vis[maxn],cur[maxn];
+const int N=1005,inf=0x3f3f3f3f;
+int n,p,q,tot=1,head[N],dep[N],vis[N],cur[N];
 struct edge
 {
     int nxt,to,cap,flow; 
-}e[maxn*maxn<<1];
+}e[N*N<<1];
 void Add(int u,int v,int cap)
 {
     e[++tot]=(edge){head[u],v,cap,0};

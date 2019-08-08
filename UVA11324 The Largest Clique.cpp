@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100005;
+const int N=100005;
 const int maxm=1000005;
 int n,m;
 int e_num,head[maxm],x[maxm],y[maxm],nxt[maxm],to[maxm];
@@ -10,7 +10,7 @@ void add(int u,int v)
     to[e_num]=v;
     head[u]=e_num;
 }//加边 
-int num,sum,top,st[maxn],dfn[maxn],low[maxn],co[maxn],w[maxn];
+int num,sum,top,st[N],dfn[N],low[N],co[N],w[N];
 void tarjan(int u)
 {
     dfn[u]=low[u]=++num;
@@ -47,7 +47,7 @@ bool camp(int a,int b)
         return x[a]<x[b];
     return y[a]<y[b];
 }
-int dg[maxn],rnk[maxm];
+int dg[N],rnk[maxm];
 void remove()
 {
     for(int i=1;i<=m;i++)
@@ -71,7 +71,7 @@ void remove()
     }
     return ;
 }//缩点调整
-int ans,l,r,dis[maxn],que[maxn];
+int ans,l,r,dis[N],que[N];
 void tuopu()
 {
     for(int i=1;i<=sum;i++)

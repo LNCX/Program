@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1008;
+const int N=1008;
 int dx[]={0,1,0,-1},
     dy[]={1,0,-1,0};
-int n,m,p[maxn][maxn];
-bool vis[maxn][maxn];
+int n,m,p[N][N];
+bool vis[N][N];
 bool dfs(int x,int y,int mid)
 {
     if(x==n) return true;
@@ -24,7 +24,7 @@ int main()
     for(int i=1;i<=n;i++)
         for(int j=1;j<=m;j++)
             scanf("%d",&p[i][j]);
-    int l=0,r=maxn;
+    int l=0,r=N;
     while(l<=r)
     {
         memset(vis,0,sizeof vis);

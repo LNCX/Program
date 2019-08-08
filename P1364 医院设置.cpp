@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105,inf=0x3f3f3f3f;
-int ans=inf,dis[maxn],vis[maxn];
-int tot,head[maxn],to[maxn<<1],nxt[maxn<<1],num[maxn];
+const int N=105,inf=0x3f3f3f3f;
+int ans=inf,dis[N],vis[N];
+int tot,head[N],to[N<<1],nxt[N<<1],num[N];
 void add(int u,int v)
 {
     nxt[++tot]=head[u];

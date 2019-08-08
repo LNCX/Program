@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100005;
-long long f[maxn][2],a[maxn],sum[maxn],q[maxn];
+const int N=100005;
+long long f[N][2],a[N],sum[N],q[N];
 int main()
 {
 	int n,k;

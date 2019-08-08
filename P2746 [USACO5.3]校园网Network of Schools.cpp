@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
+const int N=1005;
 const int maxm=200005;
-int n,m,in[maxm],out[maxm],ans1,ans2,a[maxn][3];
+int n,m,in[maxm],out[maxm],ans1,ans2,a[N][3];
 int nxt[maxm],head[maxm],to[maxm],edge_sum;
 void add(int u,int v)
 {
@@ -10,7 +10,7 @@ void add(int u,int v)
 	to[edge_sum]=v;
 	head[u]=edge_sum;
 }
-int dfn[maxn],low[maxm],s[maxm],co[maxn],top,num,sum; 
+int dfn[N],low[maxm],s[maxm],co[N],top,num,sum; 
 void tarjan(int u)
 {
 	dfn[u]=low[u]=++num;

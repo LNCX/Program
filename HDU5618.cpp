@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+10;
+const int N=1e5+10;
 typedef long long ll;
 struct point
 {
     int x,y,z,id;
-}a[maxn];
+}a[N];
 int cmp(const point& p,const point& q)
 {
     if(p.x==q.x&&p.z==q.z)return p.y<q.y;
@@ -13,7 +13,7 @@ int cmp(const point& p,const point& q)
     return p.x<q.x;
 }
 int cmp1(const point& p,const point& q){return p.z<q.z;}
-int ans[maxn],c[maxn];
+int ans[N],c[N];
 void add(int x,int y){while(x<=100000){c[x]+=y;x+=x&(-x);}}
 int ask(int x){int tot=0;while(x){tot+=c[x];x-=x&(-x);}return tot;}
 void CDQ(int l,int r)

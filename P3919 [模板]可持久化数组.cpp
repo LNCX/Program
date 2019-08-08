@@ -17,9 +17,9 @@ inline int read()
     }
     return f?x:-x;
 }
-const int maxn=1e6+5;
+const int N=1e6+5;
 int cnt,n,m;
-int a[maxn],t[maxn],val[maxn<<5],ch[maxn<<5][2];
+int a[N],t[N],val[N<<5],ch[N<<5][2];
 int build(int l,int r)
 {
     int k=++cnt,mid=(l+r)>>1;

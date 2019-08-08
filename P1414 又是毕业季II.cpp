@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
-const int maxn=1e6+5;
-int n,a[maxn],c[maxn],maxx;
+const int N=1e6+5;
+int n,a[N],c[N],maxx;
 int main()
 {
 	scanf("%d",&n);

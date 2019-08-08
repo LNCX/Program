@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+5;
+const int N=1e6+5;
 int n,m;
-bool tag[maxn<<2],vis[maxn<<2];
-int seg[maxn],rev[maxn],sum[maxn<<2];
-int head[maxn],to[maxn<<1],nxt[maxn<<1],edge_sum;
-int dep[maxn],fa[maxn],size[maxn],son[maxn],top[maxn];
+bool tag[N<<2],vis[N<<2];
+int seg[N],rev[N],sum[N<<2];
+int head[N],to[N<<1],nxt[N<<1],edge_sum;
+int dep[N],fa[N],size[N],son[N],top[N];
 void edge_add(int u,int v)
 {
 	nxt[++edge_sum]=head[u];

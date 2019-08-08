@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e2+5,maxm=4e3+5,inf=0x3f3f3f3f;
-int n,m,x,tot=1,head[maxn],dep[maxn],vis[maxn],cur[maxn];
+const int N=2e2+5,maxm=4e3+5,inf=0x3f3f3f3f;
+int n,m,x,tot=1,head[N],dep[N],vis[N],cur[N];
 struct Edge
 {
     int to,cap,nxt,flow,from; 

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100005;
-bool used[maxn];
-int n,a[maxn],w[maxn],clr[maxn];
+const int N=100005;
+bool used[N];
+int n,a[N],w[N],clr[N];
 void dfs(int x,int len)
 {
 	if(used[x]) return;

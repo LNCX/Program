@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=3e5+5;
-int a[maxn][2];
+const int N=3e5+5;
+int a[N][2];
 vector<int>b;
 int main()
 {

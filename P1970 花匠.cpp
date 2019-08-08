@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
-const int maxn=1e5+5;
+const int N=1e5+5;
 using namespace std;
-int p,a[maxn];
+int p,a[N];
 int main()
 {
     int n,ans=1;

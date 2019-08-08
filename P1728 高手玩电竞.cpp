@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=52,maxm=2505;
-int n,m,a[maxn][maxn],f[maxn][maxn][maxm],ans;
+const int N=52,maxm=2505;
+int n,m,a[N][N],f[N][N][maxm],ans;
 int main()
 {
     scanf("%d%d",&n,&m);

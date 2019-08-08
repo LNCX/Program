@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=305;
-int n,m,s[maxn],f[maxn][maxn];
-vector<int>son[maxn];
+const int N=305;
+int n,m,s[N],f[N][N];
+vector<int>son[N];
 void dp(int x)
 {
 	for(int i=0;i<son[x].size();i++)

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+5;
-int l[maxn],r[maxn],w[maxn],size[maxn],ans=-0x7fffffff;
+const int N=1e6+5;
+int l[N],r[N],w[N],size[N],ans=-0x7fffffff;
 void dfs(int u)
 {
     size[u]=1;

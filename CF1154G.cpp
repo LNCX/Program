@@ -2,8 +2,8 @@
 #include<iostream>
 #define int long long
 using namespace std;
-int const maxn=1e7+5;
-int n,ans=1e16,ans1,ans2,num[maxn];
+int const N=1e7+5;
+int n,ans=1e16,ans1,ans2,num[N];
 signed main()
 {
 	cin>>n;
@@ -15,11 +15,11 @@ signed main()
 		  ans=a,ans1=num[a],ans2=i;
 		else if(!num[a]) num[a]=i;
 	}
-	for(int i=1;i<maxn;i++)
+	for(int i=1;i<N;i++)
 	{
 		int t1=0,t2=0;
 		if(i>ans) break;
-		for(int j=i;j<maxn;j+=i)
+		for(int j=i;j<N;j+=i)
 		{
 		    if(num[j] && !t1) t1=num[j],t2=j;
 		    else if(num[j] && t2*j/i<ans)

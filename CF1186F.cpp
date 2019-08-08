@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e6+6;
+const int N=2e6+6;
 int n,m,cnt;
-int u[maxn],v[maxn],d[maxn],f[maxn],to[maxn],cut[maxn];
+int u[N],v[N],d[N],f[N],to[N],cut[N];
 int main()
 {
     scanf("%d%d",&n,&m);

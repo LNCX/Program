@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100+10;
-int n,t,s[maxn],a[20][maxn],cnt,op[maxn];
+const int N=100+10;
+int n,t,s[N],a[20][N],cnt,op[N];
 int main()
 {
     int tmp;

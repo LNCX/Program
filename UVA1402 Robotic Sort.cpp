@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5,oo=0x3f3f3f3f;
-int rt,ch[maxn][2],size[maxn],fa[maxn],rev[maxn];
+const int N=1e5+5,oo=0x3f3f3f3f;
+int rt,ch[N][2],size[N],fa[N],rev[N];
 struct node
 {
     int id,v;
@@ -10,7 +10,7 @@ struct node
         if(v!=x.v) return v<x.v;
         return id<x.id;
     }
-}a[maxn];
+}a[N];
 void pushup(int x){size[x]=size[ch[x][0]]+size[ch[x][1]]+1;}
 void pushdown(int x)
 {

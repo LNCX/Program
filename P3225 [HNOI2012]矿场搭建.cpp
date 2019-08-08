@@ -1,17 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
+const int N=1005;
 long long n,res,ans;
-int nxt[maxn],head[maxn],to[maxn],edge_sum;
+int nxt[N],head[N],to[N],edge_sum;
 void add(int u,int v)
 {
 	nxt[++edge_sum]=head[u];
 	to[edge_sum]=v;
 	head[u]=edge_sum;
 }
-vector<int>block[maxn];
+vector<int>block[N];
 int bt,dfstime,root,top;
-int sta[maxn],cut[maxn],dfn[maxn],low[maxn];
+int sta[N],cut[N],dfn[N],low[N];
 void tarjan(int u)
 {
 	dfn[u]=low[u]=++dfstime;

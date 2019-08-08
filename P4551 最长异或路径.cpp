@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+5;
-int dis[maxn],ch[maxn*31][2],tot;
-int ans,w[maxn],to[maxn],nxt[maxn],head[maxn],edge_sum;
+const int N=2e5+5;
+int dis[N],ch[N*31][2],tot;
+int ans,w[N],to[N],nxt[N],head[N],edge_sum;
 void add(int x,int y,int z)
 {
     nxt[++edge_sum]=head[x];

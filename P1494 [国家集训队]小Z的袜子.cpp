@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=5e4+5;
-LL cnt[maxn],num[maxn],block,res,ans1[maxn],ans2[maxn];
+const int N=5e4+5;
+LL cnt[N],num[N],block,res,ans1[N],ans2[N];
 struct node
 {
     LL l,r,num;
@@ -10,7 +10,7 @@ struct node
     {
         return (a.l/block)==(b.l/block)?a.r<b.r:a.l<b.l;
     }
-}q[maxn];
+}q[N];
 void del(int x)
 {
     LL &k=cnt[num[x]];

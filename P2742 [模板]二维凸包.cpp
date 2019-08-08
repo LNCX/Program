@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5;
+const int N=1e4+5;
 struct point
 {
     double x,y;
-}p[maxn],s[maxn];
+}p[N],s[N];
 int n;
 double ans,mid;
 double compare(point a1,point a2,point b1,point b2)

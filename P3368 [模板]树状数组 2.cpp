@@ -1,8 +1,8 @@
 #include<cstdio>
 using namespace std;
-const int maxn=20e5+5;
+const int N=20e5+5;
 int n,m;
-long long a[maxn],add[maxn],mul[maxn],sum[maxn];
+long long a[N],add[N],mul[N],sum[N];
 void down(int k,int l,int r,int mid)
 {
     if(add[k]==0&&mul[k]==1) return;

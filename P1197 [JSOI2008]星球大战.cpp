@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int maxn=1000001;
-struct nodea{ int x,y,g; } b[maxn];
-struct nodeb{ int h; } r[maxn];
-int ans[maxn],f[maxn],c[maxn],x[maxn];
+const int N=1000001;
+struct nodea{ int x,y,g; } b[N];
+struct nodeb{ int h; } r[N];
+int ans[N],f[N],c[N],x[N];
 int len=0,cnt=0,p=0;
 int n=0,m=0;
 void ins(int x,int y)

@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=3e5+5,inf=0x3f3f3f3f;
-queue<int>q[maxn],em;
-int a[maxn],b[maxn];
-int minx[maxn<<2],tot[maxn];
+const int N=3e5+5,inf=0x3f3f3f3f;
+queue<int>q[N],em;
+int a[N],b[N];
+int minx[N<<2],tot[N];
 void build(int k,int l,int r)
 {   
     if(l==r)

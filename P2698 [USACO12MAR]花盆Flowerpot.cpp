@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 int n,d,ans=0x7fffffff;
 struct point
 {
@@ -9,7 +9,7 @@ struct point
     {
         return x<k.x;
     }
-}a[maxn];
+}a[N];
 deque<int>qmax,qmin;
 int main()
 {

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int maxn=105;
-char str[2][maxn];
+const int N=105;
+char str[2][N];
 int main()
 {
     int t;

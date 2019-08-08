@@ -12,16 +12,16 @@ inline int read()
     }
     return x;
 }
-const int maxn=5e5+5;
+const int N=5e5+5;
 struct edge
 {
     int nxt,to;
-}e[maxn<<1];
-int head[maxn],tot;
-int n,m,rt,p,num[maxn];
-int sum[maxn<<2],tag[maxn<<2];
-int seg[maxn],rev[maxn],top[maxn];
-int size[maxn],f[maxn],dep[maxn],son[maxn];
+}e[N<<1];
+int head[N],tot;
+int n,m,rt,p,num[N];
+int sum[N<<2],tag[N<<2];
+int seg[N],rev[N],top[N];
+int size[N],f[N],dep[N],son[N];
 void edge_add(int u,int v)
 {
     e[++tot]=(edge){head[u],v};head[u]=tot;

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+5;
+const int N=2e5+5;
 int now,ans,n,k,p;
-int a[maxn],b[maxn],last[maxn],sum[maxn],cnt[maxn];
+int a[N],b[N],last[N],sum[N],cnt[N];
 int main()
 {
     scanf("%d%d%d",&n,&k,&p);

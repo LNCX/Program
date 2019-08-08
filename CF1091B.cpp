@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e3+5;
+const int N=1e3+5;
 map<pair<int,int>,int>cnt;
-int x[maxn],y[maxn],a[maxn],b[maxn];
+int x[N],y[N],a[N],b[N];
 int main()
 {
     int n;

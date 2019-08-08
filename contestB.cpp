@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5,maxm=1e7+5;
+const int N=1e5+5,maxm=1e7+5;
 struct node
 {
     int a,c,n;
@@ -8,7 +8,7 @@ struct node
     {
         return c>x.c;
     }
-}a[maxn];
+}a[N];
 priority_queue<node>q;
 int main( )
 {

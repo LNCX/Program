@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
-#define maxn 25
+#define N 25
 #define mod 1000000007
 struct mat 
 {
-	int a[maxn][maxn];
+	int a[N][N];
 }now;
-bool bz[maxn][maxn];
+bool bz[N][N];
 int n, m, q, last;
 const int D[4][2] = 
 { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };

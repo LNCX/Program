@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int MAXN = 300001;
+const int N = 300001;
 set<string> key, happen;
 int n;
 int ans = 0;

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const LL maxn=1e5+5,mod=10;
-LL b,k,a[maxn],n;
+const LL N=1e5+5,mod=10;
+LL b,k,a[N],n;
 int main()
 {
     scanf("%lld%lld",&b,&k);

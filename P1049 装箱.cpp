@@ -1,9 +1,9 @@
 #include<iostream>
-#define maxn 20005
+#define N 20005
 using namespace std;
 int main()
 {
-    int n,m,x,l=1,f[maxn]={0},w[maxn]={0};
+    int n,m,x,l=1,f[N]={0},w[N]={0};
     cin>>m>>n;
     for(int i=1;i<=n;i++)
     {

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5,maxm=1e5+5,inf=0x3f3f3f3f;
+const int N=1e4+5,maxm=1e5+5,inf=0x3f3f3f3f;
 int n,m,k,s,t,ans=inf;
-int head[maxn],nxt[maxm],to[maxm],w[maxm],tot;
+int head[N],nxt[maxm],to[maxm],w[maxm],tot;
 void add(int u,int v,int z)
 {
     nxt[++tot]=head[u];
@@ -18,7 +18,7 @@ struct node
         return this->d>x.d;
     }
 };
-int dis[maxn][15],vis[maxn][15];
+int dis[N][15],vis[N][15];
 void dijkstra()
 {
     memset(dis,inf,sizeof dis);

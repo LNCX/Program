@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 struct node 
 {
     int val,arr[30];
@@ -9,9 +9,9 @@ struct node
         val=0;
         memset(arr,0,sizeof(arr));
     }
-}ch[maxn*2];
+}ch[N*2];
 int top,len,n,k;
-char s[maxn];
+char s[N];
 void insert(int x, int d) 
 {
     if(d==len)

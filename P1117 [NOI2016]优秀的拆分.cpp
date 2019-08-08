@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-const int MAXN=5e4+5,MOD=19260817,base=31;
-int h[MAXN];
-ll mi[MAXN],u[MAXN],v[MAXN];
-char s[MAXN];
+const int N=5e4+5,MOD=19260817,base=31;
+int h[N];
+ll mi[N],u[N],v[N];
+char s[N];
 ll gethash(int l,int r)
 {
     ll ans=0;

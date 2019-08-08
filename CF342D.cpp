@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const LL mod=1e9+7,maxn=1e4+5;
-LL f[3][maxn];
-char s[3][maxn];
+const LL mod=1e9+7,N=1e4+5;
+LL f[3][N];
+char s[3][N];
 int main()
 {
     int n;

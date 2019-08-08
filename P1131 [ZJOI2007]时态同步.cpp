@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int maxn=5e5+5;
+const int N=5e5+5;
 struct edge
 {
     int nxt,to,w;
-}e[maxn<<1];
+}e[N<<1];
 int n,s,ans;
-int head[maxn],tot;
-ll f[maxn],t[maxn];
+int head[N],tot;
+ll f[N],t[N];
 void add(int u,int v,int w)
 {
     e[++tot]=(edge){head[u],v,w};

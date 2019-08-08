@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105;
-char s[maxn][maxn];
+const int N=105;
+char s[N][N];
 pair<int,int>loc;
-int a[maxn][maxn],ans[maxn][maxn],maxx;
+int a[N][N],ans[N][N],maxx;
 int main()
 {
 	int n,k;

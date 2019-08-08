@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+5;
+const int N=1e6+5;
 typedef long long ll;
 struct node
 {
@@ -10,8 +10,8 @@ struct node
         if(p==x.p) return v<x.v;
         else return p<x.p;
     }
-}a[maxn];
-int n,m,tot=0,cnt[maxn],sum;
+}a[N];
+int n,m,tot=0,cnt[N],sum;
 unsigned ans=0x7fffffff;
 int main()
 {

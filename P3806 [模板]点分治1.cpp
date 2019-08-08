@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5,maxm=1e7+5,inf=0x3f3f3f3f;
+const int N=1e4+5,maxm=1e7+5,inf=0x3f3f3f3f;
 inline int read()
 {
     int x=0;
@@ -16,10 +16,10 @@ inline int read()
 struct edge
 {
     int nxt,to,w;
-}e[maxn<<1];
+}e[N<<1];
 int len[maxm],ans[maxm];
-int n,m,que[maxn],s,vis[maxn];
-int head[maxn],tot,dis[maxn],q[maxn],r[maxn];
+int n,m,que[N],s,vis[N];
+int head[N],tot,dis[N],q[N],r[N];
 void add(int u,int v,int w)
 {
     e[++tot]=(edge){head[u],v,w};
@@ -27,7 +27,7 @@ void add(int u,int v,int w)
     e[++tot]=(edge){head[v],u,w};
     head[v]=tot;
 }
-int size[maxn],mx[maxn],rt;
+int size[N],mx[N],rt;
 void find(int u,int fa)
 {
     size[u]=1,mx[u]=0;

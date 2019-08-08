@@ -1,7 +1,7 @@
 #include<cstdio>
 #include<iostream>
-const int maxn=1e6+100;
-int f[maxn][22],dep[maxn];
+const int N=1e6+100;
+int f[N][22],dep[N];
 int n=4,q,a,b,r;
 int dis(int x,int y)
 {

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=3e3+5,maxm=6e3+5,inf=0x3f3f3f3f;
-int ans=inf,head[maxn],nxt[maxm],w[maxm],to[maxm],edge_sum;
+const int N=3e3+5,maxm=6e3+5,inf=0x3f3f3f3f;
+int ans=inf,head[N],nxt[maxm],w[maxm],to[maxm],edge_sum;
 void add(int u,int v)
 {
     nxt[++edge_sum]=head[u];
@@ -10,7 +10,7 @@ void add(int u,int v)
     head[u]=edge_sum;
 }
 queue<int>q;
-int used[maxn],dis[maxn][maxn];
+int used[N],dis[N][N];
 void SPFA(int s)
 {
     memset(used,0,sizeof used);

@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100;
-char s[maxn];
+const int N=100;
+char s[N];
 struct lint
 {
-    short num[maxn],len;
+    short num[N],len;
     friend lint operator*(lint a,lint b)
     {
         lint c;
@@ -32,7 +32,7 @@ struct lint
         return false;
     }
 };
-lint f[maxn][maxn],num[maxn][maxn];//f[i][k]=max{f[l][k-1]*num[l+1][i]}
+lint f[N][N],num[N][N];//f[i][k]=max{f[l][k-1]*num[l+1][i]}
 int main()
 {
     int n,k;

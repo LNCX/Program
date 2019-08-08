@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e4+5,oo=1e9;
-int L,n,m,a[maxn];
+const int N=5e4+5,oo=1e9;
+int L,n,m,a[N];
 bool check(int x)
 {
     int l=0,cnt=0;

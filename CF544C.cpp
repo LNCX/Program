@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=505;
-int a[maxn],f[maxn][maxn]={1};
+const int N=505;
+int a[N],f[N][N]={1};
 int main()
 {
     int n,m,b,mod;

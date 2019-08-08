@@ -2,13 +2,13 @@
 using namespace std;
 using namespace std;
 typedef long long LL;
-const int maxn=35005,inf=0x7fffffff;
-int n,f[maxn],len,head[maxn],tot,b[maxn],t[maxn];
-LL g[maxn],disL[maxn],disR[maxn];
+const int N=35005,inf=0x7fffffff;
+int n,f[N],len,head[N],tot,b[N],t[N];
+LL g[N],disL[N],disR[N];
 struct edge
 {
     int nxt,to;
-}e[maxn];
+}e[N];
 inline void add(int u,int v)
 { 
     e[++tot]=(edge){head[u],v};

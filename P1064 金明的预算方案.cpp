@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define maxn 10005
-int w[maxn],p[maxn],q[maxn],s[maxn][2],f[32005];
+#define N 10005
+int w[N],p[N],q[N],s[N][2],f[32005];
 int main()
 {
 	int n,m,mid;

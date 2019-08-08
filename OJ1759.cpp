@@ -1,10 +1,10 @@
 #include<cstdio>
 #include<iostream>
-#define maxn 2005
+#define N 2005
 using namespace std;
 int main()
 {
-	int n,a[maxn],f[maxn];
+	int n,a[N],f[N];
 	cin>>n;
 	for(int i=1;i<=n;i++)	scanf("%d",&a[i]);
 	for(int i=1;i<=n;i++)

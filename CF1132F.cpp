@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=500;
-char s[maxn];
-int n,f[maxn][maxn];
+const int N=500;
+char s[N];
+int n,f[N][N];
 int main()
 {
     scanf("%d %s",&n,s);

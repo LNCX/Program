@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define lowbit(x) (x&(-x))
-const int maxn=1e6+5;
+const int N=1e6+5;
 int n,m;
-int a[maxn],c[maxn],b[maxn],ans[maxn];
+int a[N],c[N],b[N],ans[N];
 //a数组保存原数列，c树状数组，ans保存结果
 struct node
 {
@@ -13,7 +13,7 @@ struct node
     {
         return r<x.r;
     }
-}ask[maxn];
+}ask[N];
 void add(int x,int w)
 {
     while(x<=n)

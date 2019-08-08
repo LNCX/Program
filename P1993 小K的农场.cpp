@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e4+5;
+const int N=5e4+5;
 const int maxm=1e5+5;
 const int inf=0x3f3f3f3f;
 int head[maxm],edge_sum;
@@ -15,7 +15,7 @@ void add(int u,int v,int w)
     a[edge_sum].w=w;
     head[u]=edge_sum;
 }
-int dis[maxn],used[maxn];
+int dis[N],used[N];
 bool SPFA(int u)
 {
     used[u]=1;

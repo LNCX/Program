@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105,maxm=1e3+5,mod=31011;
-int n,m,cnt,sum,l[maxm],r[maxm],c[maxm],fa[maxn];
+const int N=105,maxm=1e3+5,mod=31011;
+int n,m,cnt,sum,l[maxm],r[maxm],c[maxm],fa[N];
 struct Edge
 {
     int u,v,w;

@@ -3,16 +3,16 @@
 #include <algorithm>
 using std::min;
 using std::sort;
-const int MAXN=440000;
+const int N=440000;
 const int MAXB=20;
 const int MAXS=1E4;
 int n, m, l;
-int a[MAXN], b[MAXN];
-int len[MAXN], fir[MAXN];
-int sa[MAXN], rank[MAXN*2], rank1[MAXN];
-int count[MAXN], tmp[MAXN], height[MAXN];
-int lef[MAXN], righ[MAXN];
-int root[MAXN], pre[MAXN], ans[MAXN];
+int a[N], b[N];
+int len[N], fir[N];
+int sa[N], rank[N*2], rank1[N];
+int count[N], tmp[N], height[N];
+int lef[N], righ[N];
+int root[N], pre[N], ans[N];
 struct Interval
 {
     int l, r;
@@ -20,10 +20,10 @@ struct Interval
     {
         return r<rhs.r;
     }
-} d[MAXN];
+} d[N];
 struct RMQ
 {
-    int lg[MAXN], st[MAXN][MAXB];
+    int lg[N], st[N][MAXB];
     void build(int* a)
     {
         for(int i=1, k=0; i<=l; i++) lg[i]=1<<k+1==i?++k:k;
@@ -43,7 +43,7 @@ struct PersistableSegmentTree
     struct Node
     {
         int val, lc, rc;
-    } tr[MAXN<<5];
+    } tr[N<<5];
     int cnt;
     void pushup(int x)
     {
@@ -74,7 +74,7 @@ struct PersistableSegmentTree
 struct BinaryIndexedTree
 {
     #define lb(x) (x&-(x))
-    int s[MAXN];
+    int s[N];
     void add(int x, int k)
     {
         while (x<=l) s[x]+=k, x+=lb(x);
@@ -104,7 +104,7 @@ int main()
     memset(count, 0, sizeof count);
     memset(rank, 0, sizeof rank);
     for(int i=1; i<=l; i++) count[a[i]]=1;
-    for(int i=1; i<MAXN; i++) count[i]+=count[i-1];
+    for(int i=1; i<N; i++) count[i]+=count[i-1];
     for(int i=1; i<=l; i++) rank[i]=count[a[i]];
     for(int p=1, k=0; k!=l; p<<=1)
     {

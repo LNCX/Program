@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=205;
-bitset<maxn>vis;
-int n,ans,a[maxn][maxn],f[maxn];
+const int N=205;
+bitset<N>vis;
+int n,ans,a[N][N],f[N];
 bool dfs(int u)
 {
     for(int v=1;v<=n;v++)  if(a[u][v]&&!vis[v])

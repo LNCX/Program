@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5;
+const int N=1e4+5;
 const int maxm=1e5+5;
-int n,m,a[maxn],x[maxm],y[maxm];
+int n,m,a[N],x[maxm],y[maxm];
 int head[maxm],to[maxm],nxt[maxm],e_num;
 bool camp(int a,int b)
 {
@@ -16,7 +16,7 @@ void add(int u,int v)
 	to[e_num]=v;
 	head[u]=e_num;
 }
-int top,sum,num,dfn[maxn],low[maxn],st[maxn],w[maxn],co[maxn];
+int top,sum,num,dfn[N],low[N],st[N],w[N],co[N];
 void tarjan(int u)
 {
 	dfn[u]=low[u]=++num;
@@ -46,7 +46,7 @@ void tarjan(int u)
 	}
 	return ;
 }
-int dg[maxn],rnk[maxm];
+int dg[N],rnk[maxm];
 void remove()
 {
 	for(int i=1;i<=m;i++)
@@ -70,7 +70,7 @@ void remove()
 	}
 	return ;
 }
-int ans,dis[maxn],que[maxn],l,r;
+int ans,dis[N],que[N],l,r;
 void tuopu()
 {
 	for(int i=1;i<=sum;i++)

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+5;
+const int N=2e5+5;
 int n,len=0x7fffffff,type;
-char a[maxn];
+char a[N];
 char ans[6][3]=
 {
     {'R','G','B'},

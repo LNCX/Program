@@ -1,8 +1,8 @@
 #include<cstdio>
 #include<iostream>
 using namespace std;
-const int maxn=1005;
-int a[maxn][maxn];
+const int N=1005;
+int a[N][N];
 int main()
 {
     int n,m,q;

@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+5;
-int n,m,diff[maxn],need[maxn],num[maxn];
+const int N=1e6+5;
+int n,m,diff[N],need[N],num[N];
 struct node
 {
     int d,l,r;
-}a[maxn];
+}a[N];
 bool judge(int x)
 {
     memset(diff,0,sizeof(diff));

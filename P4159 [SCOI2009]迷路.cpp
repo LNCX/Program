@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=205;
+const int N=205;
 const int mod=2009;
 int len;
 struct mat
 {
-	int num[maxn][maxn];
+	int num[N][N];
 };
 mat operator*(mat a,mat b)
 {

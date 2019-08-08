@@ -3,13 +3,13 @@
 #define now(i,j) (((i-1)*m+j)+n*m)
 #define right(i,j) (((i-1)*m+j)+(n*m<<1))
 using namespace std;
-const int maxn=2e3+5,inf=0x3f3f3f3f;
+const int N=2e3+5,inf=0x3f3f3f3f;
 const int dx[]={-1,-1,-1,0,0,1,1,1},dy[]={-1,0,1,-1,1,-1,0,1};
-int n,m,cost,tot=1,head[maxn],vis[maxn],dis[maxn],x1[25][25],x2[25][25];
+int n,m,cost,tot=1,head[N],vis[N],dis[N],x1[25][25],x2[25][25];
 struct edge
 {
     int nxt,to,f,w;
-}e[maxn<<3];
+}e[N<<3];
 void add(int u,int v,int w,int f)
 {
     e[++tot]=(edge){head[u],v,f,w},head[u]=tot;

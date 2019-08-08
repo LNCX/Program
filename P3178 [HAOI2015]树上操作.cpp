@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 typedef long long LL;
 int n,m;
-LL sum[maxn<<2],add[maxn<<2];
-int seg[maxn],top[maxn],rev[maxn];
-int size[maxn],son[maxn],dep[maxn],fa[maxn];
-int edge_sum,num[maxn<<1],nxt[maxn<<1],to[maxn<<1],head[maxn<<1];
+LL sum[N<<2],add[N<<2];
+int seg[N],top[N],rev[N];
+int size[N],son[N],dep[N],fa[N];
+int edge_sum,num[N<<1],nxt[N<<1],to[N<<1],head[N<<1];
 void edge_add(int u,int v)
 {
 	nxt[++edge_sum]=head[u];

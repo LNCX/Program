@@ -1,30 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=2000000;
-int p[maxn+10],N;
-bool phiv[maxn+10],muv[maxn+10],v[maxn+10];
-LL mu[maxn+10],phi[maxn+10],ansmu[maxn],ansphi[maxn];
+const int N=2000000;
+int p[N+10],N;
+bool phiv[N+10],muv[N+10],v[N+10];
+LL mu[N+10],phi[N+10],ansmu[N],ansphi[N];
 inline void init()
 {
     v[1]=mu[1]=phi[1]=1;
     int tot=0;
-    for(int i=2;i<=maxn;i++)
+    for(int i=2;i<=N;i++)
     {
         if (!v[i]) p[++tot]=i,mu[i]=-1,phi[i]=i-1;
-        for(int j=1;j<=tot&&i*p[j]<=maxn;++j)
+        for(int j=1;j<=tot&&i*p[j]<=N;++j)
         {
             v[i*p[j]]=1;
             if(i%p[j]) mu[i*p[j]]=-mu[i],phi[i*p[j]]=phi[i]*phi[p[j]];
             else {mu[i*p[j]]=0,phi[i*p[j]]=phi[i]*p[j];break;}
         }
     }
-    for(int i=1;i<=maxn;++i)
+    for(int i=1;i<=N;++i)
         mu[i]+=mu[i-1],phi[i]+=phi[i-1];
 }
 LL Sphi(int n)
 {
-    if(n<=maxn) return phi[n];
+    if(n<=N) return phi[n];
     int x=N/n;
     if(phiv[x]) return ansphi[x];
     phiv[x]=true;
@@ -35,7 +35,7 @@ LL Sphi(int n)
 }
 LL Smu(int n)
 {
-    if(n<=maxn) return mu[n];
+    if(n<=N) return mu[n];
     int x=N/n;
     if(muv[x]) return ansmu[x];
     muv[x]=true;
@@ -52,8 +52,8 @@ int main()
     while(t--)
     {
         scanf("%d",&N);
-        fill(phiv,phiv+maxn+1,false);
-        fill(muv,muv+maxn+1,false);
+        fill(phiv,phiv+N+1,false);
+        fill(muv,muv+N+1,false);
         printf("%lld %lld\n",Sphi(N),Smu(N));
     }
     return 0;

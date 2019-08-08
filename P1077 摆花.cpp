@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105,mod=1000007;
-int a[maxn],f[maxn][maxn];//f[i][j]+=f[i-1][j-k]|k=0~min(a[i],j)
+const int N=105,mod=1000007;
+int a[N],f[N][N];//f[i][j]+=f[i-1][j-k]|k=0~min(a[i],j)
 int main()
 {
     int n,m;

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=55;
-int n,x[maxn],y[maxn],r[maxn];
+const int N=55;
+int n,x[N],y[N],r[N];
 void solve(int *x)
 {
     int t, w=0;

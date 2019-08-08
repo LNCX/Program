@@ -2,9 +2,9 @@
 #include<cstdio>
 #include<iostream>
 using namespace std;
-const int maxn=1e7+5;
+const int N=1e7+5;
 const double pi=acos(-1);
-int n,m,rev[maxn];
+int n,m,rev[N];
 struct complex
 {
     double x,y;
@@ -24,7 +24,7 @@ struct complex
     {
         return complex(a.x*x-a.y*y,a.y*x+a.x*y);
     }
-}a[maxn],b[maxn];
+}a[N],b[N];
 void FFT(complex *a,int lim,int type)
 {
     for(int i=0;i<lim;i++) 

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=20;
-int a[maxn][maxn],f[maxn][maxn],pre[maxn][maxn][maxn];
+const int N=20;
+int a[N][N],f[N][N],pre[N][N][N];
 int main()
 {
     int n,m;

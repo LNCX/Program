@@ -1,12 +1,12 @@
 //遇难则反
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+5;
+const int N=2e5+5;
 struct Edge
 {
     int v,nxt;
-}e[maxn];   
-int n,m,head[maxn],tot,ans[maxn],vis[maxn],maxx;
+}e[N];   
+int n,m,head[N],tot,ans[N],vis[N],maxx;
 void dfs(int u,int maxx)
 {
     if(vis[u]) return;

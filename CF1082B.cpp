@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 int n;
-char s[maxn];
+char s[N];
 struct node
 {
     int l,r;

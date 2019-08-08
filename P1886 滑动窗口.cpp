@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+5;
-int a[maxn],q[maxn],num[maxn];
+const int N=1e6+5;
+int a[N],q[N],num[N];
 int main()
 {
 	int n,k;

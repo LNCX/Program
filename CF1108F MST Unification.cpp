@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=4e5+5;
-int n,m,fa[maxn],ans;
+const int N=4e5+5;
+int n,m,fa[N],ans;
 struct edge
 {
     int x,y,z;
@@ -9,7 +9,7 @@ struct edge
     {
         return z<w.z;
     }
-}a[maxn];
+}a[N];
 int get(int x)
 {
     if(x==fa[x])return x;

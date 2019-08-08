@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 struct node
 {
     int nxt,to;
-}e[maxn<<1];
-int n,m,head[maxn],tot,f[maxn][20],dep[maxn],size[maxn];
+}e[N<<1];
+int n,m,head[N],tot,f[N][20],dep[N],size[N];
 void add(int u,int v)
 {
     e[++tot]=(node){head[u],v};

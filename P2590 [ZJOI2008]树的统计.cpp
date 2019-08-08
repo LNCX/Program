@@ -3,7 +3,7 @@ using namespace std;
 const int N=60005;
 int n,m,maxx,summ;
 int seg[N],rev[N],size[N],son[N],top[N];
-int num[N],father[N],dep[N],sum[N<<2],maxn[N<<2];
+int num[N],father[N],dep[N],sum[N<<2],N[N<<2];
 int e_num,head[N<<2],to[N<<2],nxt[N<<2];
 void add(int u,int v)
 {
@@ -53,13 +53,13 @@ void build(int k,int l,int r)
 	int mid=(l+r)>>1;
 	if(l==r)
 	{
-		maxn[k]=sum[k]=num[rev[l]];
+		N[k]=sum[k]=num[rev[l]];
 		return ;
 	}
 	build(k<<1,l,mid);
 	build(k<<1|1,mid+1,r);
 	sum[k]=sum[k<<1]+sum[k<<1|1];
-	maxn[k]=max(maxn[k<<1],maxn[k<<1|1]);
+	N[k]=max(N[k<<1],N[k<<1|1]);
 }
 void fix(int k,int l,int r,int x,int w)
 {
@@ -67,14 +67,14 @@ void fix(int k,int l,int r,int x,int w)
 	if(l==r&&r==x)
 	{
 		sum[k]=w;
-		maxn[k]=w;
+		N[k]=w;
 		return ;
 	}
 	int mid=(l+r)>>1;
 	if(mid>=x) fix(k<<1,l,mid,x,w);
 	if(mid<x)  fix(k<<1|1,mid+1,r,x,w);
 	sum[k]=sum[k<<1]+sum[k<<1|1];
-	maxn[k]=max(maxn[k<<1],maxn[k<<1|1]);
+	N[k]=max(N[k<<1],N[k<<1|1]);
 }
 void query(int k,int l,int r,int x,int y)
 {
@@ -82,7 +82,7 @@ void query(int k,int l,int r,int x,int y)
 	if(x<=l&&r<=y)
 	{
 		summ+=sum[k];
-		maxx=max(maxx,maxn[k]);
+		maxx=max(maxx,N[k]);
 		return ;
 	}
 	int mid=(l+r)>>1;

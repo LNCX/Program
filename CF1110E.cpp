@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int maxn=1e5+5;
-ll c[maxn],t[maxn];
+const int N=1e5+5;
+ll c[N],t[N];
 inline ll read()
 {
     ll x=0,f=1;

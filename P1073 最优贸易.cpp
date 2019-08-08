@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5,inf=0x3f3f3f3f;
-vector<int>g[maxn];
-int n,m,f[maxn],mi[maxn],w[maxn];
+const int N=1e5+5,inf=0x3f3f3f3f;
+vector<int>g[N];
+int n,m,f[N],mi[N],w[N];
 void dfs(int x,int minx,int fa)
 {
     int flag=1; 

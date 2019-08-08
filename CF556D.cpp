@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const LL maxn=2e5+5;
+const LL N=2e5+5;
 struct node
 {
     LL id,w,mw;
@@ -9,7 +9,7 @@ struct node
     {
         return w<x.w;
     }
-}a[maxn],b[maxn];
+}a[N],b[N];
 struct gry
 {
     LL mw,id;
@@ -19,7 +19,7 @@ struct gry
     }
 }s;
 priority_queue<gry>q;
-LL ans[maxn],cnt;
+LL ans[N],cnt;
 int main()
 {
     LL n,m;

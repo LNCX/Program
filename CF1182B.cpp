@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=505;
-char s[maxn][maxn];
+const int N=505;
+char s[N][N];
 int cnt,ans;
 bool flag;
 int main()

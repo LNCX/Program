@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e3+5;
+const int N=5e3+5;
 map<int,int>b;
-int a[maxn],sum[maxn],ans;
+int a[N],sum[N],ans;
 int cal(int x)
 {
     int cnt=0;

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5,maxm=105;
+const int N=1e4+5,maxm=105;
 using namespace std;
-long long n,m,a[maxn][maxm],b[maxn][maxm],c[maxn],sum,k,ans,q;
+long long n,m,a[N][maxm],b[N][maxm],c[N],sum,k,ans,q;
 int main()
 {
     scanf("%lld%lld",&n,&m);

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-int head[maxn],tot,f[maxn],fa[maxn],cnt[maxn];
-struct edge{int nxt,to;}e[maxn<<1];
+const int N=1e5+5;
+int head[N],tot,f[N],fa[N],cnt[N];
+struct edge{int nxt,to;}e[N<<1];
 struct query{char s;int x;};
 int find(int x){return x==f[x]?x:f[x]=find(f[x]);}
 vector<query>q;

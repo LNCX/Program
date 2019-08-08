@@ -1,10 +1,10 @@
 #include<cstdio>
 #include<iostream>
-#define maxn 5005
+#define N 5005
 using namespace std;
 int main()
 {
-	int max=0,l=1,n,s,a,b,f[maxn]={0},c[maxn]={0};
+	int max=0,l=1,n,s,a,b,f[N]={0},c[N]={0};
 	cin>>n>>s>>a>>b;
 	for(int i=1;i<=n;i++)
 	{

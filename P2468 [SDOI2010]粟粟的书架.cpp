@@ -67,14 +67,14 @@ namespace solve2
     int caln(int x1,int y1,int x2,int y2,int k){return cnt[x2][y2][k]-cnt[x1-1][y2][k]+cnt[x1-1][y1-1][k]-cnt[x2][y1-1][k];}
     int main()
     {
-        int maxn=0;
+        int N=0;
         for(int i=1;i<=n;++i)
             for(int j=1;j<=m;++j)
             {
                 scanf("%d",&a[i][j]);
-                if(a[i][j]>maxn) maxn=a[i][j];
+                if(a[i][j]>N) N=a[i][j];
             }
-        for(int k=0;k<=maxn;++k) 
+        for(int k=0;k<=N;++k) 
             for(int i=1;i<=n;++i)
                 for(int j=1;j<=m;++j)
                 {
@@ -90,7 +90,7 @@ namespace solve2
                 puts("Poor QLW");
                 continue;
             }
-            int l=0,r=maxn+1,ans=-1;
+            int l=0,r=N+1,ans=-1;
             while(l+1<r)
             {
                 int mid=(l+r)>>1;

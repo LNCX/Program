@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=200010;
+const int N=200010;
 typedef long long LL;
-LL a[maxn],b[maxn],s,sum,Y;
+LL a[N],b[N],s,sum,Y;
 int n,m,maxx=-1,minx=2147483647;
-int w[maxn],v[maxn],L[maxn],R[maxn];
+int w[N],v[N],L[N],R[N];
 bool check(int X)
 {   
     Y=0,sum=0;

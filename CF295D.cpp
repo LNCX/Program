@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=2001;
+const int N=2001;
 const LL mod=1e9+7;
-LL up[maxn][maxn],down[maxn][maxn],he[maxn];
+LL up[N][N],down[N][N],he[N];
 int main() 
 {
     int n,m;

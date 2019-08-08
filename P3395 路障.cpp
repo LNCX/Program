@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2005;
-int q[maxn*maxn][2],
+const int N=2005;
+int q[N*N][2],
     dx[4]={1,-1,0,0},
     dy[4]={0,0,1,-1};
-bool used[maxn][maxn],
-     vis[maxn][maxn];
+bool used[N][N],
+     vis[N][N];
 int main()
 {
     int t;

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-int n,k,m,ans,b[maxn];
+const int N=1e5+5;
+int n,k,m,ans,b[N];
 priority_queue<int>q;
 int main()
 {

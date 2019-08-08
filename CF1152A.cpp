@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-int a[maxn],b[maxn];
+const int N=1e5+5;
+int a[N],b[N];
 int one,two,one1,two1;
 int main()
 {
