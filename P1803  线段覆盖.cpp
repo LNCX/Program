@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+5;
+const int N=1e6+5;
 struct node
 {
     int l;
@@ -9,7 +9,7 @@ struct node
     {
         return r<x.r;
     }
-}a[maxn];
+}a[N];
 int main()
 {
     int n,ans=0,x=0;

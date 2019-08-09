@@ -3,9 +3,9 @@
 #define up(x,y) (f[x][k-1]+sum[x]-f[y][k-1]-sum[y])
 #define low(x,y) (dist[x]-dist[y])
 using namespace std;
-const int maxn=20005;
-int add[maxn],sum[maxn],dist[maxn];
-int w[maxn],d[maxn],f[maxn][3],q[maxn];
+const int N=20005;
+int add[N],sum[N],dist[N];
+int w[N],d[N],f[N][3],q[N];
 int main()
 {
 	int n;

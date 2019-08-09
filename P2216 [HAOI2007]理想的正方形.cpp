@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
-const int maxn=1005;
+const int N=1005;
 int min=0x3f3f3f3f,max=-1,ans=0x3f3f3f3f;
-int a[maxn][maxn];
-int f1[maxn][maxn],f2[maxn][maxn];
+int a[N][N];
+int f1[N][N],f2[N][N];
 int main()
 {
 	int n,m,k;
@@ -13,8 +13,8 @@ int main()
 	for(int i=1;i<=n;i++)
 	{
 		int l=1,r=0;
-		int q1[maxn]={0},q2[maxn]={0};
-		int num1[maxn]={0},num2[maxn]={0};
+		int q1[N]={0},q2[N]={0};
+		int num1[N]={0},num2[N]={0};
 		for(int j=1;j<=m;j++)
 		{
 			while(num1[l]<j-k+1&&l<=r) l++;

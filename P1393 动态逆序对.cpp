@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 #define lowbit(x) ((x)&(-x))
-const int maxn=2e5+5;
+const int N=2e5+5;
 using namespace std;
 typedef long long ll;
 struct point
@@ -10,7 +10,7 @@ struct point
     {
         return (a.x==b.x)?a.y<b.y:a.x<b.x;
     }
-}a[maxn],t[maxn];
+}a[N],t[N];
 bool cmp1(point a,point b)
 {
     return a.y<b.y;
@@ -19,8 +19,8 @@ bool cmp2(point a,point b)
 {
     return a.t<b.t;
 }
-int n,m,pos[maxn];
-ll ans[maxn],c[maxn];
+int n,m,pos[N];
+ll ans[N],c[N];
 inline int read()
 {
     int x=0;

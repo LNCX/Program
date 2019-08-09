@@ -1,15 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=2e5+5;
+const int N=2e5+5;
 struct node
 {
     int l,r,id;
-}a[maxn];
+}a[N];
 deque<int> q;
-vector<int> b[maxn];
-LL sum[maxn],ans[maxn];
-int n,m,l[maxn],r[maxn],x[maxn],y[maxn],fa[maxn],pos[maxn];
+vector<int> b[N];
+LL sum[N],ans[N];
+int n,m,l[N],r[N],x[N],y[N],fa[N],pos[N];
 int find(int x)
 {
     return x==fa[x]?x:fa[x]=find(fa[x]);

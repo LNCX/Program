@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=1e5+5;
-LL f[maxn][35],cnt[maxn][35];//f[i][j]means destroy bases end with i,lenth 2^j
+const int N=1e5+5;
+LL f[N][35],cnt[N][35];//f[i][j]means destroy bases end with i,lenth 2^j
 int main()
 {
     LL n,k,A,B;

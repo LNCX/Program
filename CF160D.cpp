@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+5;
-int n,m,f[maxn],head[maxn],tot,ans[maxn];
-int dfn[maxn],low[maxn],dfstime,vis[maxn];//none:0; at least :1;  any:2
+const int N=2e5+5;
+int n,m,f[N],head[N],tot,ans[N];
+int dfn[N],low[N],dfstime,vis[N];//none:0; at least :1;  any:2
 struct Edge1
 {
     int u,v,w,num,ans;
@@ -10,11 +10,11 @@ struct Edge1
     {
         return w<x.w ;
     }
-}e[maxn];
+}e[N];
 struct Edge2
 {
     int v,nxt,id;
-}e2[maxn];
+}e2[N];
 void add(int u,int v,int id)
 {
     e2[++tot].nxt=head[u];

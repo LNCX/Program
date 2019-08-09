@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int maxn=333000;
-int n,d[maxn],p[maxn];
+const int N=333000;
+int n,d[N],p[N];
 vector< pair<int,int> >v;
 void change(int x,int y)
 {

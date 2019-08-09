@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=500005;
-int e_num,head[2*maxn],to[2*maxn],nxt[2*maxn];
+const int N=500005;
+int e_num,head[2*N],to[2*N],nxt[2*N];
 void add(int u,int v)
 {
 	nxt[++e_num]=head[u];
 	to[e_num]=v;
 	head[u]=e_num;
 }
-int dep[maxn],f[maxn][21];
+int dep[N],f[N][21];
 void deal(int u,int fa)
 {
 	dep[u]=dep[fa]+1;

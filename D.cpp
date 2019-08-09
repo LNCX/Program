@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=2001,mod=1e9+7;
-LL a[maxn][maxn],b[maxn][maxn];
+const int N=2001,mod=1e9+7;
+LL a[N][N],b[N][N];
 //a[i][j]:第i行两个黑格相距离为j的上方不下降总数
 //b[i][j]:反之
 int main()

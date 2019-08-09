@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105;
-char s[maxn],mid[maxn];
-int n,d[maxn][maxn];
+const int N=105;
+char s[N],mid[N];
+int n,d[N][N];
 bool match(char a,char b) {return(a == '(' && b == ')') || (a == '[' && b == ']');}
 void dp()
 {

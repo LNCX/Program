@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100010,mod=1000000007;
-int m,f[maxn],fac[7],fl;
+const int N=100010,mod=1000000007;
+int m,f[N],fac[7],fl;
 inline int power(int a,int b)
 {
     a%=mod;

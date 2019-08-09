@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+5;
+const int N=1e6+5;
 typedef long long LL;
-LL phi[maxn+5],s[maxn+5],f[maxn+5];
+LL phi[N+5],s[N+5],f[N+5];
 void phi_table(int n)
 {
     phi[1]=1;
@@ -15,12 +15,12 @@ void phi_table(int n)
 }
 int main()
 {
-    phi_table(maxn);
-    for(int i=1;i<=maxn;i++)
-        for(int j=i*2;j<=maxn;j+=i)
+    phi_table(N);
+    for(int i=1;i<=N;i++)
+        for(int j=i*2;j<=N;j+=i)
             f[j]+=i*phi[j/i];
     s[2]=f[2];
-    for(int n=3;n<=maxn;n++)
+    for(int n=3;n<=N;n++)
         s[n]=s[n-1]+f[n];
     int n;
     while(scanf("%d",&n)&&n)

@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int maxn=1000+5;
-int n,m,p,vis[maxn][maxn],ans[maxn],s[maxn];
-char a[maxn][maxn];
+const int N=1000+5;
+int n,m,p,vis[N][N],ans[N],s[N];
+char a[N][N];
 struct node
 {
    int x,y,cnt;

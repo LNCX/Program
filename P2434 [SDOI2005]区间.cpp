@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1000005;
-int a[maxn],b[maxn];
+const int N=1000005;
+int a[N],b[N];
 int main()
 {
     int n,cnt;
@@ -12,7 +12,7 @@ int main()
         scanf("%d%d",&x,&y);
         a[x]++;b[y]++;
     }
-    for(int i=1;i<maxn;i++)
+    for(int i=1;i<N;i++)
     {
         if(!cnt&&a[i]) 
             printf("%d ",i);

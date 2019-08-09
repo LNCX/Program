@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef unsigned long long LL;
-const int maxn=1005;
-int f[maxn*maxn]={0,1,1};
+const int N=1005;
+int f[N*N]={0,1,1};
 LL pow(LL a,LL b,LL p)
 {
     LL ans=1;

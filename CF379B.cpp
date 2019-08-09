@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=305;
-int a[maxn],sum;
+const int N=305;
+int a[N],sum;
 int main()
 {
     int n;

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-int rt,tot,ch[maxn][2],f[maxn],cnt[maxn],v[maxn],size[maxn];
+const int N=1e5+5;
+int rt,tot,ch[N][2],f[N],cnt[N],v[N],size[N];
 bool chk(int x){return ch[f[x]][1]==x;}
 void pushup(int x){size[x]=size[ch[x][0]]+size[ch[x][1]]+cnt[x];}
 void rotate(int x)

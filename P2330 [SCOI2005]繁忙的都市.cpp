@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=305;
+const int N=305;
 const int inf=0x3f3f3f3f;
 int main()
 {
 	int n,m,s,k,minn,ans=-1;
-	int g[maxn][maxn],d[maxn],used[maxn];
+	int g[N][N],d[N],used[N];
 	scanf("%d%d",&n,&m);
 	memset(g,inf,sizeof(g));
 	memset(d,inf,sizeof(d));

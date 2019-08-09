@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=1e5+5;
+const int N=1e5+5;
 LL n,b,ans;
 struct node
 {
@@ -10,7 +10,7 @@ struct node
     {
         return p<x.p;
     }
-}a[maxn];
+}a[N];
 int main()
 {
     scanf("%lld%lld",&n,&b);

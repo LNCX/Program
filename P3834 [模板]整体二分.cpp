@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 #define lowbit(x) ((x)&(-(x)))
 using namespace std;
-const int maxn=200000+10;
+const int N=200000+10;
 const int inf=1e9;
-int n,m,c[maxn],ans[maxn],cnt;
+int n,m,c[N],ans[N],cnt;
 struct Query
 {
     int l,r,k,op,id;
-}q[maxn<<1],q1[maxn<<1],q2[maxn<<1];
+}q[N<<1],q1[N<<1],q2[N<<1];
 inline int read()
 {
     int x=0,f=1;

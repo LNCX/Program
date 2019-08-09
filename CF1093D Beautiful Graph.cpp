@@ -1,16 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=3e5+5;
+const int N=3e5+5;
 const LL mod=998244353;
 int n,m;
-LL ans,sum[2],a[maxn<<1];
-int head[maxn<<1],edge_sum;
-bool vis[maxn],flag=0;
+LL ans,sum[2],a[N<<1];
+int head[N<<1],edge_sum;
+bool vis[N],flag=0;
 struct node
 {
     int to,nxt;
-}edge[maxn<<1];
+}edge[N<<1];
 void clear()
 {
     ans=1;

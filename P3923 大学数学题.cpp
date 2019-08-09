@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
-const int maxn = 20;
+const int N = 20;
 int n,p,k,m;
-int a[maxn],b[maxn],c[maxn],d[maxn];
+int a[N],b[N],c[N],d[N];
 int power(int a,int b)
 {
     a%=p;

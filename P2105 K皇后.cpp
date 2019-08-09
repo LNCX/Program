@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e4+5;
-int x[maxn],y[maxn],ans;
-bool line[maxn],used[maxn];
+const int N=2e4+5;
+int x[N],y[N],ans;
+bool line[N],used[N];
 int main()
 {
     int n,m,k;

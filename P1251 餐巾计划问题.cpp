@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const long long maxn=8e3+5,maxm=4e5+5,inf=0x3f3f3f3f3f3f3f3f;
-long long maxflow,cost,tot=1,head[maxn],vis[maxn],dis[maxn],r[maxn];
+const long long N=8e3+5,maxm=4e5+5,inf=0x3f3f3f3f3f3f3f3f;
+long long maxflow,cost,tot=1,head[N],vis[N],dis[N],r[N];
 struct edge
 {
     long long nxt,to,f,w;

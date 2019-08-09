@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=1e5+5;
+const int N=1e5+5;
 double ans;
-LL a[maxn],sum[maxn],tot;
+LL a[N],sum[N],tot;
 int main()
 {
     LL n,k,m;

@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const ll maxn=105,mod=1000000007;
+const ll N=105,mod=1000000007;
 vector<ll>ans;
-ll n,m,a[maxn];
+ll n,m,a[N];
 inline ll read()
 {
     ll x=0;

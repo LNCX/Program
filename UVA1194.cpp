@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e3+5;
-bitset<maxn>vis;
-vector<int>e[maxn];
-int n,m,k,ans,f[maxn];
+const int N=1e3+5;
+bitset<N>vis;
+vector<int>e[N];
+int n,m,k,ans,f[N];
 bool dfs(int u)
 {
     for(int i=0;i<(int)e[u].size();i++)

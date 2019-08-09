@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-int n,m,siz[maxn<<2],sum[maxn<<2],add[maxn<<2];
+const int N=1e5+5;
+int n,m,siz[N<<2],sum[N<<2],add[N<<2];
 void down(int k)
 {
     if(add[k]==0) return ;

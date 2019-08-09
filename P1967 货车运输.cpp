@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e4+5,maxm=5e4+5,maxb=15,inf=0x3f3f3f3f;
+const int N=1e4+5,maxm=5e4+5,maxb=15,inf=0x3f3f3f3f;
 struct Edge
 {
 	int u,v,w;
@@ -9,7 +9,7 @@ struct Edge
 		return w>rhs.w;
 	}
 } edge[maxm];
-int fa[maxn],d[maxn],fan[maxn][maxb],mine[maxn][maxb];
+int fa[N],d[N],fan[N][maxb],mine[N][maxb];
 int f(int i)
 {
 	if(i==fa[i]) return i;

@@ -1,19 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2005,maxm=200000;
+const int N=2005,maxm=200000;
 int n,m;
 struct edge
 {
     int nxt,to,w;
 }e[maxm];
-int head[maxn],tot;
+int head[N],tot;
 void add(int u,int v,int w)
 {
     e[++tot]=(edge){head[u],v,w};
     head[u]=tot;
 }
 queue<int>q;
-int dis[maxn],v[maxn];
+int dis[N],v[N];
 void SPFA(int s,int t)
 {
     memset(dis,0x3f,sizeof(dis));

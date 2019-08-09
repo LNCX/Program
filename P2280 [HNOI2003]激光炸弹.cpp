@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e3+5;
-int f[maxn][maxn],ans;
+const int N=5e3+5;
+int f[N][N],ans;
 int main()
 {
     int n,r;

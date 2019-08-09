@@ -2,8 +2,8 @@
 #include<iostream>
 #include<algorithm>
 using namespace std;
-const int maxn=2e5+5;
-int a[maxn],f[maxn],dis[maxn];
+const int N=2e5+5;
+int a[N],f[N],dis[N];
 int main()
 {
 	int n,m,k;

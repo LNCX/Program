@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=205,inf=0x3f3f3f3f;
-int n,m,a[maxn][maxn],tot=1;
-int head[maxn*maxn],cur[maxn*maxn],dep[maxn*maxn],vis[maxn*maxn];
+const int N=205,inf=0x3f3f3f3f;
+int n,m,a[N][N],tot=1;
+int head[N*N],cur[N*N],dep[N*N],vis[N*N];
 int dx[]={2,2,1,1,-1,-1,-2,-2},
     dy[]={1,-1,2,-2,2,-2,1,-1};
 struct edge
 {
     int nxt,to,cap,flow;
-}e[maxn*maxn<<4];
+}e[N*N<<4];
 void edge_add(int u,int v,int w)
 {
     e[++tot]=(edge){head[u],v,w,0};

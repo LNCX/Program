@@ -1,8 +1,8 @@
 #include<queue>
 #include<cstdio>
 using namespace std;
-const int maxn=2e5+7;
-int id[maxn],l[maxn],r[maxn],ans[maxn];
+const int N=2e5+7;
+int id[N],l[N],r[N],ans[N];
 priority_queue<int> q;
 int main()
 {

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define MAXN 41
-int f[MAXN][MAXN][MAXN][MAXN],num[351],g[5],n,m,x;
+#define N 41
+int f[N][N][N][N],num[351],g[5],n,m,x;
 int main()
 {
     cin>>n>>m;

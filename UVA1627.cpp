@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=110;
+const int N=110;
 #define INF 100000000
-vector<int> block[maxn][2];
-int tot,d[maxn][2*maxn],b[maxn][2*maxn];
-int s[maxn][maxn],g[maxn][maxn],col[maxn],n;
+vector<int> block[N][2];
+int tot,d[N][2*N],b[N][2*N];
+int s[N][N],g[N][N],col[N],n;
 bool dfs(int i,int t,vector<int> *b)
 {
     col[i]=t;
@@ -32,7 +32,7 @@ bool dfs(int i,int t,vector<int> *b)
 }
 bool blocks()
 {
-    for(int i=0;i<maxn;i++)
+    for(int i=0;i<N;i++)
         for(int j=0;j<2;j++)
             block[i][j].clear();
     tot=0;
@@ -48,24 +48,24 @@ void dp()
     memset(b,0,sizeof b);
     for(int i=0;i<=tot;i++)
     {
-        for(int j=0;j<2*maxn;j++)
+        for(int j=0;j<2*N;j++)
         {
             if(i==0)
             {
                 d[i][j]=INF;
-                if(j==maxn)
+                if(j==N)
                 d[i][j]=0;
                 continue;
             }
             d[i][j]=INF;
             int deta=block[i-1][0].size()-block[i-1][1].size();
-            if(j-deta>=0&&j-deta<2*maxn&&d[i-1][j-deta]!=INF)
+            if(j-deta>=0&&j-deta<2*N&&d[i-1][j-deta]!=INF)
                 if(abs(d[i][j])>abs(d[i-1][j-deta]+deta))
                 {
                     d[i][j]=d[i-1][j-deta]+deta;
                     b[i][j]=0;
                 }
-            if(j+deta>=0&&j+deta<2*maxn&&d[i-1][j+deta]!=INF)
+            if(j+deta>=0&&j+deta<2*N&&d[i-1][j+deta]!=INF)
                 if(abs(d[i][j])>abs(d[i-1][j+deta]-deta))
                 {
                     d[i][j]=d[i-1][j+deta]-deta;
@@ -77,7 +77,7 @@ void dp()
 void print()
 {
     int ans=INF,p=0;
-    for(int k=0;k<2*maxn;k++)
+    for(int k=0;k<2*N;k++)
     {
         if(abs(ans)>abs(d[tot][k]))
         {

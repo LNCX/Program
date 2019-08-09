@@ -1,18 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=1e5+5;
+const int N=1e5+5;
 struct node
 {
     LL pow,mon,get,id;
     node():get(0) {}
-}  a[maxn];
+}  a[N];
 bool operator<(node a,node b)
 {return a.mon<b.mon;}
 bool cmp1(node a,node b)
 {return a.pow<b.pow;}
-node temp[maxn];
-LL res[maxn];
+node temp[N];
+LL res[N];
 priority_queue<node> q;
 int main()
 {

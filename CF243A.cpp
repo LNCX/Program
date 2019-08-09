@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=100005;
-int f[1<<20],a[maxn];
+const int N=100005;
+int f[1<<20],a[N];
 int main() 
 {
     int n,ans=0;

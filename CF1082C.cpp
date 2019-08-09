@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 int n,m,ans;
-int a[maxn];
-priority_queue<int>q[maxn];
+int a[N];
+priority_queue<int>q[N];
 int main()
 {
     scanf("%d%d",&n,&m);

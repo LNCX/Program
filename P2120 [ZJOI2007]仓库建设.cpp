@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1000005;
-int n,m,x[maxn],q[maxn],c[maxn];
-long long f[maxn],sum[maxn],s[maxn];
+const int N=1000005;
+int n,m,x[N],q[N],c[N];
+long long f[N],sum[N],s[N];
 double calc(int j,int k)
 {return (f[k]-f[j]+sum[k]-sum[j])*1.0/(s[k]-s[j]);}
 int main()

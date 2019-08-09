@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
-const int oo=1e9,maxn=5001;
+const int oo=1e9,N=5001;
 using namespace std;
-int p[maxn][2];
-double dis[maxn];
-bool vis[maxn];
+int p[N][2];
+double dis[N];
+bool vis[N];
 double dist(int x1,int y1,int x2,int y2)
 {
     return sqrt((double)(x1-x2)*(x1-x2)+(double)(y1-y2)*(y1-y2));

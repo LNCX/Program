@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105;
+const int N=105;
 int ans;
-char s[maxn][1005];
+char s[N][1005];
 int main()
 {
     int n;

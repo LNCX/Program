@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 typedef long long LL;
 using namespace std;
-const int maxn=10005;
-int a[maxn],b[maxn],c[maxn],cnt;
+const int N=10005;
+int a[N],b[N],c[N],cnt;
 LL f(int i,int x)
 {
     return (LL)a[i]*x*x+b[i]*x+c[i];

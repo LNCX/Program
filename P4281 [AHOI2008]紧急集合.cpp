@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e5+5,oo=0x7fffffff;
-int n,m,dep[maxn],f[maxn][20];
-int head[maxn],tot,ansp,ansc;
+const int N=5e5+5,oo=0x7fffffff;
+int n,m,dep[N],f[N][20];
+int head[N],tot,ansp,ansc;
 inline int read()
 {
     char c=getchar();
@@ -18,7 +18,7 @@ inline int read()
 struct edge
 {
     int nxt,to;
-}e[maxn<<1];
+}e[N<<1];
 void add(int u,int v)
 {
     e[++tot]=(edge){head[u],v};

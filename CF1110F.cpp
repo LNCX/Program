@@ -13,14 +13,14 @@ inline int read()
     }
     return x;
 }
-const ll maxn=5e5+5,oo=1ll<<60;
-int n,m,tot,head[maxn],size[maxn],son[maxn],L[maxn],R[maxn];
-ll dis[maxn],num[maxn],minx[maxn<<2],tag[maxn<<2],ans[maxn];
+const ll N=5e5+5,oo=1ll<<60;
+int n,m,tot,head[N],size[N],son[N],L[N],R[N];
+ll dis[N],num[N],minx[N<<2],tag[N<<2],ans[N];
 struct edge
 {
     int nxt,to,w;
-}e[maxn<<1];
-vector<int>q[maxn];
+}e[N<<1];
+vector<int>q[N];
 void add_edge(int w,int v,int u)
 {
     e[++tot]=(edge){head[u],v,w};

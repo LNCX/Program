@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=35;
-int num[maxn],f[maxn][maxn];
+const int N=35;
+int num[N],f[N][N];
 void print(int l,int r)
 {
     if(l>r) return;

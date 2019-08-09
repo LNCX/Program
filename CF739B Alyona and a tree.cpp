@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+5;
+const int N=2e5+5;
 struct Edge
 {
     int nxt,v,w;
-}e[maxn<<1];
-long long dis[maxn]; 
-int n,tot,head[maxn],a[maxn],ans[maxn],f[maxn][20];
+}e[N<<1];
+long long dis[N]; 
+int n,tot,head[N],a[N],ans[N],f[N][20];
 void Add(int u,int v,int w)
 {
     e[++tot]=(Edge){head[u],v,w};

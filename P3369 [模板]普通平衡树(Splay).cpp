@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 class Splay
 {
     private:
-        int ch[maxn][2],f[maxn],size[maxn],v[maxn],cnt[maxn],rt,tot;
+        int ch[N][2],f[N],size[N],v[N],cnt[N],rt,tot;
         bool chk(int x){return ch[f[x]][1]==x;}
         void pushup(int k){size[k]=size[ch[k][0]]+size[ch[k][1]]+cnt[k];}
         void rotate(int x)

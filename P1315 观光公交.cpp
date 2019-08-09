@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long  LL;
-const int maxn=1050;
+const int N=1050;
 struct node
 {
     int t,a,b;
-}id[maxn*10];
-int t[maxn],ti[maxn],sum[maxn],dis[maxn],g[maxn],n,m,k;
+}id[N*10];
+int t[N],ti[N],sum[N],dis[N],g[N],n,m,k;
 int main()
 {
     scanf("%d%d%d",&n,&m,&k);

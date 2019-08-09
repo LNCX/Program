@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e3+5,maxm=2e4+5,oo=0x3f3f3f3f;
+const int N=1e3+5,maxm=2e4+5,oo=0x3f3f3f3f;
 int n,m,k;
-int head[maxn],tot;
+int head[N],tot;
 struct edge
 {
     int nxt,to,w;
@@ -13,7 +13,7 @@ void add(int u,int v,int w)
     head[u]=tot;
 }
 queue<int>q,em;
-int dis[maxn],vis[maxn];
+int dis[N],vis[N];
 bool SPFA(int s,int t,int mid)
 {
     memset(dis,oo,sizeof(dis));

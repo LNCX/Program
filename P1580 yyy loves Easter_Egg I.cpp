@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
+const int N=1005;
 int c = 1;
-char s[maxn],name[maxn],a[maxn],t[maxn];
+char s[N],name[N],a[N],t[N];
 int main()
 {
     gets(s);                    

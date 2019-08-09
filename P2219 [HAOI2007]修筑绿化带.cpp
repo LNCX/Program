@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
-deque<int>q[maxn],Q;
+const int N=1005;
+deque<int>q[N],Q;
 int m,n,a,b,c,d,ans;
-int num[maxn][maxn],sum[maxn][maxn];
+int num[N][N],sum[N][N];
 inline int calc1(int x,int y)
 {
     return sum[x+c-1][y+d-1]-sum[x-1][y+d-1]-sum[x+c-1][y-1]+sum[x-1][y-1];

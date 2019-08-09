@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=15;
-int a[maxn],b[maxn],c[maxn],vis[maxn];
+const int N=15;
+int a[N],b[N],c[N],vis[N];
 int main()
 {
     int n,m;

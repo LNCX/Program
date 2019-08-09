@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5,maxm=5e5+5;
+const int N=1e5+5,maxm=5e5+5;
 struct edge
 {
     int nxt,to;
 }e[maxm];
-int head[maxn],tot,dfn[maxn],low[maxn],st[maxn],top,col[maxn],dfstime,d[maxn],ans;
+int head[N],tot,dfn[N],low[N],st[N],top,col[N],dfstime,d[N],ans;
 void tarjan(int u)
 {
     low[u]=dfn[u]=++dfstime;

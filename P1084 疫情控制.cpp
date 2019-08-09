@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=5e4+5;
+const int N=5e4+5;
 struct Edge
 {
 	int v,w,nxt;
-}e[maxn<<1];
+}e[N<<1];
 struct node
 {
 	int num,w;
@@ -13,10 +13,10 @@ struct node
 	{
 		return w<x.w;
 	}
-}son[maxn],kil[maxn];
+}son[N],kil[N];
 LL l,r;
-int n,m,head[maxn],tot,trp[maxn];
-int f[maxn][25],d[maxn][25],tot1,tot2,con[maxn];
+int n,m,head[N],tot,trp[N];
+int f[N][25],d[N][25],tot1,tot2,con[N];
 void add(int u,int v,int w)
 {
 	e[++tot].nxt=head[u];

@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
-const int maxn=100005;
-int f[maxn],a[maxn];
+const int N=100005;
+int f[N],a[N];
 inline int read(){int x;scanf("%d",&x);return x;}
 int main()
 {

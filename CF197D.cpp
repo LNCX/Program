@@ -1,11 +1,11 @@
 #include<cstdio>
 #include<cstdlib>
-const int maxn=1505;
+const int N=1505;
 int n,m,
     dx[5]={1,-1,0,0},
     dy[5]={0,0,1,-1};
-char s[maxn][maxn];
-int vis[maxn][maxn][3],a[maxn][maxn];
+char s[N][N];
+int vis[N][N][3],a[N][N];
 void dfs(int x,int y,int px,int py)
 {
     if(vis[x][y][0]&&(vis[x][y][1]!=px||vis[x][y][2]!=py))

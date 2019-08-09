@@ -1,16 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=30000005;
-int ans[maxn];
+const int N=30000005;
+int ans[N];
 int main()
 {
-	for(int c=1;c<=(maxn>>1);c++)
-        for(int a=c*2;a<=maxn;a+=c)
+	for(int c=1;c<=(N>>1);c++)
+        for(int a=c*2;a<=N;a+=c)
         {
             int b=a-c;
             if(c==(a^b)) ans[a]++;
         }
-    for(int i=2;i<=maxn;i++) 
+    for(int i=2;i<=N;i++) 
 		ans[i]+=ans[i-1];
 	int t;
 	scanf("%d",&t);

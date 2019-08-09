@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+5;
-int n,ans,a[maxn];
+const int N=2e5+5;
+int n,ans,a[N];
 deque<int>q;
 int main()
 {

@@ -3,11 +3,11 @@
 #include<cstring>
 #include<iostream>
 using namespace std;
-const int maxn=1505;
+const int N=1505;
 const int inf=0x3f3f3f3f;
 int n,m,x1,x2,y1,y2,ans;
-int Map[maxn][maxn],cost[maxn][maxn];
-int head[maxn*maxn],nxt[maxn*maxn],w[maxn*maxn],to[maxn*maxn],edge_sum;
+int Map[N][N],cost[N][N];
+int head[N*N],nxt[N*N],w[N*N],to[N*N],edge_sum;
 void add(int u,int v,int c)
 {
     nxt[++edge_sum]=head[u];
@@ -15,7 +15,7 @@ void add(int u,int v,int c)
     w[edge_sum]=c;
     head[u]=edge_sum;
 }
-int dis[maxn],pre[maxn];
+int dis[N],pre[N];
 priority_queue<pair<int,int> >q;
 void dijkstra(int s)
 {

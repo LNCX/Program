@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=55;
+const int N=55;
 int cnt[10005];
 void divide()
 {

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int inf=0x3f3f3f3f,maxn=5e5+5;
+const int inf=0x3f3f3f3f,N=5e5+5;
 int n,m;
-int l[maxn],r[maxn];
+int l[N],r[N];
 multiset<int>s1,s2;
 map<int,int>ma;
 priority_queue< int,vector<int>,greater<int> > q;

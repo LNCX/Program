@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=100005;
-int n,m,a[maxn],b[maxn];
+const int N=100005;
+int n,m,a[N],b[N];
 bool pan(LL x)
 {
     for(int i=1;i<=n;i++)

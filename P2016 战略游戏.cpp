@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1505;
+const int N=1505;
 struct
 {
 	int num;
-	int child[maxn];
-}tree[maxn];
-int f[maxn][2],a[maxn];
+	int child[N];
+}tree[N];
+int f[N][2],a[N];
 void dp(int x)
 {
 	f[x][1]=1;

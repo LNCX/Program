@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100005;
+const int N=100005;
 const double eps=1e-7;
-int n,x[maxn],y[maxn];
+int n,x[N],y[N];
 bool check(double md)
 {
     double L=-1e18,R=1e18;
@@ -33,7 +33,7 @@ int main()
 	if(flag2)
 		for(int i=1;i<=n;i++)
 			y[i]=-y[i];
-	//¶þ·ÖÔ²µÄ°ë¾¶
+	//ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ä°ë¾¶
 	double l=0,r=1e14;
 	for(int i=1;i<=1000;i++)
 	{

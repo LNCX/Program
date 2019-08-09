@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e3+5,maxm=5e3+5,inf=0x3f3f3f3f;
+const int N=1e3+5,maxm=5e3+5,inf=0x3f3f3f3f;
 struct edge
 {
     int nxt,to,f,w;
@@ -9,7 +9,7 @@ struct input
 {
     int u,v,f,w;
 }a[maxm];
-int n,m,maxflow,mincost,tot=1,head[maxn],vis[maxn],dis[maxn];
+int n,m,maxflow,mincost,tot=1,head[N],vis[N],dis[N];
 void Add(int u,int v,int f,int w)
 {
     e[++tot]=(edge){head[u],v,f,w};

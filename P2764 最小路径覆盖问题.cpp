@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=505,maxm=2e4+5,inf=0x3f3f3f3f;
+const int N=505,maxm=2e4+5,inf=0x3f3f3f3f;
 struct edge
 {
     int nxt,to,f;
 }e[maxm<<1];
-int head[maxn],dep[maxn],cur[maxn],tot=1;
+int head[N],dep[N],cur[N],tot=1;
 void Add(int u,int v,int w)
 {
     e[++tot]=(edge){head[u],v,w};
@@ -56,7 +56,7 @@ int dinic(int s,int t)
         flow+=dfs(s,t,inf);
     return flow;
 }
-int n,m,vis[maxn];
+int n,m,vis[N];
 void dfs(int u)
 {
     if(vis[u]) return;

@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 const int maxm=1e6+5;
 int n,m;
-long long ans[maxn];
+long long ans[N];
 int edge_sum,head[maxm],nxt[maxm],to[maxm];
 void add(int u,int v)
 {
@@ -12,7 +12,7 @@ void add(int u,int v)
 	head[u]=edge_sum;
 }
 
-int dfstime,dfn[maxn],low[maxn],size[maxn];
+int dfstime,dfn[N],low[N],size[N];
 void tarjan(int u)
 {
 	int cnt=0;size[u]=1;

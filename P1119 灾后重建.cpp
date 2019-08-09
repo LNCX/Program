@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=205,oo=0x3f3f3f3f;
-int q,n,m,dis[maxn][maxn],a[maxn];
+const int N=205,oo=0x3f3f3f3f;
+int q,n,m,dis[N][N],a[N];
 int main()
 {
     memset(dis,oo,sizeof(dis));

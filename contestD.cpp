@@ -1,8 +1,8 @@
 //
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5,maxm=2e5+5;
-int head[maxn],nxt[maxm],to[maxm],tot,vis[maxn];
+const int N=1e5+5,maxm=2e5+5;
+int head[N],nxt[maxm],to[maxm],tot,vis[N];
 void add(int u,int v)
 {
     nxt[++tot]=head[u];

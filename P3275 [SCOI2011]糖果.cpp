@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 const int maxm=2e5+5;
 int w[maxm],nxt[maxm],to[maxm],head[maxm],edge_sum;
 void add(int u,int v,int c)
@@ -10,7 +10,7 @@ void add(int u,int v,int c)
     head[u]=edge_sum;
 }//0一样多，1大于
 queue<int>q;
-int vis[maxn],dis[maxn],tot[maxn];
+int vis[N],dis[N],tot[N];
 int main()
 {
     int n,k;

@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int maxn=7e3+5;
-double dis[maxn];
-int head[maxn],vis[maxn],flag,tot;
+const int N=7e3+5;
+double dis[N];
+int head[N],vis[N],flag,tot;
 struct edge
 {
     int to,nxt,v,p;

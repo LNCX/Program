@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#define maxn 10005
+#define N 10005
 using namespace std;
 int n,m;
 double l, w;
@@ -11,7 +11,7 @@ struct Node
 	{
         return a.left < b.left;
     }
-}arr[maxn]; 
+}arr[N]; 
 int main()
 {
     double p,r;

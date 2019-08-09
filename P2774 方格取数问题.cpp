@@ -1,15 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=10005,inf=0x3f3f3f3f;
+const int N=10005,inf=0x3f3f3f3f;
 int n,m,s,t,sum;
 struct edge
 {
     int nxt,to,cap,flow;
-}e[maxn<<3];
-bitset<maxn>vis;
+}e[N<<3];
+bitset<N>vis;
 int dx[]={1,-1,0,0};
 int dy[]={0,0,1,-1};
-int head[maxn],cur[maxn],dep[maxn],tot=1;
+int head[N],cur[N],dep[N],tot=1;
 void Add(int u,int v,int w)
 {
     e[++tot]=(edge){head[u],v,w,0};

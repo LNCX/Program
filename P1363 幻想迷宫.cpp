@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1505;
+const int N=1505;
 int n,m,flag,
     dx[5]={1,-1,0,0},
     dy[5]={0,0,1,-1};
-char s[maxn][maxn];
-int vis[maxn][maxn][3],a[maxn][maxn];
+char s[N][N];
+int vis[N][N][3],a[N][N];
 void dfs(int x,int y,int px,int py)
 {
     if(flag) return;

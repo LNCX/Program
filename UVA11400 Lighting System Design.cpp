@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
+const int N=1005;
 const int inf=0x7fffffff;
 struct node
 {
@@ -8,9 +8,9 @@ struct node
 	int k;
 	int c;
 	int l;
-}a[maxn];
+}a[N];
 bool cmp(node x,node y){return x.v<y.v; }
-int s[maxn],f[maxn];
+int s[N],f[N];
 int main()
 {
 	int n;

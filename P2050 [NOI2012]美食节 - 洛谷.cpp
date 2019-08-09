@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+6,maxm=4e7+6,inf=0x3f3f3f3f;
-int n,m,s,t,ans,d[maxn],pre[maxn],now[maxn],num,p[maxn];
-int head[maxn],e[maxm],Leng[maxm],Cost[maxm],nxt[maxm],tot=1;
-bitset<maxn> v;
+const int N=1e5+6,maxm=4e7+6,inf=0x3f3f3f3f;
+int n,m,s,t,ans,d[N],pre[N],now[N],num,p[N];
+int head[N],e[maxm],Leng[maxm],Cost[maxm],nxt[maxm],tot=1;
+bitset<N> v;
 int a[46][106];
 void add(int x,int y,int z,int w)
 {

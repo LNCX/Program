@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e3+5;
-char s[maxn][maxn];
-int w[maxn][maxn],dis[maxn],tot[maxn],vis[maxn];
-int head[maxn],cnt;
+const int N=2e3+5;
+char s[N][N];
+int w[N][N],dis[N],tot[N],vis[N];
+int head[N],cnt;
 queue<int>q;
 struct Edge
 {
     int nxt,to,w;
-}e[maxn*maxn];
+}e[N*N];
 void add(int u,int v,int w)
 {
     e[++cnt].nxt=head[u];

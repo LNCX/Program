@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=505;
-char s[maxn][maxn];
+const int N=505;
+char s[N][N];
 int cnt,n;
 int dx[]={-1,-1,1,1},
     dy[]={-1,1,-1,1};

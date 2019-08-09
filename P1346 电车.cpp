@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=105;
+const int N=105;
 const int inf=0x3f3f3f3f;
-int g[maxn][maxn];
+int g[N][N];
 int main()
 {
 	int n,k,f,t;

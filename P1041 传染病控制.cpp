@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=305;
-bool vis[maxn];
-vector<int>s[maxn];
+const int N=305;
+bool vis[N];
+vector<int>s[N];
 int n,p,ans=0x7fffffff;
-int size[maxn],dep[maxn],head[maxn],tot;
+int size[N],dep[N],head[N],tot;
 struct Edge
 {
     int nxt,to;
-}e[maxn<<1];
+}e[N<<1];
 void add(int u,int v)
 {
     e[++tot]=(Edge){head[u],v};

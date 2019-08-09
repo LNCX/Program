@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e3+5;
+const int N=1e3+5;
 const double eps=1e-7;
-int n,m,a[maxn],b[maxn];
+int n,m,a[N],b[N];
 bool check(double x)
 {
     for(int i=1;i<n;i++)

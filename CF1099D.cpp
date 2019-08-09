@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int inf=0x3f3f3f3f,maxn=2e5+5;
+const int inf=0x3f3f3f3f,N=2e5+5;
 struct node
 {
     int to,w,nxt;
-}e[maxn<<1];
-int head[maxn<<1],dep[maxn],tot,dis[maxn];
+}e[N<<1];
+int head[N<<1],dep[N],tot,dis[N];
 void add(int u,int v,int w)
 {
     e[++tot].to=v;
@@ -37,7 +37,7 @@ void dfs(int u,int fa)
         }
     }
 }
-int a[maxn],b[maxn];
+int a[N],b[N];
 int main()
 {
     int n;

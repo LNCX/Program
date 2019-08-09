@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=155;
-int a[maxn][maxn],x[maxn],y[maxn];
+const int N=155;
+int a[N][N],x[N],y[N];
 int main()
 {
     int n;

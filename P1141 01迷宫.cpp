@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
-#define maxn 1005
+#define N 1005
 using namespace std;
-char a[maxn][maxn]={};
-bool used[maxn][maxn]={0};
-int n,m,ans[maxn][maxn],que[maxn*maxn][2]={0},
+char a[N][N]={};
+bool used[N][N]={0};
+int n,m,ans[N][N],que[N*N][2]={0},
     dx[5]={0,0,0,1,-1},dy[5]={0,1,-1,0,0};
 int dfs(int x,int y)
 {

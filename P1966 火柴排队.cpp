@@ -2,7 +2,7 @@
 using namespace std;
 #define lowbit(x) (x&(-x))
 typedef long long ll;
-const ll maxn=1e5+5,qy=1e8-3;
+const ll N=1e5+5,qy=1e8-3;
 struct node
 {
     int x,y;
@@ -10,9 +10,9 @@ struct node
     {
         return x<k.x;
     } 
-}a[maxn],b[maxn];
-int n,r[maxn];
-ll ans,c[maxn];
+}a[N],b[N];
+int n,r[N];
+ll ans,c[N];
 void update(int x,int y)
 {
     while(x<=n)

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=1e5+5;
+const int N=1e5+5;
 int n,m,s,f;
 int main()
 {

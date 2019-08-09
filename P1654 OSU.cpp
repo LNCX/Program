@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 int n;
-double a[maxn],x[maxn],y[maxn],f[maxn];
+double a[N],x[N],y[N],f[N];
 int main()
 {
     scanf("%d",&n);

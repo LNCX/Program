@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
-int ans[maxn],s[maxn];
-int a[maxn],b[maxn],m[maxn];
+const int N=1005;
+int ans[N],s[N];
+int a[N],b[N],m[N];
 int main()
 {
 	int n;

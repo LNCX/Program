@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2000005;
+const int N=2000005;
 struct node
 {
     int l;
     int r;
-}a[maxn];
+}a[N];
 int ans,n;
 bool cmp(node x,node y)
 {

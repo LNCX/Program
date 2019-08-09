@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+10;
-int ch[maxn][2],val[maxn],f[maxn],dist[maxn];
+const int N=1e5+10;
+int ch[N][2],val[N],f[N],dist[N];
 int n,m;
-bool vis[maxn];
+bool vis[N];
 int find(int x){return x==f[x]?f[x]:f[x]=find(f[x]);}
 int merge(int x,int y)
 {

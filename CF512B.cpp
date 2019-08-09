@@ -1,8 +1,8 @@
 //f[gcd(x,y)] = min(f[gcd(x,y)],f[x]+c[y])
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=305;
-int n,l[maxn],c[maxn];
+const int N=305;
+int n,l[N],c[N];
 map<int,int>f;
 map<int,int>::iterator it;
 int gcd(int a,int b)

@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=3e5+5;
+const int N=3e5+5;
 int n,m;
 vector<int>a;
 bool check(int op)

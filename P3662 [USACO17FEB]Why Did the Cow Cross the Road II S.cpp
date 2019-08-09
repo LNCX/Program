@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-int n,b,k,a[maxn],ans=0x3f3f3f3f,s[maxn];
+const int N=1e5+5;
+int n,b,k,a[N],ans=0x3f3f3f3f,s[N];
 int main()
 {
     scanf("%d%d%d",&n,&k,&b);

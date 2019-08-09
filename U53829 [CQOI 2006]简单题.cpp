@@ -2,8 +2,8 @@
 #define lowbit(x) (x&(-x))
 using namespace std;
 int n,m;
-const int maxn=1e5+5;
-int c[maxn];
+const int N=1e5+5;
+int c[N];
 void fix(int x)
 {
 	while(x>0)

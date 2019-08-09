@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-double a[maxn];
-int ans=0,b[maxn];
+const int N=1e5+5;
+double a[N];
+int ans=0,b[N];
 int main()
 {
     int n;

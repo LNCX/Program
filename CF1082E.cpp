@@ -1,8 +1,8 @@
 #pragma GCC optimize("O2")
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e5+5;
-int a[maxn],cnt,ans;
+const int N=5e5+5;
+int a[N],cnt,ans;
 int main()
 {
     int n,c;

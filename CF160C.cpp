@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 typedef long long LL;
 using namespace std;
-const int maxn=1e5+5;
-LL a[maxn]={0x7fffffffffffffff},b[maxn],c[maxn],tot;
+const int N=1e5+5;
+LL a[N]={0x7fffffffffffffff},b[N],c[N],tot;
 int main()
 {
     LL n,k;

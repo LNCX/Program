@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1005;
-char a[maxn],b[maxn];
+const int N=1005;
+char a[N],b[N];
 int main()
 {
     int n;

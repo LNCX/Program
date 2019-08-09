@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=10005;
+const int N=10005;
 const unsigned long long mod=10;
 struct lint
 {
 	int len;
-	unsigned long long num[maxn]={0};
-};//¸ß¾«¶È 
+	unsigned long long num[N]={0};
+};//ï¿½ß¾ï¿½ï¿½ï¿½ 
 void get(lint &tar)
 {
     char s[10005];

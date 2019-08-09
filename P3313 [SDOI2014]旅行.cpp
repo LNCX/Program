@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 int n,q,rt,anss,ansm;
-int w[maxn],c[maxn],head[maxn],tot;
-int size[maxn],dep[maxn],f[maxn],son[maxn],seg[maxn],top[maxn];
-int maxx[maxn<<5],sum[maxn<<5],tag[maxn<<5],ch[maxn<<5][2],t[maxn<<5];
+int w[N],c[N],head[N],tot;
+int size[N],dep[N],f[N],son[N],seg[N],top[N];
+int maxx[N<<5],sum[N<<5],tag[N<<5],ch[N<<5][2],t[N<<5];
 struct edge
 {
     int nxt,to;
-}e[maxn<<1];
+}e[N<<1];
 void add(int u,int v)
 {
     e[++tot]=(edge){head[u],v};head[u]=tot;

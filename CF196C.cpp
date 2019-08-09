@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const LL maxn=1505,inf=0x3f3f3f3f;
+const LL N=1505,inf=0x3f3f3f3f;
 struct point
 {
     LL x,y,id,num;
-}p[maxn],s;
+}p[N],s;
 bool operator< (point a,point b)
 {
     return (a.x-s.x)*(b.y-s.y)>(a.y-s.y)*(b.x-s.x);
@@ -13,9 +13,9 @@ bool operator< (point a,point b)
 struct Edge
 {
     LL v,nxt;
-}e[maxn<<1];
-LL head[maxn],tot;
-LL n,size[maxn],ans[maxn];
+}e[N<<1];
+LL head[N],tot;
+LL n,size[N],ans[N];
 void add(LL from,LL to)
 {
     e[++tot].nxt=head[from];

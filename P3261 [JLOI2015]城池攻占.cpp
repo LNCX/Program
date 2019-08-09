@@ -2,6 +2,17 @@
 using namespace std;
 typedef long long ll;
 const int N=3e5+5;
+void read(){}
+template<typename T,typename... Ts>
+inline void read(T &arg,Ts&... args)
+{
+    T x=0,f=1;
+    char c=getchar();
+    while(!isdigit(c)){if(c=='-') f=-1;c=getchar();}
+    while(isdigit(c)){x=(x<<3)+(x<<1)+(c-'0');c=getchar();}
+    arg=x*f;
+    read(args...);
+}
 vector<int>e[N];
 int n,m,ans1[N],ans2[N];
 int ch[N][2],rt[N],dis[N];
@@ -41,7 +52,8 @@ void dfs(int u)
 	while(rt[u]&&val[rt[u]]<h[u])
     {
 		pushdown(rt[u]);
-		ans1[u]++;ans2[rt[u]]=dep[c[rt[u]]]-dep[u];
+		ans1[u]++;
+        ans2[rt[u]]=dep[c[rt[u]]]-dep[u];
 		rt[u]=pop(rt[u]);
 	}
 	if(a[u]) down(rt[u],v[u],0);
@@ -49,18 +61,18 @@ void dfs(int u)
 }
 int main()
 {
-    scanf("%d%d",&n,&m);
+    read(n,m);
 	for(int i=1;i<=n;i++)
         scanf("%lld",&h[i]);
 	for(int i=2;i<=n;i++)
     {
         int f;
-        scanf("%lld%lld%lld",&f,&a[i],&v[i]);
+        read(f,a[i],v[i]);
         e[f].push_back(i);
     }
 	for(int i=1;i<=m;i++)
     {
-        scanf("%lld%lld",&val[i],&c[i]);
+        read(val[i],c[i]);
 		mul[i]=1;
 		rt[c[i]]=merge(rt[c[i]],i);
 	}

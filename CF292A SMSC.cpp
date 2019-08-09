@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int maxn,n,t,x;
+int N,n,t,x;
 int main()
 {
     cin>>n;
@@ -11,9 +11,9 @@ int main()
         x-=a-t;
         if(x<0) x=0;
         x+=b;
-        maxn=max(maxn,x);
+        N=max(N,x);
         t=a;
     }
-    printf("%d %d",t+x,maxn);
+    printf("%d %d",t+x,N);
     return 0;
 }

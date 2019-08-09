@@ -1,5 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
+void read(){}
+template<typename T,typename... Ts>
+inline void read(T &arg,Ts&... args)
+{
+    T x=0,f=1;
+    char c=getchar();
+    while(!isdigit(c)){if(c=='-') f=-1;c=getchar();}
+    while(isdigit(c)){x=(x<<3)+(x<<1)+(c-'0');c=getchar();}
+    arg=x*f;
+    read(args...);
+}
 int main()
 {
     

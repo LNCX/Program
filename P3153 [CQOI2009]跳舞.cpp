@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int inf=0x3f3f3f3f;
-const int maxn=2e4+5;
+const int N=2e4+5;
 struct net
 {
     struct edge
     {
         int nxt,to,f;
-    }e[maxn<<2];
-    int head[maxn],tot=1,dep[maxn],cur[maxn];
+    }e[N<<2];
+    int head[N],tot=1,dep[N],cur[N];
     void add(int u,int v,int f)
     {
         e[++tot]=(edge){head[u],v,f},head[u]=tot;

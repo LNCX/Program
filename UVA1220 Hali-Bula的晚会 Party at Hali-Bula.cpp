@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=205;
-vector<int> G[maxn];
-bool f[maxn][2];
-int d[maxn][2], n, cnt;
+const int N=205;
+vector<int> G[N];
+bool f[N][2];
+int d[N][2], n, cnt;
 map<string, int> Map;
 void init()
 {

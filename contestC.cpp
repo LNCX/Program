@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=3e5+5;
+const int N=3e5+5;
 typedef long long LL;
-LL a[maxn],sum,minx;
+LL a[N],sum,minx;
 int main()
 {
     int n;

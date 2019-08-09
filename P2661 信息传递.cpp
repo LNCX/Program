@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
-#define maxn 200001
+#define N 200001
 using namespace std;
-int a[maxn] , f[maxn] , v[maxn];
+int a[N] , f[N] , v[N];
 int main()
 {
-    int n,p,t,x=maxn;
+    int n,p,t,x=N;
     cin>>n;
 	for(int i=1;i<=n;i++)
 		scanf("%d",&a[i]);

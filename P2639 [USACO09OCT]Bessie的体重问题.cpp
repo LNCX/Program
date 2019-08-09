@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
-#define maxn 50005
+#define N 50005
 using namespace std;
-int f[maxn];
+int f[N];
 int main()
 {
-    int n,m,i,j,a[maxn];
+    int n,m,i,j,a[N];
     cin>>m>>n;
     for (i=1;i<=n;i++) scanf("%d",&a[i]);
     for (i=1;i<=n;i++)

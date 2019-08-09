@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e6+10;
-long long s[maxn],h[maxn],v[maxn],sum[maxn],ans,top;
+const int N=1e6+10;
+long long s[N],h[N],v[N],sum[N],ans,top;
 int main()
 {
     int n;

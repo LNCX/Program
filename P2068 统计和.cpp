@@ -2,8 +2,8 @@
 using namespace std;
 #define lowbit(x) (x&(-x))
 typedef long long LL;
-const int maxn=1e5+5;
-int n,w,c[maxn];
+const int N=1e5+5;
+int n,w,c[N];
 void add(int x,LL w)
 {
     while(x<=n)

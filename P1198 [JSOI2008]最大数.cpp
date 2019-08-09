@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=200005;
-int q[maxn],a[maxn];
+const int N=200005;
+int q[N],a[N];
 int main()
 {
 	int m,d;

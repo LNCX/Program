@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=1e3+5;
-LL a[maxn][maxn],c[maxn*maxn],r[maxn*maxn],ans=-0x3f3f3f3f3f3f3f3f;
+const int N=1e3+5;
+LL a[N][N],c[N*N],r[N*N],ans=-0x3f3f3f3f3f3f3f3f;
 priority_queue<LL>rq,cq;
 int main()
 {

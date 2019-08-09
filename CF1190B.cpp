@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const long long maxn=1e5+5;
-long long n,cnt,sum,a[maxn];
+const long long N=1e5+5;
+long long n,cnt,sum,a[N];
 void print(long long x){x?puts("sjfnb"):puts("cslnb");exit(0);}
 int main()
 {

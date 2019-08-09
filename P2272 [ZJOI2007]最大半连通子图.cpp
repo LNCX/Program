@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100005;
+const int N=100005;
 const int maxm=1000005;
 int n,m,mod;
 int e_num,head[maxm],x[maxm],y[maxm],nxt[maxm],to[maxm];
@@ -20,8 +20,8 @@ void add(int u,int v)
 	nxt[++e_num]=head[u];
 	to[e_num]=v;
 	head[u]=e_num;
-}//¼Ó±ß 
-int num,sum,top,st[maxn],dfn[maxn],low[maxn],co[maxn],w[maxn];
+}//ï¿½Ó±ï¿½ 
+int num,sum,top,st[N],dfn[N],low[N],co[N],w[N];
 void tarjan(int u)
 {
 	dfn[u]=low[u]=++num;
@@ -51,14 +51,14 @@ void tarjan(int u)
 		top--;
 	}
 	return;
-}//Ëõµã
+}//ï¿½ï¿½ï¿½ï¿½
 bool camp(int a,int b)
 {
 	if(x[a]!=x[b])
 		return x[a]<x[b];
 	return y[a]<y[b];
 }
-int dg[maxn],rnk[maxm];
+int dg[N],rnk[maxm];
 void remove()
 {
 	for(int i=1;i<=m;i++)
@@ -74,15 +74,15 @@ void remove()
 	for(int i=1;i<=m;i++)
 	{
 		int k=rnk[i];
-		if(x[k]!=y[k]&&(x[k]!=x[rnk[i-1]]||y[k]!=y[rnk[i-1]]))//²»ÔÚÍ¬Ò»Ëõµã 
+		if(x[k]!=y[k]&&(x[k]!=x[rnk[i-1]]||y[k]!=y[rnk[i-1]]))//ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ 
 		{
 			dg[y[k]]++;
 			add(x[k],y[k]);
 		}
 	}
 	return ;
-}//Ëõµãµ÷Õû
-int ans,anss,l,r,dis[maxn],que[maxn],f[maxn];
+}//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+int ans,anss,l,r,dis[N],que[N],f[N];
 void tuopu()
 {
 	for(int i=1;i<=sum;i++)
@@ -116,14 +116,14 @@ void tuopu()
 		}
 	}
 	return ;
-}//ÍØÆËÅÅÐò
+}//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void dp()
 {
 	for(int i=1;i<=n;i++)
 		if(dis[i]==ans)
 			anss=(anss+f[i])%mod;
 	return ;
-}//¶¯Ì¬¹æ»® 
+}//ï¿½ï¿½Ì¬ï¿½æ»® 
 int main()
 {
 	get(n),get(m),get(mod);

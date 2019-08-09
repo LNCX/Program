@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=100005;
-int n,a[maxn],b[maxn],loc[maxn];
+const int N=100005;
+int n,a[N],b[N],loc[N];
 priority_queue<pair<int,int> >q;
 int main()
 {

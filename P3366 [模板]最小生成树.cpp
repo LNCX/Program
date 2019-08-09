@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int MAXN=5005;
-int k,g[MAXN][MAXN],used[MAXN],dis[MAXN],ans;
+const int N=5005;
+int k,g[N][N],used[N],dis[N],ans;
 int main()
 {
 	int n,m,x,y,z;

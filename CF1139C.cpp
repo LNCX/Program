@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int maxn=2e5+5;
-ll n,k,ans,mod=1e9+7,f[maxn],cnt[maxn];
+const int N=2e5+5;
+ll n,k,ans,mod=1e9+7,f[N],cnt[N];
 int find(int x){return f[x]==x?x:f[x]=find(f[x]);}
 int main()
 {

@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=15;
+const int N=15;
 const double eps=1e-6;
 int n;
-double l,r,c[maxn];
+double l,r,c[N];
 double calc(double x)
 {
     double res=0;

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
+const int N=1e5+5;
 typedef long long ll;
-ll f[maxn][205],sum[maxn],q[maxn];
+ll f[N][205],sum[N],q[N];
 void print(int n,int m)
 {
     for(int i=n-1;i>=m;i--)

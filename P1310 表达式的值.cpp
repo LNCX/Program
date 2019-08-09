@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5,mod=1e4+7;
-int l,f[maxn][2],popf=0,pop=0;
-char p[maxn],a[maxn],ch;
+const int N=1e5+5,mod=1e4+7;
+int l,f[N][2],popf=0,pop=0;
+char p[N],a[N],ch;
 void push()
 {
     popf++;

@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 #define lowbit(x) (x&(-x))
 using namespace std;
-const int maxn=1e5+5;
-int n,k,tot=1,c[maxn<<1],ans[maxn];
+const int N=1e5+5;
+int n,k,tot=1,c[N<<1],ans[N];
 struct point
 {
     int x,y,z,w,f;
@@ -17,7 +17,7 @@ struct point
         if(x==a.x&&y==a.y&&z==a.z) return true;
         else return false;
     }
-}a[maxn],t[maxn];
+}a[N],t[N];
 void fix(int x,int y)
 {
     while(x<=k)

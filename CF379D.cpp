@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=105;
-LL z,x,f[maxn];
-int k,n,m,l[maxn],r[maxn];
+const int N=105;
+LL z,x,f[N];
+int k,n,m,l[N],r[N];
 int main()
 {
     scanf("%d%lld%d%d",&k,&x,&n,&m);

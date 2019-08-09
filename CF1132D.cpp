@@ -4,7 +4,7 @@
 #include<cstdio>
 using namespace std;
 typedef long long LL;
-const int maxn=2e5+5;
+const int N=2e5+5;
 const LL oo=1e15;
 LL read()
 {
@@ -27,7 +27,7 @@ struct lap
     {
         return c/f>x.c/x.f;
     }
-}a[maxn],b[maxn];
+}a[N],b[N];
 bool check(LL add)
 {
     priority_queue<lap>q;

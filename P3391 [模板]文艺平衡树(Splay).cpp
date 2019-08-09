@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=1e5+5;
-int n,m,fa[maxn],ch[maxn][2],size[maxn],rev[maxn],root;
+const int N=1e5+5;
+int n,m,fa[N],ch[N][2],size[N],rev[N],root;
 inline void pushup(int x)
 {
     size[x]=size[ch[x][0]]+size[ch[x][1]]+1;

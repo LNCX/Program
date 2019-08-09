@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=1000010;
-char s[maxn],re[1000];
+const int N=1000010;
+char s[N],re[1000];
 char ask(LL j,LL k)
 {
     k=min(k,2000000000ll);

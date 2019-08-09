@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2e5+5;
-long long a[maxn],ans,n,x=0x7fffffffff;
+const int N=2e5+5;
+long long a[N],ans,n,x=0x7fffffffff;
 int main()
 {
     cin>>n;

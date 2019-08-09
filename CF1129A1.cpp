@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
-const int maxn=1e5+50,inf=0x3f3f3f3f;
-int n,m,a[maxn],out[maxn];
+const int N=1e5+50,inf=0x3f3f3f3f;
+int n,m,a[N],out[N];
 int dist(int x,int y)
 {
     return y>=x?y-x:y-x+n;

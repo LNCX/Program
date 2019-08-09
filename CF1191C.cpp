@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int maxn=1e5+5;
-ll a[maxn],n,m,k;
+const int N=1e5+5;
+ll a[N],n,m,k;
 int main()
 {
     scanf("%lld %lld %lld",&n,&m,&k);

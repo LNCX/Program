@@ -1,15 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5e4+5;
+const int N=5e4+5;
 const int maxm=1e6+5;
-int ans[2],size[maxn],maxx[2],head[maxm],to[maxn],nxt[maxm],edge_sum;
+int ans[2],size[N],maxx[2],head[maxm],to[N],nxt[maxm],edge_sum;
 void add(int u,int v)
 {
     nxt[++edge_sum]=head[u];
     to[edge_sum]=v;
     head[u]=edge_sum;
 }
-int dfn[maxn],st[maxn],co[maxn],low[maxn],top,dfstime,cnt;
+int dfn[N],st[N],co[N],low[N],top,dfstime,cnt;
 void tarjan(int u)
 {
     dfn[u]=low[u]=++dfstime;

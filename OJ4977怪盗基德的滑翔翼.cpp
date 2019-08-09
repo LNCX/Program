@@ -1,6 +1,6 @@
 #include<cstdio>
 #include<iostream>
-#define maxn 10005
+#define N 10005
 using namespace std;
 int main()
 {
@@ -8,7 +8,7 @@ int main()
 	cin>>k;
 	while(k--)
 	{
-		int n,a[maxn],b[maxn],c[maxn];
+		int n,a[N],b[N],c[N];
 		cin>>n;
 		for(int i=1;i<=n;i++) scanf("%d",&a[i]); 
 		for(int i=1;i<=n;i++)

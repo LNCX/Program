@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=2005;
-int f[maxn][maxn];
-char a[maxn],b[maxn];
+const int N=2005;
+int f[N][N];
+char a[N],b[N];
 int main()
 {
 	scanf("%s%s",a+1,b+1);

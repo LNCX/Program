@@ -2,8 +2,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const ll maxn=3e6+5,mod=1e9+7;
-ll f[maxn]={1},ans,h;//考虑f[i][j]=f[i-1][j]+f[i-1][j-i]可以滚动数组
+const ll N=3e6+5,mod=1e9+7;
+ll f[N]={1},ans,h;//考虑f[i][j]=f[i-1][j]+f[i-1][j-i]可以滚动数组
 int main()
 {
     ll a,b;

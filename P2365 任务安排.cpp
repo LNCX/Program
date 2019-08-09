@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int maxn=5005;
+const int N=5005;
 const int inf=0x3f3f3f3f;
-long long f[maxn],sumt[maxn],sumc[maxn];
+long long f[N],sumt[N],sumc[N];
 int main()
 {
 	int n,s;
