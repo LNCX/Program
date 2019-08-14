@@ -14,11 +14,10 @@ int main()
     n/=x,m/=x;
     int q;
     scanf("%d",&q);
-    cerr<<n<<" "<<m<<endl;
     while (q--)
     {
-        int a,b,c,d;
-        scanf("%d%d%d%d",&a,&b,&c,&d);
+        ll a,b,c,d;
+        scanf("%lld%lld%lld%lld",&a,&b,&c,&d);
         b--,d--;
         a==1?b/=n:b/=m;
         c==1?d/=n:d/=m;
