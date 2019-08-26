@@ -1,3 +1,5 @@
 .vscode/ipch
 *.dSYM
 .DS_Store
+logs
+a.sh

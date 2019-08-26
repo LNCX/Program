@@ -7,7 +7,6 @@ double a[N]={0,0.5},b[N]={0,0.5},f[N],ans;
 map<int,int>ma;
 int main()
 {
-    
     scanf("%s",s+1);
     n=strlen(s+1);
     for(int i=1;i<=n;i++)
