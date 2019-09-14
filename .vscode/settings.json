@@ -6,7 +6,6 @@
     "sync.autoDownload": false,
     "sync.autoUpload": false,
     "sync.forceDownload": false,
-    "editor.minimap.enabled": true,
     "editor.fontSize": 15,
     "explorer.confirmDelete": false,
     "files.defaultLanguage": "cpp",
@@ -24,4 +23,5 @@
     "C_Cpp.autoAddFileAssociations": false,
     "C_Cpp.intelliSenseCacheSize": 0,
     "search.globalFindClipboard": true,
+    "terminal.integrated.fontSize": 14,
 }
