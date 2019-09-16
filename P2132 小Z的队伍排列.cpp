@@ -4,7 +4,7 @@ int n,a[S];
 unsigned f[S][S][S][S][S];
 inline int dfs(int i,int j,int k,int l,int p)
 {
-    if (i+j+k+l+p==0) return 1;
+    if(i+j+k+l+p==0) return 1;
     unsigned &tp=f[i][j][k][l][p];
     if(tp) return tp;
     if(i>j) tp+=dfs(i-1,j,k,l,p);
