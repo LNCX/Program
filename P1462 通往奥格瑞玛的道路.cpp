@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int N=1e4+5;
+const int maxn=1e4+5;
 const int maxm=1e5+5;
 const int inf=0x3f3f3f3f;
-int n,m,b,l=inf,r,f[N];
+int n,m,b,l=inf,r,f[maxn];
 int w[maxm],nxt[maxm],head[maxm],to[maxm],edge_sum;
 void add(int u,int v,int c)
 {
@@ -12,7 +12,7 @@ void add(int u,int v,int c)
 	w[edge_sum]=c;
 	head[u]=edge_sum;
 }
-int dis[N],used[N];
+int dis[maxn],used[maxn];
 priority_queue<pair<int,int> >q;
 int dijkstra(int s)
 {
@@ -26,14 +26,14 @@ int dijkstra(int s)
 		for(int i=head[x];i!=0;i=nxt[i])
 		{
 			int y=to[i],z=w[i];
-			if(dis[y]>dis[x]+z)
+			if(dis[y]>dis[x]+z&&f[to[i]]<=s)
 			{
 				dis[y]=dis[x]+z;
 				q.push(make_pair(-dis[y],y));
 			}
 		}
 	}
-	return dis[s];
+	return dis[n];
 }
 int main()
 {
@@ -48,7 +48,7 @@ int main()
 	{
 		int x,y,z;
 		scanf("%d%d%d",&x,&y,&z);
-		add(x,y,z);add(y,z,x);
+		add(x,y,z);add(y,x,z);
 	}
 	while(l<r)
 	{
@@ -56,7 +56,7 @@ int main()
 		if(dijkstra(mid)>=b) l=mid+1;
 		else r=mid;
 	}
-	if(dijkstra(1)>=b)
+	if(dijkstra(l)>=b)
 		printf("AFK\n");
 	else printf("%d\n",l);
 	return 0;
