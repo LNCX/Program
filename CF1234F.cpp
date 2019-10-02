@@ -2,22 +2,21 @@
 using namespace std;
 const int N=2e5+5;
 int n,q,a[N],b[N],cnt[N],ans;
+char s[N];
 int main()
 {
-    scanf("%d%d",&n,&q);
+    scanf("%s",&s+1);
+    n=strlen(s+1);
     for(int i=1;i<=n;i++)
-    {
-        scanf("%d",&a[i]);
-        cnt[a[i]]++,b[a[i]]=i;
-    }   
+        cnt[s[i]-'a']++,b[s[i]-'a']=i;
     int l=1,r=0,mx=0; 
     for(int i=1;i<=n;i++)
     {
-        r=max(r,b[a[i]]);
-        mx=max(mx,cnt[a[i]]);
+        r=max(r,b[s[i]-'a']);
+        mx=max(mx,cnt[s[i]-'a']);
         if(i==r)
         {
-            ans+=(r-l+1)-mx;
+            ans=max(ans)
             l=r+1,r=mx=0;
         }
     }
