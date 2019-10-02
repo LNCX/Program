@@ -8,9 +8,9 @@ int main()
     for(int i=1;i;i++)
     {
         printf("running on test %d\n",i);
-        system("c>in");
-        system("a<in>out");
-        system("b<in>ans");
+        system("./c>in");
+        system("./a<in>out");
+        system("./b<in>ans");
         if(system("fc ans out > nul"))
         {
             puts("WA");
