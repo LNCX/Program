@@ -21,7 +21,6 @@
     "breadcrumbs.enabled": false,
     "search.followSymlinks": false,
     "C_Cpp.autoAddFileAssociations": false,
-    "C_Cpp.intelliSenseCacheSize": 0,
     "search.globalFindClipboard": true,
     "terminal.integrated.fontSize": 14,
 }
