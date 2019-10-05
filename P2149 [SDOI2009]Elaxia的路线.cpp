@@ -1,7 +1,4 @@
-#include<queue>
-#include<cstdio>
-#include<cstring>
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 const int N=1505;
 const int inf=0x3f3f3f3f;
@@ -51,32 +48,13 @@ int main(int argc, char const *argv[])
         cost[u][v]=cost[v][u]=w;
     }
     dijkstra(x1);
-    #ifdef DEBUG
-        cout<<dis[y1]<<endl;
-        for(int i=y1;i!=0;i=pre[i])
-            printf("%d ",i);
-        printf("\n");
-    #endif
-    
     for(int i=y1;i!=0;i=pre[i])
         Map[pre[i]][i]=1;
     dijkstra(x2);
-    #ifdef DEBUG
-        cout<<dis[y1]<<endl;
-        for(int i=y2;i!=0;i=pre[i])
-            printf("%d ",i);
-        printf("\n");
-    #endif
-
     for(int i=y2;i!=0;i=pre[i])
         if(Map[pre[i]][i]==1)
-        {
-            #ifdef DEBUG
-                printf("%d ",cost[pre[i]][i]);
-            #endif
-            ans+=cost[pre[i]][i];
-        }
-        puts("");
+            printf("%d ",cost[pre[i]][i]);
+    puts("");
     cout<<ans<<endl;
     return 0;
 }
